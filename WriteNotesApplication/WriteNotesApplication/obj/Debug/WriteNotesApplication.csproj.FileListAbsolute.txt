@@ -1,0 +1,10 @@
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\bin\Debug\WriteNotesApplication.exe.config
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\bin\Debug\WriteNotesApplication.exe
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\bin\Debug\WriteNotesApplication.pdb
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.csproj.AssemblyReference.cache
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.Properties.Resources.resources
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.csproj.GenerateResource.cache
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.csproj.CoreCompileInputs.cache
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.exe
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.pdb
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.CreateNotesForm.resources
