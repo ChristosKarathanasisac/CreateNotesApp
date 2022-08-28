@@ -30,8 +30,8 @@ namespace WriteNotesApplication
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.cmdSave = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,16 @@ namespace WriteNotesApplication
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Write your notes here";
             // 
+            // cmdSave
+            // 
+            this.cmdSave.Location = new System.Drawing.Point(6, 228);
+            this.cmdSave.Name = "cmdSave";
+            this.cmdSave.Size = new System.Drawing.Size(75, 23);
+            this.cmdSave.TabIndex = 1;
+            this.cmdSave.Text = "Save";
+            this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 21);
@@ -55,15 +65,6 @@ namespace WriteNotesApplication
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.UseWaitCursor = true;
-            // 
-            // cmdSave
-            // 
-            this.cmdSave.Location = new System.Drawing.Point(6, 228);
-            this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdSave.TabIndex = 1;
-            this.cmdSave.Text = "Save";
-            this.cmdSave.UseVisualStyleBackColor = true;
             // 
             // CreateNotesForm
             // 
