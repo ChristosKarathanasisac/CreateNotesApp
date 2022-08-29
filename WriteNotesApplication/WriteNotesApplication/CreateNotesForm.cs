@@ -31,10 +31,17 @@ namespace WriteNotesApplication
                 MessageBox.Show("Write a note and try again");
                 return;
             }
-            if (!this.dbUtilities.writeNoteToDB(note)) 
+            if (this.dbUtilities.writeNoteToDB(note)) 
+            {
+                this.richTextBox1.Clear();
+                MessageBox.Show("Your note has added successfully");
+                
+            }
+            else 
             {
                 MessageBox.Show("Your note was not registered");
                 return;
+
             }
             
 

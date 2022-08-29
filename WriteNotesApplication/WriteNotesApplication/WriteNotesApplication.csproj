@@ -54,10 +54,19 @@
       <DependentUpon>CreateNotesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConUtilities.cs" />
+    <Compile Include="GetNotesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetNotesForm.Designer.cs">
+      <DependentUpon>GetNotesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreateNotesForm.resx">
       <DependentUpon>CreateNotesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetNotesForm.resx">
+      <DependentUpon>GetNotesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

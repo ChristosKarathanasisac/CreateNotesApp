@@ -11,9 +11,7 @@ namespace WriteNotesApplication
 {
     class DatabaseConUtilities
     {
-        private SqlConnection cnn;
-        private DataTable dataTable = new DataTable();
-       
+      
         private string createConnectionString() 
         {
             string connString = "";
@@ -22,33 +20,49 @@ namespace WriteNotesApplication
             return connString;
         }
 
-        public bool writeNoteToDB(String note) 
-        {  
-            try
+        public bool writeNoteToDB(String note)
+        {
+            bool flag = false;
+
+            string connetionString = this.createConnectionString();
+
+            using (SqlConnection conn = new SqlConnection(connetionString))
             {
-                string connetionString = this.createConnectionString();
-                
-                using (SqlConnection conn = new SqlConnection(connetionString))
-                {
-                    string query = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)"+
+                string query = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)" +
                                       " VALUES (1,"+"'"+ note+"','"+ DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") +"', '"+DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") +"')";
 
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandTimeout = 60;
+                cmd.Connection = conn;
+                cmd.CommandText = query;
+
+                try
+                {
                     conn.Open();
-                    //Αυτόν τον κώδικα θα τον χρεισιμοποιήσω όταν διαβάζω δεδομένα
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    //da.Fill(dataTable);
-                    
-                    conn.Close();
-                    da.Dispose();
+
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        cmd.ExecuteScalar();
+                        flag = true;
+                    }
                 }
-                return true;
+                catch (Exception exp)
+                {
+                    string message = exp.Message;
+                }
+                finally
+                {
+                    conn.Close(); // close the connection  
+                }
+
+                return flag;
+
+                
             }
-            catch (Exception exc)
-            {  
-                return false;
-            }
+                
+            
+            
 
         }
 

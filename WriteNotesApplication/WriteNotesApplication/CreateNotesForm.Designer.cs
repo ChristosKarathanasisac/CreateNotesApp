@@ -73,7 +73,7 @@ namespace WriteNotesApplication
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "CreateNotesForm";
-            this.Text = "Form1";
+            this.Text = "Notes Creation Form";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
