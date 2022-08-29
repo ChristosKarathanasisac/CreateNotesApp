@@ -16,7 +16,7 @@ namespace WriteNotesApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CreateNotesForm());
+            Application.Run(new IntroForm());
         }
     }
 }

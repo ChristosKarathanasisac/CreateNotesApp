@@ -22,15 +22,31 @@ namespace WriteNotesApplication
 
         public bool writeNoteToDB(String note)
         {
+            string sql  = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)" +
+                                      " VALUES (1," + "'" + note + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") 
+                                      + "', '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "')";
+
+            return insertToDB(sql);
+        }
+
+        public bool insertUserToDB(User user)
+        {
+            string sql = @"INSERT INTO users (FIRST_NAME, LAST_NAME, USER_NAME, USER_PASSWORD,USER_EMAIL,USER_PHONE,USER_ADDRESS)
+                                VALUES ('" + user.FirstName + "', '" + user.LastName + "', '" + user.UserName + "', '" + user.Password + "','" +
+                                user.Email + "','" + user.Phone + "','" + user.Address + "')";
+
+            return insertToDB(sql);
+
+        }
+
+        private bool insertToDB(string query)
+        {
             bool flag = false;
 
             string connetionString = this.createConnectionString();
 
             using (SqlConnection conn = new SqlConnection(connetionString))
             {
-                string query = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)" +
-                                      " VALUES (1,"+"'"+ note+"','"+ DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") +"', '"+DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") +"')";
-
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandTimeout = 60;
@@ -53,19 +69,13 @@ namespace WriteNotesApplication
                 }
                 finally
                 {
-                    conn.Close(); // close the connection  
+                    conn.Close();
                 }
 
                 return flag;
 
-                
+
             }
-                
-            
-            
 
-        }
-
-
-    }
+        }  }
 }

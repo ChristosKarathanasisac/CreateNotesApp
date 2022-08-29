@@ -14,8 +14,8 @@ namespace WriteNotesApplication
 {
     public partial class CreateNotesForm : Form
     {
-        //Να μπορεί να επεξεργαστεί και υπάρχουσες σημειώσεις.
-        private DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
+       //Να μπορεί να επεξεργαστεί και υπάρχουσες σημειώσεις.
+       DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
          
         public CreateNotesForm()
         {
