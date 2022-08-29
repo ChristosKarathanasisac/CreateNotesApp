@@ -123,6 +123,7 @@ namespace WriteNotesApplication
             this.Controls.Add(this.groupBox1);
             this.Name = "IntroForm";
             this.Text = "IntroForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntroForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

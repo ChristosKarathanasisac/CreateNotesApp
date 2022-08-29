@@ -155,5 +155,12 @@ namespace WriteNotesApplication
         {
             this.txtPassWord.BackColor = Color.White;
         }
+
+        private void RegistrationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            IntroForm introForm = new IntroForm();
+            introForm.ShowDialog();
+        }
     }
 }

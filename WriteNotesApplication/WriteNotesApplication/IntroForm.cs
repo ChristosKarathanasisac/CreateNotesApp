@@ -23,5 +23,10 @@ namespace WriteNotesApplication
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.ShowDialog();
         }
+
+        private void IntroForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

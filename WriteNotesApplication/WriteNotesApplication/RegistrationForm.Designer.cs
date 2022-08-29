@@ -29,11 +29,10 @@ namespace WriteNotesApplication
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.lblRegister = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmdRegister = new System.Windows.Forms.Button();
-            this.cmdConHide = new System.Windows.Forms.Button() ;
+            this.cmdConHide = new System.Windows.Forms.Button();
             this.cmdConShow = new System.Windows.Forms.Button();
             this.btnHide = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
@@ -110,7 +109,6 @@ namespace WriteNotesApplication
             // 
             // cmdConHide
             // 
-            //this.cmdConHide.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdConHide.ImageOptions.Image")));
             this.cmdConHide.Location = new System.Drawing.Point(330, 347);
             this.cmdConHide.Name = "cmdConHide";
             this.cmdConHide.Size = new System.Drawing.Size(24, 20);
@@ -119,7 +117,6 @@ namespace WriteNotesApplication
             // 
             // cmdConShow
             // 
-            //this.cmdConShow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdConShow.ImageOptions.Image")));
             this.cmdConShow.Location = new System.Drawing.Point(309, 347);
             this.cmdConShow.Name = "cmdConShow";
             this.cmdConShow.Size = new System.Drawing.Size(24, 20);
@@ -128,7 +125,6 @@ namespace WriteNotesApplication
             // 
             // btnHide
             // 
-            //this.btnHide.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.ImageOptions.Image")));
             this.btnHide.Location = new System.Drawing.Point(329, 312);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(25, 20);
@@ -137,7 +133,6 @@ namespace WriteNotesApplication
             // 
             // btnShow
             // 
-            //this.btnShow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnShow.ImageOptions.Image")));
             this.btnShow.Location = new System.Drawing.Point(309, 312);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(24, 20);
@@ -295,6 +290,7 @@ namespace WriteNotesApplication
             this.Controls.Add(this.groupBox1);
             this.Name = "RegistrationForm";
             this.Text = "RegistrationForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegistrationForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -77,5 +77,27 @@ namespace WriteNotesApplication
 
             }
 
-        }  }
+        }
+
+        public DataTable getDataTableFromDB()
+        {
+
+            DataTable dt = new DataTable();
+            string connString = createConnectionString();
+            string query = "select * from notes";
+
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+
+            // create data adapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // this will query your database and return the result to your datatable
+            da.Fill(dt);
+            conn.Close();
+            da.Dispose();
+
+            return dt;
+        }
+    }
 }
