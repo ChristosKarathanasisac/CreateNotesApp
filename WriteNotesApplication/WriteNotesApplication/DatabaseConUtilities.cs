@@ -31,6 +31,7 @@ namespace WriteNotesApplication
 
         public bool insertUserToDB(User user)
         {
+           
             string sql = @"INSERT INTO users (FIRST_NAME, LAST_NAME, USER_NAME, USER_PASSWORD,USER_EMAIL,USER_PHONE,USER_ADDRESS)
                                 VALUES ('" + user.FirstName + "', '" + user.LastName + "', '" + user.UserName + "', '" + user.Password + "','" +
                                 user.Email + "','" + user.Phone + "','" + user.Address + "')";
@@ -79,25 +80,40 @@ namespace WriteNotesApplication
 
         }
 
-        public DataTable getDataTableFromDB()
+        public DataTable getDataTableFromDB(string query)
         {
 
             DataTable dt = new DataTable();
             string connString = createConnectionString();
-            string query = "select * from notes";
+            //string query = "select * from notes";
 
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
 
-            // create data adapter
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            // this will query your database and return the result to your datatable
+           
             da.Fill(dt);
             conn.Close();
             da.Dispose();
 
             return dt;
+        }
+
+        public bool checkIfUserCredentialsExists(string credential,string value) 
+        {
+            DataTable dt = new DataTable();
+            string sql = "SELECT * FROM users " +
+                         "WHERE "+ credential+ "='" + value + "'";
+
+            dt = null;
+            dt = getDataTableFromDB(sql);
+            if (dt == null) { return true; }   
+            else return false;
+            
+                
+
+
         }
     }
 }

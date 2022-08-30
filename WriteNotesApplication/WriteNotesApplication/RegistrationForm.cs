@@ -57,8 +57,9 @@ namespace WriteNotesApplication
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
-           if (checkRegisterInputs())
-           {
+           if (checkRegisterInputs() && checkIfUserNameExist())
+            {
+
                 User aUser = new User(this.txtFirstName.Text.Trim(), this.txtLastName.Text.Trim(), this.txtPhone.Text.Trim(),
                 this.txtEmail.Text.Trim(), this.txtAddress.Text.Trim(), this.txtUserName.Text.Trim(),
                 this.txtPassWord.Text.Trim());
@@ -77,10 +78,20 @@ namespace WriteNotesApplication
                 }
 
             }
-            
-                
-           
-         
+       
+        }
+
+        private bool checkIfUserNameExist() 
+        {
+            if (!databaseConUtilities.checkIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
+            {
+                this.txtUserName.Text = "";
+                this.txtUserName.BackColor = Color.Red;
+                MessageBox.Show("This username already used. " +
+                    "Please select a new username to continue");
+                return false;
+            }
+            return true;
         }
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
@@ -110,6 +121,7 @@ namespace WriteNotesApplication
                 MessageBox.Show("Fill the field and try again", "User Name Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            
             if (string.IsNullOrEmpty(this.txtPassWord.Text.ToString()))
             {
                 this.txtPassWord.BackColor = Color.Red;

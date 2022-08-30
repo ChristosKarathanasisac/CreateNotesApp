@@ -28,5 +28,12 @@ namespace WriteNotesApplication
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GetNotesForm getNotesForm = new GetNotesForm();
+            getNotesForm.ShowDialog();
+        }
     }
 }

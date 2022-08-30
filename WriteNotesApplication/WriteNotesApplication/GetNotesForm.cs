@@ -20,12 +20,12 @@ namespace WriteNotesApplication
 
         private void cmdGetAllNotes_Click(object sender, EventArgs e)
         {
-            DataTable dt = databaseConUtilities.getDataTableFromDB();
-            if(dt != null) 
-            {
-                this.bindingSource1.DataSource = dt;
-                this.dataGridView1.DataSource = this.bindingSource1;
-            }
+            //DataTable dt = databaseConUtilities.getDataTableFromDB();
+            //if(dt != null) 
+            //{
+            //    this.bindingSource1.DataSource = dt;
+            //    this.dataGridView1.DataSource = this.bindingSource1;
+            //}
 
             
         }
