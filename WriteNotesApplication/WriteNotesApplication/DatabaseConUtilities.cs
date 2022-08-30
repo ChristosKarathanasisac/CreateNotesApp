@@ -108,12 +108,15 @@ namespace WriteNotesApplication
 
             dt = null;
             dt = getDataTableFromDB(sql);
-            if (dt == null) { return true; }   
-            else return false;
-            
-                
-
-
+            if (dt.DefaultView.Count>0) 
+            {
+                return true;
+            }   
+            else 
+            {
+                return false;
+            }
+        
         }
     }
 }

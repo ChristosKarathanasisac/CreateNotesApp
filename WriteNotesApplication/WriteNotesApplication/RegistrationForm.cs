@@ -14,6 +14,9 @@ namespace WriteNotesApplication
     {
 
         DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
+        AppUtilities appUtilities = new AppUtilities();
+
+
         public RegistrationForm()
         {
             InitializeComponent();
@@ -57,33 +60,41 @@ namespace WriteNotesApplication
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
-           if (checkRegisterInputs() && checkIfUserNameExist())
+            if (!frmInputsValidation()) { return; }
+            
+
+
+            User aUser = new User(this.txtFirstName.Text.Trim(), this.txtLastName.Text.Trim(), this.txtPhone.Text.Trim(),
+            this.txtEmail.Text.Trim(), this.txtAddress.Text.Trim(), this.txtUserName.Text.Trim(),
+            appUtilities.PassWordEncrypt(this.txtPassWord.Text.Trim()));
+
+            if (databaseConUtilities.insertUserToDB(aUser))
             {
-
-                User aUser = new User(this.txtFirstName.Text.Trim(), this.txtLastName.Text.Trim(), this.txtPhone.Text.Trim(),
-                this.txtEmail.Text.Trim(), this.txtAddress.Text.Trim(), this.txtUserName.Text.Trim(),
-                this.txtPassWord.Text.Trim());
-
-                if (databaseConUtilities.insertUserToDB(aUser))
-                {
-                    MessageBox.Show("New User Added Successfully");
-
-                }
-                else
-                {
-                    MessageBox.Show("Registration Problem. Try again");
-                    RegistrationForm registrationForm = new RegistrationForm();
-                    registrationForm.ShowDialog();
-
-                }
+             MessageBox.Show("New User Added Successfully");
 
             }
-       
+            else
+            {
+             MessageBox.Show("Registration Problem. Try again");
+            }
+        }
+
+        private bool frmInputsValidation() 
+        {
+            if (!checkRegisterInputs()) { return false; }
+            if (!checkIfUserNameExist()) { return false; }
+            if (!checkIfEmailIsValid()) { return false; }
+            if (!checkIfPhoneIsValid()) { return false; }
+            if (!checkInputFieldLenght("Password",txtPassWord.Text, 6, 30)) { return false; }
+            if (!checkInputFieldLenght("UserName",txtUserName.Text, 8, 20)) { return false; }
+
+            return true;
+
         }
 
         private bool checkIfUserNameExist() 
         {
-            if (!databaseConUtilities.checkIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
+            if (databaseConUtilities.checkIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
             {
                 this.txtUserName.Text = "";
                 this.txtUserName.BackColor = Color.Red;
@@ -94,9 +105,41 @@ namespace WriteNotesApplication
             return true;
         }
 
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        private bool checkIfEmailIsValid() 
         {
-            this.txtFirstName.BackColor = Color.White;
+            bool flag = appUtilities.IsValidEmail(this.txtEmail.Text.Trim());
+            if (flag) 
+            {
+                return true;
+            }
+            else 
+            {
+                this.txtEmail.Text = "";
+                this.txtEmail.BackColor = Color.Red;
+                MessageBox.Show("Insert a valid Email!!", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            
+            }
+
+
+        }
+
+        private bool checkIfPhoneIsValid() 
+        {
+            bool flag = appUtilities.IsValidPhoneNumber(this.txtPhone.Text.Trim());
+            if (flag)
+            {
+                return true;
+            }
+            else
+            {
+                this.txtPhone.Text = "";
+                this.txtPhone.BackColor = Color.Red;
+                MessageBox.Show("Insert a valid Phone Number!!", "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+
+            }
+
         }
 
         private bool checkRegisterInputs() 
@@ -139,33 +182,75 @@ namespace WriteNotesApplication
 
             if (this.txtPassWord.Text.ToString() != this.txtConPassword.Text.ToString())
             {
-                MessageBox.Show("The Passwords do not match");
+                MessageBox.Show("The Passwords not match");
                 this.txtConPassword.Text = "";
                 this.txtConPassword.BackColor = Color.Red;
+                return false;
              
             }
             return true;
 
         }
 
+        private bool checkInputFieldLenght(string fieldName,string field,int min,int max)  
+        {
+            if (field.Length < min) 
+            {
+                MessageBox.Show("Field: "+ fieldName + " must has at least " + min.ToString() + " characters length", fieldName + " lenght",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            
+            }else if((field.Length > max)) 
+            {
+                MessageBox.Show("Field: " + fieldName + " must has max " + max.ToString() + " characters length", fieldName + " lenght",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+
+            }
+            return true;
+       
+        
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            this.txtFirstName.BackColor = Color.White;
+        }
+
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
-            this.txtLastName.BackColor = Color.White;
+            if(this.txtLastName.BackColor == Color.Red) 
+            {
+                this.txtLastName.BackColor = Color.White;
+            }
+            
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            this.txtEmail.BackColor = Color.White;
+            if(this.txtEmail.BackColor == Color.Red) 
+            {
+                this.txtEmail.BackColor = Color.White;
+            }
+            
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-            this.txtEmail.BackColor = Color.White; 
+            if(this.txtUserName.BackColor == Color.Red) 
+            {
+                this.txtUserName.BackColor = Color.White;
+            }
+             
         }
 
         private void txtPassWord_TextChanged(object sender, EventArgs e)
         {
-            this.txtPassWord.BackColor = Color.White;
+            if(this.txtPassWord.BackColor == Color.Red) 
+            {
+                this.txtPassWord.BackColor = Color.White;
+            }
+            
         }
 
         private void RegistrationForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -173,6 +258,15 @@ namespace WriteNotesApplication
             this.Hide();
             IntroForm introForm = new IntroForm();
             introForm.ShowDialog();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtPhone.BackColor == Color.Red)
+            {
+                this.txtPhone.BackColor = Color.White;
+            }
+
         }
     }
 }

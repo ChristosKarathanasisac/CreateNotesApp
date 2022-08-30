@@ -125,7 +125,7 @@ namespace WriteNotesApplication
             // 
             // btnHide
             // 
-            this.btnHide.Location = new System.Drawing.Point(329, 312);
+            this.btnHide.Location = new System.Drawing.Point(390, 309);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(25, 20);
             this.btnHide.TabIndex = 20;
@@ -133,7 +133,7 @@ namespace WriteNotesApplication
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(309, 312);
+            this.btnShow.Location = new System.Drawing.Point(369, 309);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(24, 20);
             this.btnShow.TabIndex = 19;
@@ -141,7 +141,7 @@ namespace WriteNotesApplication
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(132, 269);
+            this.txtUserName.Location = new System.Drawing.Point(172, 266);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(201, 20);
             this.txtUserName.TabIndex = 18;
@@ -193,12 +193,13 @@ namespace WriteNotesApplication
             // 
             this.txtConPassword.Location = new System.Drawing.Point(132, 347);
             this.txtConPassword.Name = "txtConPassword";
+            this.txtConPassword.PasswordChar = '*';
             this.txtConPassword.Size = new System.Drawing.Size(181, 20);
             this.txtConPassword.TabIndex = 12;
             // 
             // txtPassWord
             // 
-            this.txtPassWord.Location = new System.Drawing.Point(132, 312);
+            this.txtPassWord.Location = new System.Drawing.Point(172, 309);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '*';
             this.txtPassWord.Size = new System.Drawing.Size(201, 20);
@@ -211,6 +212,7 @@ namespace WriteNotesApplication
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(156, 20);
             this.txtPhone.TabIndex = 10;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // txtLastName
             // 
@@ -260,18 +262,18 @@ namespace WriteNotesApplication
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(32, 312);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 13);
+            this.lblPassword.Size = new System.Drawing.Size(136, 13);
             this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Password:";
+            this.lblPassword.Text = "Password(6-30 characters):";
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Location = new System.Drawing.Point(32, 269);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(63, 13);
+            this.lblUserName.Size = new System.Drawing.Size(143, 13);
             this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "User Name:";
+            this.lblUserName.Text = "User Name(8-20 characters):";
             // 
             // lblName
             // 
