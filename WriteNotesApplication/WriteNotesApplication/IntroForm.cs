@@ -14,6 +14,8 @@ namespace WriteNotesApplication
     
     public partial class IntroForm : Form
     {
+        private User user = null;
+
         DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
         AppUtilities appUtilities = new AppUtilities();
         public IntroForm()
@@ -46,7 +48,27 @@ namespace WriteNotesApplication
 
             if (dtUser.DefaultView.Count > 0) 
             {
-                MessageBox.Show("Welcome to Create Notes App " + dtUser.DefaultView[0]["FIRST_NAME"]);
+                //MessageBox.Show("Welcome to Create Notes App " + dtUser.DefaultView[0]["FIRST_NAME"]);
+                
+
+                this.user = new User(dtUser.DefaultView[0]["FIRST_NAME"].ToString(), dtUser.DefaultView[0]["LAST_NAME"].ToString(),
+                    dtUser.DefaultView[0]["USER_EMAIL"].ToString(),
+                    dtUser.DefaultView[0]["USER_PHONE"].ToString(), dtUser.DefaultView[0]["USER_ADDRESS"].ToString(),
+                    dtUser.DefaultView[0]["USER_NAME"].ToString(), dtUser.DefaultView[0]["USER_PASSWORD"].ToString());
+
+                if(this.user != null) 
+                {
+                    this.Hide();
+                    UserOptionsForm userOptionsForm = new UserOptionsForm(this.user);
+                    userOptionsForm.ShowDialog();
+
+                }
+                
+
+            }
+            else 
+            {
+                MessageBox.Show("Wrong User Name or Password. Please try again!");
             
             }
         }

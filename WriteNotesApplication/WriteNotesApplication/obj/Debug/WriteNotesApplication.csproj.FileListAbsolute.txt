@@ -24,3 +24,4 @@ C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplicati
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.GetNotesForm.resources
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.IntroForm.resources
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.RegistrationForm.resources
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.UserOptionsForm.resources

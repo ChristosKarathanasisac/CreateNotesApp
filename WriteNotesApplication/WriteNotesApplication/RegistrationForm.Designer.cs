@@ -53,6 +53,7 @@ namespace WriteNotesApplication
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.cmdBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@ namespace WriteNotesApplication
             // 
             this.lblRegister.AutoSize = true;
             this.lblRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.lblRegister.Location = new System.Drawing.Point(6, 23);
+            this.lblRegister.Location = new System.Drawing.Point(6, 16);
             this.lblRegister.Name = "lblRegister";
             this.lblRegister.Size = new System.Drawing.Size(279, 31);
             this.lblRegister.TabIndex = 0;
@@ -68,6 +69,7 @@ namespace WriteNotesApplication
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmdBack);
             this.groupBox1.Controls.Add(this.cmdRegister);
             this.groupBox1.Controls.Add(this.cmdConHide);
             this.groupBox1.Controls.Add(this.cmdConShow);
@@ -99,7 +101,7 @@ namespace WriteNotesApplication
             // 
             // cmdRegister
             // 
-            this.cmdRegister.Location = new System.Drawing.Point(35, 388);
+            this.cmdRegister.Location = new System.Drawing.Point(35, 300);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(111, 23);
             this.cmdRegister.TabIndex = 23;
@@ -109,7 +111,7 @@ namespace WriteNotesApplication
             // 
             // cmdConHide
             // 
-            this.cmdConHide.Location = new System.Drawing.Point(330, 347);
+            this.cmdConHide.Location = new System.Drawing.Point(319, 265);
             this.cmdConHide.Name = "cmdConHide";
             this.cmdConHide.Size = new System.Drawing.Size(24, 20);
             this.cmdConHide.TabIndex = 22;
@@ -117,7 +119,7 @@ namespace WriteNotesApplication
             // 
             // cmdConShow
             // 
-            this.cmdConShow.Location = new System.Drawing.Point(309, 347);
+            this.cmdConShow.Location = new System.Drawing.Point(306, 265);
             this.cmdConShow.Name = "cmdConShow";
             this.cmdConShow.Size = new System.Drawing.Size(24, 20);
             this.cmdConShow.TabIndex = 21;
@@ -125,7 +127,7 @@ namespace WriteNotesApplication
             // 
             // btnHide
             // 
-            this.btnHide.Location = new System.Drawing.Point(390, 309);
+            this.btnHide.Location = new System.Drawing.Point(399, 237);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(25, 20);
             this.btnHide.TabIndex = 20;
@@ -133,7 +135,7 @@ namespace WriteNotesApplication
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(369, 309);
+            this.btnShow.Location = new System.Drawing.Point(379, 237);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(24, 20);
             this.btnShow.TabIndex = 19;
@@ -141,7 +143,7 @@ namespace WriteNotesApplication
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(172, 266);
+            this.txtUserName.Location = new System.Drawing.Point(192, 206);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(201, 20);
             this.txtUserName.TabIndex = 18;
@@ -149,14 +151,14 @@ namespace WriteNotesApplication
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(132, 226);
+            this.txtAddress.Location = new System.Drawing.Point(92, 171);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(156, 20);
             this.txtAddress.TabIndex = 17;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(132, 191);
+            this.txtEmail.Location = new System.Drawing.Point(92, 141);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(201, 20);
             this.txtEmail.TabIndex = 16;
@@ -165,7 +167,7 @@ namespace WriteNotesApplication
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(32, 229);
+            this.lblAddress.Location = new System.Drawing.Point(34, 174);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(48, 13);
             this.lblAddress.TabIndex = 15;
@@ -174,16 +176,16 @@ namespace WriteNotesApplication
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(32, 194);
+            this.lblEmail.Location = new System.Drawing.Point(34, 141);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.Size = new System.Drawing.Size(39, 13);
             this.lblEmail.TabIndex = 14;
-            this.lblEmail.Text = "Email:";
+            this.lblEmail.Text = "Email*:";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(32, 147);
+            this.lblPhone.Location = new System.Drawing.Point(32, 109);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(41, 13);
             this.lblPhone.TabIndex = 13;
@@ -191,7 +193,7 @@ namespace WriteNotesApplication
             // 
             // txtConPassword
             // 
-            this.txtConPassword.Location = new System.Drawing.Point(132, 347);
+            this.txtConPassword.Location = new System.Drawing.Point(132, 265);
             this.txtConPassword.Name = "txtConPassword";
             this.txtConPassword.PasswordChar = '*';
             this.txtConPassword.Size = new System.Drawing.Size(181, 20);
@@ -199,7 +201,7 @@ namespace WriteNotesApplication
             // 
             // txtPassWord
             // 
-            this.txtPassWord.Location = new System.Drawing.Point(172, 309);
+            this.txtPassWord.Location = new System.Drawing.Point(183, 237);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '*';
             this.txtPassWord.Size = new System.Drawing.Size(201, 20);
@@ -208,7 +210,7 @@ namespace WriteNotesApplication
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(132, 147);
+            this.txtPhone.Location = new System.Drawing.Point(92, 110);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(156, 20);
             this.txtPhone.TabIndex = 10;
@@ -216,7 +218,7 @@ namespace WriteNotesApplication
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(258, 91);
+            this.txtLastName.Location = new System.Drawing.Point(258, 65);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(157, 20);
             this.txtLastName.TabIndex = 9;
@@ -224,7 +226,7 @@ namespace WriteNotesApplication
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(92, 91);
+            this.txtFirstName.Location = new System.Drawing.Point(92, 65);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(131, 20);
             this.txtFirstName.TabIndex = 8;
@@ -233,7 +235,7 @@ namespace WriteNotesApplication
             // lblFLastName
             // 
             this.lblFLastName.AutoSize = true;
-            this.lblFLastName.Location = new System.Drawing.Point(255, 114);
+            this.lblFLastName.Location = new System.Drawing.Point(255, 94);
             this.lblFLastName.Name = "lblFLastName";
             this.lblFLastName.Size = new System.Drawing.Size(58, 13);
             this.lblFLastName.TabIndex = 7;
@@ -242,7 +244,7 @@ namespace WriteNotesApplication
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(89, 114);
+            this.lblFirstName.Location = new System.Drawing.Point(89, 94);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(57, 13);
             this.lblFirstName.TabIndex = 6;
@@ -251,7 +253,7 @@ namespace WriteNotesApplication
             // lblConPassword
             // 
             this.lblConPassword.AutoSize = true;
-            this.lblConPassword.Location = new System.Drawing.Point(32, 347);
+            this.lblConPassword.Location = new System.Drawing.Point(34, 268);
             this.lblConPassword.Name = "lblConPassword";
             this.lblConPassword.Size = new System.Drawing.Size(94, 13);
             this.lblConPassword.TabIndex = 5;
@@ -260,29 +262,39 @@ namespace WriteNotesApplication
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(32, 312);
+            this.lblPassword.Location = new System.Drawing.Point(34, 237);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(136, 13);
+            this.lblPassword.Size = new System.Drawing.Size(143, 13);
             this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Password(6-30 characters):";
+            this.lblPassword.Text = "Password* (6-30 characters):";
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(32, 269);
+            this.lblUserName.Location = new System.Drawing.Point(34, 206);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(143, 13);
+            this.lblUserName.Size = new System.Drawing.Size(150, 13);
             this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "User Name(8-20 characters):";
+            this.lblUserName.Text = "User Name* (8-20 characters):";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(32, 94);
+            this.lblName.Location = new System.Drawing.Point(38, 68);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.Size = new System.Drawing.Size(42, 13);
             this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name:";
+            this.lblName.Text = "Name*:";
+            // 
+            // cmdBack
+            // 
+            this.cmdBack.Location = new System.Drawing.Point(37, 343);
+            this.cmdBack.Name = "cmdBack";
+            this.cmdBack.Size = new System.Drawing.Size(45, 23);
+            this.cmdBack.TabIndex = 24;
+            this.cmdBack.Text = "Back";
+            this.cmdBack.UseVisualStyleBackColor = true;
+            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // RegistrationForm
             // 
@@ -325,5 +337,6 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Button cmdConHide;
         private System.Windows.Forms.Button cmdConShow;
         private System.Windows.Forms.Button cmdRegister;
+        private System.Windows.Forms.Button cmdBack;
     }
 }

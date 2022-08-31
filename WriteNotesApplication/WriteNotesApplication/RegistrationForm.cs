@@ -70,7 +70,11 @@ namespace WriteNotesApplication
 
             if (databaseConUtilities.insertUserToDB(aUser))
             {
-             MessageBox.Show("New User Added Successfully");
+                MessageBox.Show("New User Added Successfully. Log in to use the app");
+                this.Hide();
+                IntroForm introForm = new IntroForm();
+                introForm.ShowDialog();
+
 
             }
             else
@@ -255,9 +259,10 @@ namespace WriteNotesApplication
 
         private void RegistrationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
-            IntroForm introForm = new IntroForm();
-            introForm.ShowDialog();
+            //this.Hide();
+            //IntroForm introForm = new IntroForm();
+            //introForm.ShowDialog();
+            Application.Exit();
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
@@ -267,6 +272,13 @@ namespace WriteNotesApplication
                 this.txtPhone.BackColor = Color.White;
             }
 
+        }
+
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            IntroForm introForm = new IntroForm();
+            introForm.ShowDialog();
         }
     }
 }

@@ -20,13 +20,86 @@ namespace WriteNotesApplication
             return connString;
         }
 
-        public bool writeNoteToDB(String note)
+        public bool writeNoteToDB(string note,string userName)
         {
-            string sql  = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)" +
-                                      " VALUES (1," + "'" + note + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") 
+            string userId = findUserId(userName);
+
+            if (!string.IsNullOrEmpty(userId)) 
+            {
+                
+                string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)" +
+                                      " VALUES (" + userId + "," + "'" + note + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
                                       + "', '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "')";
 
-            return insertToDB(sql);
+                return insertToDB(sql2);
+
+            }
+            else 
+            {
+                return false;
+            
+            }
+
+
+            
+        }
+
+        public DataTable getNotesFromDB(string username) 
+        {
+            DataTable dt = new DataTable();
+            string userId = "";
+            userId = findUserId(username);
+
+            if (!string.IsNullOrWhiteSpace(userId)) 
+            {
+                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                         "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
+                         "WHERE users.USER_ID = " + userId;
+
+                dt = getDataTableFromDB(sql);
+                return dt;
+
+            }
+            else 
+            {
+                return null;
+            
+            }
+
+            
+
+
+        }
+
+        public DataTable getNotesFromDB(string username,string fromDate,string toDate)
+        {
+            DataTable dt = new DataTable();
+            string userId = "";
+            userId = findUserId(username);
+
+            if (!string.IsNullOrWhiteSpace(userId))
+            {
+                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                             "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
+                             "WHERE users.USER_ID = " + userId +
+                             " AND NOTE_CREATION BETWEEN '"+fromDate+"' AND '"+toDate+"'";
+
+
+
+
+                dt = getDataTableFromDB(sql);
+                return dt;
+
+            }
+            else
+            {
+                return null;
+
+            }
+
+
+
+
         }
 
         public bool insertUserToDB(User user)
@@ -131,11 +204,25 @@ namespace WriteNotesApplication
         {
             DataTable dt = new DataTable();
 
-            string sql = "SELECT * FROM users"+
-                         "WHERE USER_NAME = '"+ userName + " AND USER_PASSWORD = '" + password + "'";
+            string sql = "SELECT * FROM users "+
+                         "WHERE USER_NAME = '"+ userName + "' AND USER_PASSWORD = '" + password + "'";
             dt = getDataTableFromDB(sql);
 
             return dt;
         }
+
+        private string findUserId(string username) 
+        {
+            string userId= "";
+
+            DataTable dt = new DataTable();
+            string sql1 = "SELECT USER_ID FROM users WHERE USER_NAME = '" + username + "'";
+            dt = getDataTableFromDB(sql1);
+             userId = dt.DefaultView[0]["USER_ID"].ToString();
+
+            return userId;
+        
+        }
+        
     }
 }

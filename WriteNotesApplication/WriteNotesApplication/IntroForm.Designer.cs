@@ -49,58 +49,52 @@ namespace WriteNotesApplication
             this.groupBox1.Controls.Add(this.lblPasword);
             this.groupBox1.Controls.Add(this.lblUserName);
             this.groupBox1.Controls.Add(this.lblWelcome);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1035, 524);
+            this.groupBox1.Size = new System.Drawing.Size(776, 426);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnCreateAccount
             // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(356, 309);
-            this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateAccount.Location = new System.Drawing.Point(267, 251);
             this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(260, 28);
+            this.btnCreateAccount.Size = new System.Drawing.Size(195, 23);
             this.btnCreateAccount.TabIndex = 6;
             this.btnCreateAccount.Text = "Don\'t Have Account? Create! ";
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // btnLogIn
             // 
-            this.btnLogIn.Location = new System.Drawing.Point(423, 252);
-            this.btnLogIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogIn.Location = new System.Drawing.Point(317, 205);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(123, 28);
+            this.btnLogIn.Size = new System.Drawing.Size(92, 23);
             this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Log In";
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // txdPassword
             // 
-            this.txdPassword.Location = new System.Drawing.Point(446, 202);
-            this.txdPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txdPassword.Location = new System.Drawing.Point(334, 164);
             this.txdPassword.Name = "txdPassword";
-            this.txdPassword.Size = new System.Drawing.Size(259, 22);
+            this.txdPassword.PasswordChar = '*';
+            this.txdPassword.Size = new System.Drawing.Size(195, 20);
             this.txdPassword.TabIndex = 4;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(446, 146);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserName.Location = new System.Drawing.Point(334, 119);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(259, 22);
+            this.txtUserName.Size = new System.Drawing.Size(195, 20);
             this.txtUserName.TabIndex = 3;
             // 
             // lblPasword
             // 
             this.lblPasword.AutoSize = true;
             this.lblPasword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.lblPasword.Location = new System.Drawing.Point(240, 185);
-            this.lblPasword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPasword.Location = new System.Drawing.Point(180, 150);
             this.lblPasword.Name = "lblPasword";
-            this.lblPasword.Size = new System.Drawing.Size(176, 39);
+            this.lblPasword.Size = new System.Drawing.Size(142, 31);
             this.lblPasword.TabIndex = 2;
             this.lblPasword.Text = "Password:";
             // 
@@ -108,30 +102,27 @@ namespace WriteNotesApplication
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.lblUserName.Location = new System.Drawing.Point(240, 129);
-            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserName.Location = new System.Drawing.Point(180, 105);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(198, 39);
+            this.lblUserName.Size = new System.Drawing.Size(159, 31);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "User Name:";
             // 
             // lblWelcome
             // 
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 23.25F);
-            this.lblWelcome.Location = new System.Drawing.Point(208, 43);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWelcome.Location = new System.Drawing.Point(156, 35);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(615, 86);
+            this.lblWelcome.Size = new System.Drawing.Size(461, 70);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome to Notes Creation App\r\n";
             // 
             // IntroForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IntroForm";
             this.Text = "IntroForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntroForm_FormClosed);

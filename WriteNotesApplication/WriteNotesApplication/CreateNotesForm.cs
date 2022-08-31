@@ -14,12 +14,13 @@ namespace WriteNotesApplication
 {
     public partial class CreateNotesForm : Form
     {
-       //Να μπορεί να επεξεργαστεί και υπάρχουσες σημειώσεις.
+        private User user;
        DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
          
-        public CreateNotesForm()
+        public CreateNotesForm(User aUser)
         {
             InitializeComponent();
+            this.user = aUser;
         }
 
         private void cmdSave_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace WriteNotesApplication
                 MessageBox.Show("Write a note and try again");
                 return;
             }
-            if (this.dbUtilities.writeNoteToDB(note)) 
+            if (this.dbUtilities.writeNoteToDB(note,user.UserName.ToString())) 
             {
                 this.richTextBox1.Clear();
                 MessageBox.Show("Your note has added successfully");
@@ -39,12 +40,31 @@ namespace WriteNotesApplication
             }
             else 
             {
-                MessageBox.Show("Your note was not registered");
+                MessageBox.Show("Your note was not stored");
                 return;
 
             }
             
 
+        }
+
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserOptionsForm userOptionsForm = new UserOptionsForm(this.user);
+            userOptionsForm.ShowDialog();
+
+
+        }
+
+        private void CreateNotesForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //this.Hide();
+            //UserOptionsForm userOptionsForm = new UserOptionsForm(user);
+            //userOptionsForm.ShowDialog();
+            Application.Exit();
+
+        
         }
     }
 }
