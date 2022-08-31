@@ -82,22 +82,30 @@ namespace WriteNotesApplication
 
         public DataTable getDataTableFromDB(string query)
         {
+            try 
+            {
+                DataTable dt = new DataTable();
+                string connString = createConnectionString();
 
-            DataTable dt = new DataTable();
-            string connString = createConnectionString();
-            //string query = "select * from notes";
 
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(query, conn);
-            conn.Open();
+                SqlConnection conn = new SqlConnection(connString);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-           
-            da.Fill(dt);
-            conn.Close();
-            da.Dispose();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            return dt;
+                da.Fill(dt);
+                conn.Close();
+                da.Dispose();
+
+                return dt;
+
+            }catch(Exception exc) 
+            {
+                return null;
+            
+            }
+            
         }
 
         public bool checkIfUserCredentialsExists(string credential,string value) 
@@ -117,6 +125,17 @@ namespace WriteNotesApplication
                 return false;
             }
         
+        }
+
+        public DataTable getLoginUserDT(string userName, string password) 
+        {
+            DataTable dt = new DataTable();
+
+            string sql = "SELECT * FROM users"+
+                         "WHERE USER_NAME = '"+ userName + " AND USER_PASSWORD = '" + password + "'";
+            dt = getDataTableFromDB(sql);
+
+            return dt;
         }
     }
 }

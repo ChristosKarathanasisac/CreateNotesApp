@@ -50,9 +50,9 @@ namespace WriteNotesApplication
             this.groupBox1.Controls.Add(this.lblUserName);
             this.groupBox1.Controls.Add(this.lblWelcome);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1035, 524);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -60,7 +60,7 @@ namespace WriteNotesApplication
             // btnCreateAccount
             // 
             this.btnCreateAccount.Location = new System.Drawing.Point(356, 309);
-            this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(260, 28);
             this.btnCreateAccount.TabIndex = 6;
@@ -70,16 +70,17 @@ namespace WriteNotesApplication
             // btnLogIn
             // 
             this.btnLogIn.Location = new System.Drawing.Point(423, 252);
-            this.btnLogIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(123, 28);
             this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Log In";
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // txdPassword
             // 
             this.txdPassword.Location = new System.Drawing.Point(446, 202);
-            this.txdPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txdPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txdPassword.Name = "txdPassword";
             this.txdPassword.Size = new System.Drawing.Size(259, 22);
             this.txdPassword.TabIndex = 4;
@@ -87,7 +88,7 @@ namespace WriteNotesApplication
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(446, 146);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(259, 22);
             this.txtUserName.TabIndex = 3;
@@ -130,7 +131,7 @@ namespace WriteNotesApplication
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IntroForm";
             this.Text = "IntroForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntroForm_FormClosed);
