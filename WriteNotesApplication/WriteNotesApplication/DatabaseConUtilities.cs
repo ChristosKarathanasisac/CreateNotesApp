@@ -52,9 +52,10 @@ namespace WriteNotesApplication
 
             if (!string.IsNullOrWhiteSpace(userId)) 
             {
-                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
                          "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
-                         "WHERE users.USER_ID = " + userId;
+                         "WHERE users.USER_ID = " + userId+
+                         " ORDER BY NOTE_LASTMODIFY DESC";
 
                 dt = getDataTableFromDB(sql);
                 return dt;
@@ -65,13 +66,74 @@ namespace WriteNotesApplication
                 return null;
             
             }
+        }
 
+        public DataTable getNotesFromDB(string username,string fromDate,string toDate,string field)
+        {
+            DataTable dt = new DataTable();
+            string userId = "";
+            userId = findUserId(username);
+
+            if (field.Equals("create")) 
+            {
+                if (!string.IsNullOrWhiteSpace(userId))
+                {
+                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                                 "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
+                                 "WHERE users.USER_ID = " + userId +
+                                 " AND NOTE_CREATION BETWEEN '" + fromDate + "' AND '" + toDate + "' "+
+                                 "ORDER BY NOTE_LASTMODIFY DESC";
+
+
+
+
+                    dt = getDataTableFromDB(sql);
+                    return dt;
+
+                }
+                else
+                {
+                    return null;
+
+                }
+
+            }
+            else if (field.Equals("modify"))
+            {
+                if (!string.IsNullOrWhiteSpace(userId))
+                {
+                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                                 "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
+                                 "WHERE users.USER_ID = " + userId +
+                                 " AND NOTE_LASTMODIFY BETWEEN '" + fromDate + "' AND '" + toDate + "'";
+
+
+                    dt = getDataTableFromDB(sql);
+                    return dt;
+
+                }
+                else
+                {
+                    return null;
+
+                }
+
+            }
+            else 
+            {
+                return null;
             
+            }
+
+
+
+
+
 
 
         }
 
-        public DataTable getNotesFromDB(string username,string fromDate,string toDate)
+        public DataTable getNotesFromDB(string username,string filertxt) 
         {
             DataTable dt = new DataTable();
             string userId = "";
@@ -80,12 +142,9 @@ namespace WriteNotesApplication
             if (!string.IsNullOrWhiteSpace(userId))
             {
                 string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
-                             "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
-                             "WHERE users.USER_ID = " + userId +
-                             " AND NOTE_CREATION BETWEEN '"+fromDate+"' AND '"+toDate+"'";
-
-
-
+                         "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
+                         "WHERE users.USER_ID = " + userId + "AND NOTE LIKE '%"+ filertxt + "%' "+
+                         "ORDER BY NOTE_LASTMODIFY DESC";
 
                 dt = getDataTableFromDB(sql);
                 return dt;
@@ -96,9 +155,6 @@ namespace WriteNotesApplication
                 return null;
 
             }
-
-
-
 
         }
 

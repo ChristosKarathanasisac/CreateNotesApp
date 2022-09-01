@@ -58,7 +58,7 @@ namespace WriteNotesApplication
             DataTable dt = new DataTable();
             dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString(),
                 this.dateTimePickerFromDateC.Value.ToString("yyyy-MM-dd 00:00:00"),
-                this.dateTimePickerToDateC.Value.ToString("yyyy-MM-dd 23:59:59"));
+                this.dateTimePickerToDateC.Value.ToString("yyyy-MM-dd 23:59:59"),"create");
 
             if (dt.DefaultView.Count > 0) 
             {
@@ -77,13 +77,12 @@ namespace WriteNotesApplication
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cmdFilterDateM_Click(object sender, EventArgs e)
         {
-            //Να φτιάξω το query και για αυτή την περίπτωση 
             DataTable dt = new DataTable();
             dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString(),
                 this.dateTimePickerFromDateM.Value.ToString("yyyy-MM-dd 00:00:00"),
-                this.dateTimePickerToDateM.Value.ToString("yyyy-MM-dd 23:59:59"));
+                this.dateTimePickerToDateM.Value.ToString("yyyy-MM-dd 23:59:59"),"modify");
 
             if (dt.DefaultView.Count > 0)
             {
@@ -96,6 +95,61 @@ namespace WriteNotesApplication
                     this.dateTimePickerFromDateM.Value.ToString("yyyy-MM-dd 00:00:00") + " to "
                     + this.dateTimePickerToDateM.Value.ToString("yyyy-MM-dd 23:59:59"));
 
+            }
+        }
+
+        private void cmdFilterText_Click(object sender, EventArgs e)
+        {
+            string textFilter = this.textFilterNote.Text.Trim();
+            DataTable dt = new DataTable();
+            dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString(), textFilter);
+
+            if (dt != null)
+            {
+                this.bindingSource1.DataSource = dt;
+                this.dataGridView1.DataSource = this.bindingSource1;
+            }
+            else
+            {
+                MessageBox.Show("Νo notes found containing " + "'"+textFilter+"'");
+
+            }
+        }
+
+        private void cmdModifyNote_Click(object sender, EventArgs e)
+        {
+            Int32 selectedRowCount =
+            dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
+            if (selectedRowCount ==1)
+            {
+                DataGridViewRow r = this.dataGridView1.SelectedRows[0];
+                string note = r.Cells[0].Value.ToString();
+
+                if (!string.IsNullOrWhiteSpace(note)) 
+                {
+                    this.Hide();
+                    ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note);
+                    modifyNotesForm.ShowDialog();
+                }
+
+                //Ο κώδικας για να κάνω update
+                //UPDATE notes
+                //SET NOTE = 'A new modified note', NOTE_LASTMODIFY = '2022-09-01 13:32:00 '
+                //WHERE NOTE_ID = 1002;
+
+
+            }
+            else if (selectedRowCount < 1) 
+            {
+                MessageBox.Show("Select a note to modify!");
+
+            }
+            else 
+            {
+                MessageBox.Show("Yoy have selected multiple notes. Please choose only one to" +
+                    "modify!");
+            
             }
         }
     }
