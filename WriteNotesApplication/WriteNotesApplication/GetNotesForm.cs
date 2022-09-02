@@ -125,19 +125,14 @@ namespace WriteNotesApplication
             {
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 string note = r.Cells[0].Value.ToString();
+                string noteId = r.Cells[3].Value.ToString();
 
                 if (!string.IsNullOrWhiteSpace(note)) 
                 {
                     this.Hide();
-                    ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note);
+                    ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note,noteId);
                     modifyNotesForm.ShowDialog();
                 }
-
-                //Ο κώδικας για να κάνω update
-                //UPDATE notes
-                //SET NOTE = 'A new modified note', NOTE_LASTMODIFY = '2022-09-01 13:32:00 '
-                //WHERE NOTE_ID = 1002;
-
 
             }
             else if (selectedRowCount < 1) 

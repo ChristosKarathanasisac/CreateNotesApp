@@ -14,18 +14,46 @@ namespace WriteNotesApplication
     {
         private string note;
         private User user;
-        public ModifyNotesForm(User user, string note)
+        private string noteId;
+
+        DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
+        public ModifyNotesForm(User user, string note,string noteId)
         {
             InitializeComponent();
             this.note = note;
             this.user = user;
+            this.noteId = noteId;
             this.txtModifyNote.Text = note;
-            
-
         }
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
+            string newNote = this.txtModifyNote.Text.Trim();
+            if (!newNote.Trim().Equals(this.note.Trim())) 
+            {
+                if (string.IsNullOrEmpty(newNote))
+                {
+                    MessageBox.Show("Write something to continue", "Empty Note", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (databaseConUtilities.modifyNoteToDB(this.user.UserName,
+                    newNote, this.noteId)) 
+                {
+                    this.note = newNote;
+                    MessageBox.Show("Your note has modified successfully");
+
+                }
+                else 
+                {
+                    MessageBox.Show("Please try again", "Note not modified",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                }
+
+            }
+           
 
         }
 

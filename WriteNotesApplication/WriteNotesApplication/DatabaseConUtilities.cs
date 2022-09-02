@@ -158,6 +158,19 @@ namespace WriteNotesApplication
 
         }
 
+        public bool modifyNoteToDB(string username,string newnote,string noteId) 
+        {
+            string sql = "UPDATE notes " +
+                         "SET NOTE = '" + newnote +
+                         "', NOTE_LASTMODIFY = '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "'" +
+                        "WHERE NOTE_ID = " + noteId;
+
+            return insertToDB(sql);
+            
+
+
+        }
+
         public bool insertUserToDB(User user)
         {
            
