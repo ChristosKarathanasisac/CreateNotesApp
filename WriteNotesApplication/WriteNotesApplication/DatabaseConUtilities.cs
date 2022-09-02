@@ -141,7 +141,7 @@ namespace WriteNotesApplication
 
             if (!string.IsNullOrWhiteSpace(userId))
             {
-                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_ID FROM notes " +
                          "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                          "WHERE users.USER_ID = " + userId + "AND NOTE LIKE '%"+ filertxt + "%' "+
                          "ORDER BY NOTE_LASTMODIFY DESC";
@@ -171,6 +171,14 @@ namespace WriteNotesApplication
 
         }
 
+        public bool deleteNoteFromDB(string noteId) 
+        {
+            string sql = "DELETE FROM notes WHERE NOTE_ID = " + noteId;
+            return insertToDB(sql);
+
+
+        }
+
         public bool insertUserToDB(User user)
         {
            
@@ -179,6 +187,23 @@ namespace WriteNotesApplication
                                 user.Email + "','" + user.Phone + "','" + user.Address + "')";
 
             return insertToDB(sql);
+
+        }
+
+        public bool updateUserToDB(User user,string oldusername) 
+        {
+            string userId = findUserId(oldusername);
+            string sql = @"UPDATE users
+                           SET FIRST_NAME = '"+user.FirstName+"',"+
+	                       "LAST_NAME = '"+user.LastName+"',"+
+	                       "USER_NAME = '"+user.UserName+"',"+
+	                       "USER_PASSWORD = '"+ user.Password+ "',"+
+	                       "USER_EMAIL ='"+user.Email+"',"+
+	                       "USER_PHONE = '"+user.Phone+"'," +
+	                       "USER_ADDRESS = '"+user.Address+"' "+
+                           "WHERE USER_ID = " + userId;
+            return insertToDB(sql);
+
 
         }
 

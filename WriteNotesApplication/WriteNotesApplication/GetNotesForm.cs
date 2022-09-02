@@ -123,9 +123,23 @@ namespace WriteNotesApplication
 
             if (selectedRowCount ==1)
             {
+
+
+               
+                string noteId = "";
+                string note = "";
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
-                string note = r.Cells[0].Value.ToString();
-                string noteId = r.Cells[3].Value.ToString();
+                try
+                {
+                    noteId = r.Cells[3].Value.ToString();
+                    note = r.Cells[0].Value.ToString();
+
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error:" + exc.Message);
+
+                }
 
                 if (!string.IsNullOrWhiteSpace(note)) 
                 {
@@ -142,10 +156,96 @@ namespace WriteNotesApplication
             }
             else 
             {
-                MessageBox.Show("Yoy have selected multiple notes. Please choose only one to" +
+                MessageBox.Show("You have selected multiple notes. Please choose only one to" +
                     "modify!");
             
             }
+        }
+
+        private void cmdOpenNote_Click(object sender, EventArgs e)
+        {
+
+          Int32 selectedRowCount =
+          dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount == 1)
+            {
+                string noteId = "";
+                string note = "";
+                DataGridViewRow r = this.dataGridView1.SelectedRows[0];
+                try
+                {
+                    noteId = r.Cells[3].Value.ToString();
+                    note = r.Cells[0].Value.ToString();
+                    
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error:" + exc.Message);
+
+                }
+
+                
+                
+
+                if (!string.IsNullOrWhiteSpace(note))
+                {
+                    this.Hide();
+                    OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId);
+                    openFullNoteForm.ShowDialog();
+                }
+
+            }
+            else if (selectedRowCount < 1)
+            {
+                MessageBox.Show("Select a note!");
+            }
+            else
+            {
+                MessageBox.Show("You have selected multiple notes. Please choose only one");
+            }
+        }
+
+        private void cmdDeleteNote_Click(object sender, EventArgs e)
+        {
+            Int32 selectedRowCount =
+            dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount == 1)
+            {
+                string noteId = "";
+                DataGridViewRow r = this.dataGridView1.SelectedRows[0];
+                try 
+                {
+                     noteId = r.Cells[3].Value.ToString();
+                }
+                catch(Exception exc) 
+                {
+                    MessageBox.Show("Error:" + exc.Message);
+                
+                }
+              
+                if (databaseConUtilities.deleteNoteFromDB(noteId)) 
+                {
+                    MessageBox.Show("Note deleted successfully");
+
+                }
+                else 
+                {
+                    MessageBox.Show("Note did not deleted. Please try Again!");
+                
+                }
+
+                
+
+            }
+            else if (selectedRowCount < 1)
+            {
+                MessageBox.Show("Select a note to delete!");
+            }
+            else
+            {
+                MessageBox.Show("You have selected multiple notes. Please choose only one to delete");
+            }
+
         }
     }
 }

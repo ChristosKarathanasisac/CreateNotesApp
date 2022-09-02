@@ -38,9 +38,11 @@ namespace WriteNotesApplication
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.cmdBack);
             this.groupBox1.Controls.Add(this.cmdSave);
             this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.groupBox1.Location = new System.Drawing.Point(10, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -52,32 +54,36 @@ namespace WriteNotesApplication
             // 
             // cmdBack
             // 
-            this.cmdBack.Location = new System.Drawing.Point(4, 319);
+            this.cmdBack.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cmdBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.cmdBack.Location = new System.Drawing.Point(4, 320);
             this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(48, 21);
+            this.cmdBack.Size = new System.Drawing.Size(47, 20);
             this.cmdBack.TabIndex = 2;
             this.cmdBack.Text = "Back";
-            this.cmdBack.UseVisualStyleBackColor = true;
+            this.cmdBack.UseVisualStyleBackColor = false;
             this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // cmdSave
             // 
-            this.cmdSave.Location = new System.Drawing.Point(4, 185);
+            this.cmdSave.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cmdSave.Location = new System.Drawing.Point(4, 197);
             this.cmdSave.Margin = new System.Windows.Forms.Padding(2);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(56, 19);
+            this.cmdSave.Size = new System.Drawing.Size(56, 28);
             this.cmdSave.TabIndex = 1;
             this.cmdSave.Text = "Save";
-            this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.UseVisualStyleBackColor = false;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.richTextBox1.Location = new System.Drawing.Point(4, 17);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox1.Size = new System.Drawing.Size(573, 164);
+            this.richTextBox1.Size = new System.Drawing.Size(573, 176);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.UseWaitCursor = true;
@@ -86,6 +92,7 @@ namespace WriteNotesApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);

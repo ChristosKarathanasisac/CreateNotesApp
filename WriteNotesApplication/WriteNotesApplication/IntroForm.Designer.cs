@@ -42,6 +42,7 @@ namespace WriteNotesApplication
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.groupBox1.Controls.Add(this.btnCreateAccount);
             this.groupBox1.Controls.Add(this.btnLogIn);
             this.groupBox1.Controls.Add(this.txdPassword);
@@ -57,35 +58,39 @@ namespace WriteNotesApplication
             // 
             // btnCreateAccount
             // 
+            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnCreateAccount.Location = new System.Drawing.Point(267, 251);
             this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(195, 23);
+            this.btnCreateAccount.Size = new System.Drawing.Size(195, 29);
             this.btnCreateAccount.TabIndex = 6;
             this.btnCreateAccount.Text = "Don\'t Have Account? Create! ";
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // btnLogIn
             // 
+            this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.btnLogIn.Location = new System.Drawing.Point(317, 205);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(92, 23);
+            this.btnLogIn.Size = new System.Drawing.Size(92, 40);
             this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Log In";
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // txdPassword
             // 
-            this.txdPassword.Location = new System.Drawing.Point(334, 164);
+            this.txdPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txdPassword.Location = new System.Drawing.Point(345, 158);
             this.txdPassword.Name = "txdPassword";
             this.txdPassword.PasswordChar = '*';
-            this.txdPassword.Size = new System.Drawing.Size(195, 20);
+            this.txdPassword.Size = new System.Drawing.Size(195, 23);
             this.txdPassword.TabIndex = 4;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(334, 119);
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txtUserName.Location = new System.Drawing.Point(345, 113);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(195, 20);
+            this.txtUserName.Size = new System.Drawing.Size(195, 23);
             this.txtUserName.TabIndex = 3;
             // 
             // lblPasword
@@ -110,10 +115,10 @@ namespace WriteNotesApplication
             // 
             // lblWelcome
             // 
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 23.25F);
-            this.lblWelcome.Location = new System.Drawing.Point(156, 35);
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.25F);
+            this.lblWelcome.Location = new System.Drawing.Point(144, 35);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(461, 70);
+            this.lblWelcome.Size = new System.Drawing.Size(513, 70);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome to Notes Creation App\r\n";
             // 
@@ -121,10 +126,11 @@ namespace WriteNotesApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "IntroForm";
-            this.Text = "IntroForm";
+            this.Text = "Welcome";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntroForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

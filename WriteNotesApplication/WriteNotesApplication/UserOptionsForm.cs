@@ -57,5 +57,13 @@ namespace WriteNotesApplication
 
             Application.Exit();
         }
+
+        private void cmdChangeUserInfo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangeUserInfoForm changeUserInfoForm = new ChangeUserInfoForm(this.user);
+            changeUserInfoForm.ShowDialog();
+
+        }
     }
 }
