@@ -42,7 +42,7 @@ namespace WriteNotesApplication
             DataTable dtUser = new DataTable();
 
             string username = this.txtUserName.Text.Trim();
-            string password = appUtilities.PassWordEncrypt(this.txdPassword.Text.Trim());
+            string password = appUtilities.PassWordEncrypt(this.txtPassword.Text.Trim());
 
             dtUser = databaseConUtilities.getLoginUserDT(username, password);
 
@@ -70,6 +70,24 @@ namespace WriteNotesApplication
             {
                 MessageBox.Show("Wrong User Name or Password. Please try again!");
             
+            }
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (this.txtPassword.PasswordChar == '*')
+            {
+                btnHide.BringToFront();
+                this.txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            if (this.txtPassword.PasswordChar == '\0')
+            {
+                btnShow.BringToFront();
+                this.txtPassword.PasswordChar = '*';
             }
         }
     }

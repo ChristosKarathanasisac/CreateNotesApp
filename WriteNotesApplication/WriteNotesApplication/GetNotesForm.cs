@@ -141,7 +141,7 @@ namespace WriteNotesApplication
 
                 }
 
-                if (!string.IsNullOrWhiteSpace(note)) 
+                if (!string.IsNullOrEmpty(note) && !string.IsNullOrEmpty(noteId)) 
                 {
                     this.Hide();
                     ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note,noteId);
@@ -187,7 +187,7 @@ namespace WriteNotesApplication
                 
                 
 
-                if (!string.IsNullOrWhiteSpace(note))
+                if (!string.IsNullOrEmpty(note) && !string.IsNullOrEmpty(noteId))
                 {
                     this.Hide();
                     OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId);
@@ -222,20 +222,21 @@ namespace WriteNotesApplication
                     MessageBox.Show("Error:" + exc.Message);
                 
                 }
-              
-                if (databaseConUtilities.deleteNoteFromDB(noteId)) 
+
+                if(!string.IsNullOrEmpty(noteId))
                 {
-                    MessageBox.Show("Note deleted successfully");
+                    if (databaseConUtilities.deleteNoteFromDB(noteId))
+                    {
+                        MessageBox.Show("Note deleted successfully");
 
-                }
-                else 
-                {
-                    MessageBox.Show("Note did not deleted. Please try Again!");
-                
-                }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Note did not deleted. Please try Again!");
 
-                
+                    }
 
+                } 
             }
             else if (selectedRowCount < 1)
             {

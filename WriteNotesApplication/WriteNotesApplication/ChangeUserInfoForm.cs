@@ -247,5 +247,41 @@ namespace WriteNotesApplication
             
             }
         }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (this.txtPassWord.PasswordChar == '*')
+            {
+                btnHide.BringToFront();
+                txtPassWord.PasswordChar = '\0';
+            }
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            if (this.txtPassWord.PasswordChar == '\0')
+            {
+                btnShow.BringToFront();
+                txtPassWord.PasswordChar = '*';
+            }
+        }
+
+        private void cmdConShow_Click(object sender, EventArgs e)
+        {
+            if (this.txtConPassword.PasswordChar == '*')
+            {
+                cmdConHide.BringToFront();
+                txtConPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void cmdConHide_Click(object sender, EventArgs e)
+        {
+            if (this.txtConPassword.PasswordChar == '\0')
+            {
+                cmdConShow.BringToFront();
+                txtConPassword.PasswordChar = '*';
+            }
+        }
     }
 }

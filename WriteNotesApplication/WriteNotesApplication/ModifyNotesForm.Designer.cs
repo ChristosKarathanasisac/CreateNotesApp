@@ -29,6 +29,7 @@ namespace WriteNotesApplication
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyNotesForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
@@ -43,9 +44,11 @@ namespace WriteNotesApplication
             this.groupBox1.Controls.Add(this.cmdSave);
             this.groupBox1.Controls.Add(this.txtModifyNote);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(853, 340);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1137, 418);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modify your Note";
@@ -54,9 +57,10 @@ namespace WriteNotesApplication
             // 
             this.cmdBack.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.cmdBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.cmdBack.Location = new System.Drawing.Point(6, 303);
+            this.cmdBack.Location = new System.Drawing.Point(8, 373);
+            this.cmdBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(54, 23);
+            this.cmdBack.Size = new System.Drawing.Size(72, 28);
             this.cmdBack.TabIndex = 2;
             this.cmdBack.Text = "Back";
             this.cmdBack.UseVisualStyleBackColor = false;
@@ -65,9 +69,10 @@ namespace WriteNotesApplication
             // cmdSave
             // 
             this.cmdSave.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdSave.Location = new System.Drawing.Point(6, 253);
+            this.cmdSave.Location = new System.Drawing.Point(8, 311);
+            this.cmdSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(75, 29);
+            this.cmdSave.Size = new System.Drawing.Size(100, 36);
             this.cmdSave.TabIndex = 1;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = false;
@@ -77,21 +82,24 @@ namespace WriteNotesApplication
             // 
             this.txtModifyNote.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.txtModifyNote.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txtModifyNote.Location = new System.Drawing.Point(6, 19);
+            this.txtModifyNote.Location = new System.Drawing.Point(8, 23);
+            this.txtModifyNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtModifyNote.Name = "txtModifyNote";
-            this.txtModifyNote.Size = new System.Drawing.Size(813, 228);
+            this.txtModifyNote.Size = new System.Drawing.Size(1083, 280);
             this.txtModifyNote.TabIndex = 0;
             this.txtModifyNote.Text = "";
             // 
             // ModifyNotesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(877, 362);
+            this.ClientSize = new System.Drawing.Size(1169, 446);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ModifyNotesForm";
-            this.Text = "Modify Notes Form";
+            this.Text = "Create Notes";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
