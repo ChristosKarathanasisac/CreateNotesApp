@@ -155,5 +155,17 @@
   <ItemGroup>
     <None Include="imgs\logo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logowhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

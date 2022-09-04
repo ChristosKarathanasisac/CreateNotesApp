@@ -90,5 +90,7 @@ namespace WriteNotesApplication
                 this.txtPassword.PasswordChar = '*';
             }
         }
+
+        
     }
 }
