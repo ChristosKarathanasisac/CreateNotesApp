@@ -31,19 +31,21 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserOptionsForm));
             this.userOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.lblOptions = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmdChangeUserInfo = new System.Windows.Forms.Button();
             this.cmdLogOut = new System.Windows.Forms.Button();
             this.cmdSearhNote = new System.Windows.Forms.Button();
             this.cmdCreateNote = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblOptions = new System.Windows.Forms.Label();
             this.userOptionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // userOptionsGroupBox
             // 
-            this.userOptionsGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userOptionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userOptionsGroupBox.Controls.Add(this.lblOptions);
             this.userOptionsGroupBox.Controls.Add(this.pictureBox1);
             this.userOptionsGroupBox.Controls.Add(this.cmdChangeUserInfo);
@@ -58,6 +60,31 @@ namespace WriteNotesApplication
             this.userOptionsGroupBox.Size = new System.Drawing.Size(1044, 703);
             this.userOptionsGroupBox.TabIndex = 0;
             this.userOptionsGroupBox.TabStop = false;
+            // 
+            // lblOptions
+            // 
+            this.lblOptions.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblOptions.AutoSize = true;
+            this.lblOptions.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblOptions.Font = new System.Drawing.Font("Segoe Print", 20.8F, System.Drawing.FontStyle.Italic);
+            this.lblOptions.ForeColor = System.Drawing.Color.Black;
+            this.lblOptions.Location = new System.Drawing.Point(398, 487);
+            this.lblOptions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOptions.Name = "lblOptions";
+            this.lblOptions.Size = new System.Drawing.Size(162, 61);
+            this.lblOptions.TabIndex = 24;
+            this.lblOptions.Text = "Options";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.logowhite;
+            this.pictureBox1.Location = new System.Drawing.Point(176, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(685, 461);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // cmdChangeUserInfo
             // 
@@ -111,31 +138,6 @@ namespace WriteNotesApplication
             this.cmdCreateNote.Text = " New Note";
             this.cmdCreateNote.UseVisualStyleBackColor = false;
             this.cmdCreateNote.Click += new System.EventHandler(this.cmdCreateNote_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.logowhite;
-            this.pictureBox1.Location = new System.Drawing.Point(176, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(685, 461);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblOptions
-            // 
-            this.lblOptions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblOptions.AutoSize = true;
-            this.lblOptions.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblOptions.Font = new System.Drawing.Font("Segoe Print", 20.8F, System.Drawing.FontStyle.Italic);
-            this.lblOptions.ForeColor = System.Drawing.Color.Black;
-            this.lblOptions.Location = new System.Drawing.Point(398, 487);
-            this.lblOptions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOptions.Name = "lblOptions";
-            this.lblOptions.Size = new System.Drawing.Size(162, 61);
-            this.lblOptions.TabIndex = 24;
-            this.lblOptions.Text = "Options";
             // 
             // UserOptionsForm
             // 
