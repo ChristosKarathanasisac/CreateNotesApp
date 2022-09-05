@@ -20,16 +20,16 @@ namespace WriteNotesApplication
             return connString;
         }
 
-        public bool writeNoteToDB(string note,string userName)
+        public bool writeNoteToDB(string note,string noteTopic,string userName)
         {
             string userId = findUserId(userName);
 
             if (!string.IsNullOrEmpty(userId)) 
             {
                 
-                string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY)" +
+                string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION)" +
                                       " VALUES (" + userId + "," + "'" + note + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
-                                      + "', '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "')";
+                                      + "', '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','"+noteTopic+"')";
 
                 return insertToDB(sql2);
 
@@ -52,7 +52,7 @@ namespace WriteNotesApplication
 
             if (!string.IsNullOrWhiteSpace(userId)) 
             {
-                string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION FROM notes " +
                          "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                          "WHERE users.USER_ID = " + userId+
                          " ORDER BY NOTE_LASTMODIFY DESC";
@@ -78,7 +78,7 @@ namespace WriteNotesApplication
             {
                 if (!string.IsNullOrWhiteSpace(userId))
                 {
-                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION FROM notes " +
                                  "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                                  "WHERE users.USER_ID = " + userId +
                                  " AND NOTE_CREATION BETWEEN '" + fromDate + "' AND '" + toDate + "' "+
@@ -102,7 +102,7 @@ namespace WriteNotesApplication
             {
                 if (!string.IsNullOrWhiteSpace(userId))
                 {
-                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY FROM notes " +
+                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION FROM notes " +
                                  "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                                  "WHERE users.USER_ID = " + userId +
                                  " AND NOTE_LASTMODIFY BETWEEN '" + fromDate + "' AND '" + toDate + "'";
@@ -141,7 +141,7 @@ namespace WriteNotesApplication
 
             if (!string.IsNullOrWhiteSpace(userId))
             {
-                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_ID FROM notes " +
+                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_ID,NOTE_DESCRIPTION FROM notes " +
                          "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                          "WHERE users.USER_ID = " + userId + "AND NOTE LIKE '%"+ filertxt + "%' "+
                          "ORDER BY NOTE_LASTMODIFY DESC";
@@ -282,7 +282,17 @@ namespace WriteNotesApplication
                          "WHERE "+ credential+ "='" + value + "'";
 
             dt = null;
-            dt = getDataTableFromDB(sql);
+            try 
+            {
+                dt = getDataTableFromDB(sql);
+            }
+            catch(Exception exc) 
+            {
+
+            
+            }
+           
+            if(dt == null) { return false; }
             if (dt.DefaultView.Count>0) 
             {
                 return true;

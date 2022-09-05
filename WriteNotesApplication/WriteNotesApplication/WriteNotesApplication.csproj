@@ -170,5 +170,17 @@
   <ItemGroup>
     <None Include="Resources\smart. noteSingUp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smart. noteChangeUserInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_NewNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_NewNote %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\findNotes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

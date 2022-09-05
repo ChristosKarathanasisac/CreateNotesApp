@@ -103,7 +103,7 @@ namespace WriteNotesApplication
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.smart__noteSingUp;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 18);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 500);
@@ -115,7 +115,8 @@ namespace WriteNotesApplication
             // 
             this.cmdBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmdBack.BackColor = System.Drawing.SystemColors.ControlText;
-            this.cmdBack.Font = new System.Drawing.Font("Segoe Print", 6.8F, System.Drawing.FontStyle.Italic);
+            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdBack.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Italic);
             this.cmdBack.ForeColor = System.Drawing.SystemColors.Control;
             this.cmdBack.Location = new System.Drawing.Point(4, 664);
             this.cmdBack.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -129,9 +130,10 @@ namespace WriteNotesApplication
             // cmdRegister
             // 
             this.cmdRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdRegister.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdRegister.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cmdRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdRegister.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.cmdRegister.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmdRegister.Location = new System.Drawing.Point(530, 557);
             this.cmdRegister.Margin = new System.Windows.Forms.Padding(1);
             this.cmdRegister.Name = "cmdRegister";
@@ -144,9 +146,10 @@ namespace WriteNotesApplication
             // cmdConHide
             // 
             this.cmdConHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdConHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdConHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.cmdConHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.cmdConHide.Location = new System.Drawing.Point(917, 458);
+            this.cmdConHide.Location = new System.Drawing.Point(888, 456);
             this.cmdConHide.Margin = new System.Windows.Forms.Padding(1);
             this.cmdConHide.Name = "cmdConHide";
             this.cmdConHide.Size = new System.Drawing.Size(29, 26);
@@ -156,9 +159,10 @@ namespace WriteNotesApplication
             // cmdConShow
             // 
             this.cmdConShow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdConShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdConShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.cmdConShow.Image = global::WriteNotesApplication.Properties.Resources.show;
-            this.cmdConShow.Location = new System.Drawing.Point(890, 458);
+            this.cmdConShow.Location = new System.Drawing.Point(860, 456);
             this.cmdConShow.Margin = new System.Windows.Forms.Padding(1);
             this.cmdConShow.Name = "cmdConShow";
             this.cmdConShow.Size = new System.Drawing.Size(29, 26);
@@ -168,9 +172,10 @@ namespace WriteNotesApplication
             // btnHide
             // 
             this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.btnHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.btnHide.Location = new System.Drawing.Point(987, 391);
+            this.btnHide.Location = new System.Drawing.Point(951, 388);
             this.btnHide.Margin = new System.Windows.Forms.Padding(1);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(31, 26);
@@ -180,9 +185,10 @@ namespace WriteNotesApplication
             // btnShow
             // 
             this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.btnShow.Image = global::WriteNotesApplication.Properties.Resources.show;
-            this.btnShow.Location = new System.Drawing.Point(960, 391);
+            this.btnShow.Location = new System.Drawing.Point(923, 388);
             this.btnShow.Margin = new System.Windows.Forms.Padding(1);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(29, 26);
@@ -194,10 +200,10 @@ namespace WriteNotesApplication
             this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
-            this.txtUserName.Location = new System.Drawing.Point(776, 323);
+            this.txtUserName.Location = new System.Drawing.Point(731, 323);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(1);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(234, 26);
+            this.txtUserName.Size = new System.Drawing.Size(234, 21);
             this.txtUserName.TabIndex = 18;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
@@ -206,10 +212,10 @@ namespace WriteNotesApplication
             this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAddress.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
-            this.txtAddress.Location = new System.Drawing.Point(602, 259);
+            this.txtAddress.Location = new System.Drawing.Point(589, 259);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(1);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(182, 26);
+            this.txtAddress.Size = new System.Drawing.Size(182, 21);
             this.txtAddress.TabIndex = 17;
             // 
             // txtEmail
@@ -217,10 +223,10 @@ namespace WriteNotesApplication
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
-            this.txtEmail.Location = new System.Drawing.Point(592, 193);
+            this.txtEmail.Location = new System.Drawing.Point(581, 193);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(1);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(234, 26);
+            this.txtEmail.Size = new System.Drawing.Size(234, 21);
             this.txtEmail.TabIndex = 16;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -232,7 +238,7 @@ namespace WriteNotesApplication
             this.lblAddress.Location = new System.Drawing.Point(526, 259);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(1);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(76, 26);
+            this.lblAddress.Size = new System.Drawing.Size(61, 21);
             this.lblAddress.TabIndex = 15;
             this.lblAddress.Text = "Address:";
             // 
@@ -244,7 +250,7 @@ namespace WriteNotesApplication
             this.lblEmail.Location = new System.Drawing.Point(526, 193);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(1);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(66, 26);
+            this.lblEmail.Size = new System.Drawing.Size(53, 21);
             this.lblEmail.TabIndex = 14;
             this.lblEmail.Text = "Email*:";
             // 
@@ -256,7 +262,7 @@ namespace WriteNotesApplication
             this.lblPhone.Location = new System.Drawing.Point(525, 129);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(1);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(62, 26);
+            this.lblPhone.Size = new System.Drawing.Size(51, 21);
             this.lblPhone.TabIndex = 13;
             this.lblPhone.Text = "Phone:";
             // 
@@ -266,11 +272,11 @@ namespace WriteNotesApplication
             this.txtConPassword.BackColor = System.Drawing.SystemColors.Window;
             this.txtConPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConPassword.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
-            this.txtConPassword.Location = new System.Drawing.Point(697, 457);
+            this.txtConPassword.Location = new System.Drawing.Point(670, 458);
             this.txtConPassword.Margin = new System.Windows.Forms.Padding(1);
             this.txtConPassword.Name = "txtConPassword";
             this.txtConPassword.PasswordChar = '*';
-            this.txtConPassword.Size = new System.Drawing.Size(188, 26);
+            this.txtConPassword.Size = new System.Drawing.Size(188, 21);
             this.txtConPassword.TabIndex = 12;
             // 
             // txtPassWord
@@ -280,11 +286,11 @@ namespace WriteNotesApplication
             this.txtPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassWord.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
             this.txtPassWord.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPassWord.Location = new System.Drawing.Point(761, 391);
+            this.txtPassWord.Location = new System.Drawing.Point(722, 391);
             this.txtPassWord.Margin = new System.Windows.Forms.Padding(1);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '*';
-            this.txtPassWord.Size = new System.Drawing.Size(199, 26);
+            this.txtPassWord.Size = new System.Drawing.Size(199, 21);
             this.txtPassWord.TabIndex = 11;
             this.txtPassWord.TextChanged += new System.EventHandler(this.txtPassWord_TextChanged);
             // 
@@ -293,10 +299,10 @@ namespace WriteNotesApplication
             this.txtPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
-            this.txtPhone.Location = new System.Drawing.Point(586, 129);
+            this.txtPhone.Location = new System.Drawing.Point(577, 129);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(1);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(182, 26);
+            this.txtPhone.Size = new System.Drawing.Size(182, 21);
             this.txtPhone.TabIndex = 10;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
@@ -308,8 +314,8 @@ namespace WriteNotesApplication
             this.txtLastName.Location = new System.Drawing.Point(764, 43);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(1);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(182, 26);
-            this.txtLastName.TabIndex = 3;
+            this.txtLastName.Size = new System.Drawing.Size(182, 21);
+            this.txtLastName.TabIndex = 4;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // txtFirstName
@@ -317,10 +323,10 @@ namespace WriteNotesApplication
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
-            this.txtFirstName.Location = new System.Drawing.Point(592, 43);
+            this.txtFirstName.Location = new System.Drawing.Point(577, 43);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(1);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(152, 26);
+            this.txtFirstName.Size = new System.Drawing.Size(152, 21);
             this.txtFirstName.TabIndex = 3;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
@@ -331,7 +337,7 @@ namespace WriteNotesApplication
             this.lblFLastName.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
             this.lblFLastName.Location = new System.Drawing.Point(774, 71);
             this.lblFLastName.Name = "lblFLastName";
-            this.lblFLastName.Size = new System.Drawing.Size(93, 26);
+            this.lblFLastName.Size = new System.Drawing.Size(76, 21);
             this.lblFLastName.TabIndex = 7;
             this.lblFLastName.Text = "Last Name";
             // 
@@ -342,7 +348,7 @@ namespace WriteNotesApplication
             this.lblFirstName.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
             this.lblFirstName.Location = new System.Drawing.Point(594, 71);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(96, 26);
+            this.lblFirstName.Size = new System.Drawing.Size(77, 21);
             this.lblFirstName.TabIndex = 6;
             this.lblFirstName.Text = "First Name";
             // 
@@ -354,7 +360,7 @@ namespace WriteNotesApplication
             this.lblConPassword.Location = new System.Drawing.Point(525, 457);
             this.lblConPassword.Margin = new System.Windows.Forms.Padding(1);
             this.lblConPassword.Name = "lblConPassword";
-            this.lblConPassword.Size = new System.Drawing.Size(176, 30);
+            this.lblConPassword.Size = new System.Drawing.Size(143, 24);
             this.lblConPassword.TabIndex = 5;
             this.lblConPassword.Text = "Confirm Password:";
             // 
@@ -366,7 +372,7 @@ namespace WriteNotesApplication
             this.lblPassword.Location = new System.Drawing.Point(526, 391);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(1);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(241, 26);
+            this.lblPassword.Size = new System.Drawing.Size(194, 21);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password* (6-30 characters):";
             // 
@@ -378,7 +384,7 @@ namespace WriteNotesApplication
             this.lblUserName.Location = new System.Drawing.Point(526, 323);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(1);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(254, 26);
+            this.lblUserName.Size = new System.Drawing.Size(203, 21);
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "User Name* (8-20 characters):";
             // 
@@ -390,13 +396,13 @@ namespace WriteNotesApplication
             this.lblName.Location = new System.Drawing.Point(526, 43);
             this.lblName.Margin = new System.Windows.Forms.Padding(1);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(68, 26);
+            this.lblName.Size = new System.Drawing.Size(55, 21);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name*:";
             // 
             // RegistrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1066, 727);

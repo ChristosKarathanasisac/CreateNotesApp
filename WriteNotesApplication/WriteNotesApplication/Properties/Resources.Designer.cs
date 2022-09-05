@@ -63,6 +63,36 @@ namespace WriteNotesApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _NewNote {
+            get {
+                object obj = ResourceManager.GetObject("_NewNote", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _NewNote__2_ {
+            get {
+                object obj = ResourceManager.GetObject("_NewNote (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap findNotes {
+            get {
+                object obj = ResourceManager.GetObject("findNotes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hide {
             get {
                 object obj = ResourceManager.GetObject("hide", resourceCulture);
@@ -96,6 +126,16 @@ namespace WriteNotesApplication.Properties {
         internal static System.Drawing.Bitmap show {
             get {
                 object obj = ResourceManager.GetObject("show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smart__noteChangeUserInfo {
+            get {
+                object obj = ResourceManager.GetObject("smart. noteChangeUserInfo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

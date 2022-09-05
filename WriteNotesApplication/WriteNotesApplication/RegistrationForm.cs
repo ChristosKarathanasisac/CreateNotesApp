@@ -129,6 +129,8 @@ namespace WriteNotesApplication
 
         private bool checkIfPhoneIsValid() 
         {
+            if (string.IsNullOrEmpty(this.txtPhone.Text.Trim())){ return true; }
+
             bool flag = appUtilities.IsValidPhoneNumber(this.txtPhone.Text.Trim());
             if (flag)
             {

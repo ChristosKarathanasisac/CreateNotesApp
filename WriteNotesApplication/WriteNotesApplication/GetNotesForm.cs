@@ -19,6 +19,10 @@ namespace WriteNotesApplication
         {
             InitializeComponent();
             this.user = aUser;
+            this.dateTimePickerFromDateC.Value = DateTime.Now;
+            this.dateTimePickerToDateC.Value = DateTime.Now;
+            this.dateTimePickerFromDateM.Value = DateTime.Now;
+            this.dateTimePickerToDateM.Value = DateTime.Now;
         }
 
         private void cmdGetAllNotes_Click(object sender, EventArgs e)
@@ -131,8 +135,8 @@ namespace WriteNotesApplication
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 try
                 {
-                    noteId = r.Cells[3].Value.ToString();
-                    note = r.Cells[0].Value.ToString();
+                    noteId = r.Cells["NOTE_ID"].Value.ToString();
+                    note = r.Cells["NOTE"].Value.ToString();
 
                 }
                 catch (Exception exc)
@@ -174,8 +178,8 @@ namespace WriteNotesApplication
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 try
                 {
-                    noteId = r.Cells[3].Value.ToString();
-                    note = r.Cells[0].Value.ToString();
+                    noteId = r.Cells["NOTE_ID"].Value.ToString();
+                    note = r.Cells["NOTE"].Value.ToString();
                     
                 }
                 catch (Exception exc)
@@ -215,7 +219,7 @@ namespace WriteNotesApplication
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 try 
                 {
-                     noteId = r.Cells[3].Value.ToString();
+                     noteId = r.Cells["NOTE_ID"].Value.ToString();
                 }
                 catch(Exception exc) 
                 {
@@ -248,5 +252,6 @@ namespace WriteNotesApplication
             }
 
         }
+
     }
 }

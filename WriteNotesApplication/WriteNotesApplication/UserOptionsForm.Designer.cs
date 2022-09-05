@@ -68,10 +68,9 @@ namespace WriteNotesApplication
             this.lblOptions.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblOptions.Font = new System.Drawing.Font("Segoe Print", 20.8F, System.Drawing.FontStyle.Italic);
             this.lblOptions.ForeColor = System.Drawing.Color.Black;
-            this.lblOptions.Location = new System.Drawing.Point(398, 487);
-            this.lblOptions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOptions.Location = new System.Drawing.Point(429, 462);
             this.lblOptions.Name = "lblOptions";
-            this.lblOptions.Size = new System.Drawing.Size(162, 61);
+            this.lblOptions.Size = new System.Drawing.Size(131, 49);
             this.lblOptions.TabIndex = 24;
             this.lblOptions.Text = "Options";
             // 
@@ -80,21 +79,23 @@ namespace WriteNotesApplication
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.logowhite;
-            this.pictureBox1.Location = new System.Drawing.Point(176, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(263, 81);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(685, 461);
+            this.pictureBox1.Size = new System.Drawing.Size(514, 375);
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
             // cmdChangeUserInfo
             // 
+            this.cmdChangeUserInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdChangeUserInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdChangeUserInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdChangeUserInfo.Font = new System.Drawing.Font("Segoe Print", 11.8F, System.Drawing.FontStyle.Italic);
             this.cmdChangeUserInfo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdChangeUserInfo.Location = new System.Drawing.Point(519, 552);
-            this.cmdChangeUserInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdChangeUserInfo.Location = new System.Drawing.Point(520, 514);
             this.cmdChangeUserInfo.Name = "cmdChangeUserInfo";
-            this.cmdChangeUserInfo.Size = new System.Drawing.Size(229, 42);
+            this.cmdChangeUserInfo.Size = new System.Drawing.Size(172, 41);
             this.cmdChangeUserInfo.TabIndex = 7;
             this.cmdChangeUserInfo.Text = "Change User Info";
             this.cmdChangeUserInfo.UseVisualStyleBackColor = false;
@@ -102,12 +103,13 @@ namespace WriteNotesApplication
             // 
             // cmdLogOut
             // 
+            this.cmdLogOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdLogOut.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdLogOut.Font = new System.Drawing.Font("Segoe Print", 11.8F, System.Drawing.FontStyle.Italic);
-            this.cmdLogOut.Location = new System.Drawing.Point(519, 627);
-            this.cmdLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdLogOut.Location = new System.Drawing.Point(520, 575);
             this.cmdLogOut.Name = "cmdLogOut";
-            this.cmdLogOut.Size = new System.Drawing.Size(229, 46);
+            this.cmdLogOut.Size = new System.Drawing.Size(172, 41);
             this.cmdLogOut.TabIndex = 6;
             this.cmdLogOut.Text = "Log Out";
             this.cmdLogOut.UseVisualStyleBackColor = false;
@@ -115,12 +117,13 @@ namespace WriteNotesApplication
             // 
             // cmdSearhNote
             // 
+            this.cmdSearhNote.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdSearhNote.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdSearhNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSearhNote.Font = new System.Drawing.Font("Segoe Print", 11.8F, System.Drawing.FontStyle.Italic);
-            this.cmdSearhNote.Location = new System.Drawing.Point(282, 627);
-            this.cmdSearhNote.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdSearhNote.Location = new System.Drawing.Point(343, 575);
             this.cmdSearhNote.Name = "cmdSearhNote";
-            this.cmdSearhNote.Size = new System.Drawing.Size(229, 46);
+            this.cmdSearhNote.Size = new System.Drawing.Size(172, 41);
             this.cmdSearhNote.TabIndex = 3;
             this.cmdSearhNote.Text = "Search Note";
             this.cmdSearhNote.UseVisualStyleBackColor = false;
@@ -128,12 +131,13 @@ namespace WriteNotesApplication
             // 
             // cmdCreateNote
             // 
+            this.cmdCreateNote.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdCreateNote.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdCreateNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdCreateNote.Font = new System.Drawing.Font("Segoe Print", 11.8F, System.Drawing.FontStyle.Italic);
-            this.cmdCreateNote.Location = new System.Drawing.Point(282, 552);
-            this.cmdCreateNote.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdCreateNote.Location = new System.Drawing.Point(343, 514);
             this.cmdCreateNote.Name = "cmdCreateNote";
-            this.cmdCreateNote.Size = new System.Drawing.Size(229, 42);
+            this.cmdCreateNote.Size = new System.Drawing.Size(172, 41);
             this.cmdCreateNote.TabIndex = 0;
             this.cmdCreateNote.Text = " New Note";
             this.cmdCreateNote.UseVisualStyleBackColor = false;
@@ -141,7 +145,7 @@ namespace WriteNotesApplication
             // 
             // UserOptionsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -150,7 +154,6 @@ namespace WriteNotesApplication
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserOptionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Notes";

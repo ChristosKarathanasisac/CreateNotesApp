@@ -25,6 +25,21 @@ namespace WriteNotesApplication
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
+            string noteTopic = this.txtNoteTopic.Text.Trim();
+            if (string.IsNullOrEmpty(noteTopic)) 
+            {
+                this.txtNoteTopic.BackColor = Color.Red;
+                MessageBox.Show("Please add a note topic to continue!");
+                return;
+            
+            }
+            if(noteTopic.Length > 40) 
+            {
+                MessageBox.Show("The Topic is too long");
+                this.txtNoteTopic.BackColor = Color.Red;
+                return;
+
+            }
 
             string note = this.richTextBox1.Text;
             if (string.IsNullOrEmpty(note)) 
@@ -32,9 +47,10 @@ namespace WriteNotesApplication
                 MessageBox.Show("Write a note and try again");
                 return;
             }
-            if (this.dbUtilities.writeNoteToDB(note,user.UserName.ToString())) 
+            if (this.dbUtilities.writeNoteToDB(note,noteTopic,user.UserName.ToString())) 
             {
                 this.richTextBox1.Clear();
+                this.txtNoteTopic.Clear();
                 MessageBox.Show("Your note has added successfully");
                 
             }
@@ -65,6 +81,15 @@ namespace WriteNotesApplication
             Application.Exit();
 
         
+        }
+
+        private void txtNoteTopic_TextChanged(object sender, EventArgs e)
+        {
+            if(this.txtNoteTopic.BackColor == Color.Red) 
+            {
+                this.txtNoteTopic.BackColor = Color.White;
+            
+            }
         }
     }
 }

@@ -30,6 +30,10 @@ namespace WriteNotesApplication
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GetNotesForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmdDeleteNote = new System.Windows.Forms.Button();
@@ -50,20 +54,27 @@ namespace WriteNotesApplication
             this.textFilterNote = new System.Windows.Forms.TextBox();
             this.cmdGetAllNotes = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NOTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.NOTE_DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE_CREATION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE_LASTMODIFY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.cmdDeleteNote);
             this.groupBox1.Controls.Add(this.cmdOpenNote);
             this.groupBox1.Controls.Add(this.cmdModifyNote);
@@ -82,22 +93,24 @@ namespace WriteNotesApplication
             this.groupBox1.Controls.Add(this.textFilterNote);
             this.groupBox1.Controls.Add(this.cmdGetAllNotes);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
             this.groupBox1.Location = new System.Drawing.Point(0, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1080, 687);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(1104, 745);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // cmdDeleteNote
             // 
-            this.cmdDeleteNote.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdDeleteNote.Location = new System.Drawing.Point(849, 351);
-            this.cmdDeleteNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdDeleteNote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdDeleteNote.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDeleteNote.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdDeleteNote.Location = new System.Drawing.Point(907, 277);
             this.cmdDeleteNote.Name = "cmdDeleteNote";
-            this.cmdDeleteNote.Size = new System.Drawing.Size(165, 39);
+            this.cmdDeleteNote.Size = new System.Drawing.Size(134, 32);
             this.cmdDeleteNote.TabIndex = 20;
             this.cmdDeleteNote.Text = "Delete Note";
             this.cmdDeleteNote.UseVisualStyleBackColor = false;
@@ -105,11 +118,13 @@ namespace WriteNotesApplication
             // 
             // cmdOpenNote
             // 
-            this.cmdOpenNote.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdOpenNote.Location = new System.Drawing.Point(513, 351);
-            this.cmdOpenNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdOpenNote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdOpenNote.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdOpenNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOpenNote.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdOpenNote.Location = new System.Drawing.Point(619, 277);
             this.cmdOpenNote.Name = "cmdOpenNote";
-            this.cmdOpenNote.Size = new System.Drawing.Size(160, 39);
+            this.cmdOpenNote.Size = new System.Drawing.Size(147, 32);
             this.cmdOpenNote.TabIndex = 19;
             this.cmdOpenNote.Text = "Open Full Note";
             this.cmdOpenNote.UseVisualStyleBackColor = false;
@@ -117,11 +132,13 @@ namespace WriteNotesApplication
             // 
             // cmdModifyNote
             // 
-            this.cmdModifyNote.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdModifyNote.Location = new System.Drawing.Point(681, 351);
-            this.cmdModifyNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdModifyNote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdModifyNote.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdModifyNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdModifyNote.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdModifyNote.Location = new System.Drawing.Point(770, 277);
             this.cmdModifyNote.Name = "cmdModifyNote";
-            this.cmdModifyNote.Size = new System.Drawing.Size(160, 39);
+            this.cmdModifyNote.Size = new System.Drawing.Size(131, 32);
             this.cmdModifyNote.TabIndex = 18;
             this.cmdModifyNote.Text = "Modify Note";
             this.cmdModifyNote.UseVisualStyleBackColor = false;
@@ -129,52 +146,55 @@ namespace WriteNotesApplication
             // 
             // dateTimePickerToDateM
             // 
-            this.dateTimePickerToDateM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.dateTimePickerToDateM.Location = new System.Drawing.Point(717, 497);
-            this.dateTimePickerToDateM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerToDateM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerToDateM.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
+            this.dateTimePickerToDateM.Location = new System.Drawing.Point(758, 576);
             this.dateTimePickerToDateM.Name = "dateTimePickerToDateM";
-            this.dateTimePickerToDateM.Size = new System.Drawing.Size(355, 27);
+            this.dateTimePickerToDateM.Size = new System.Drawing.Size(292, 28);
             this.dateTimePickerToDateM.TabIndex = 17;
             // 
             // dateTimePickerFromDateM
             // 
-            this.dateTimePickerFromDateM.Location = new System.Drawing.Point(279, 498);
-            this.dateTimePickerFromDateM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFromDateM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerFromDateM.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
+            this.dateTimePickerFromDateM.Location = new System.Drawing.Point(758, 548);
             this.dateTimePickerFromDateM.Name = "dateTimePickerFromDateM";
-            this.dateTimePickerFromDateM.Size = new System.Drawing.Size(344, 27);
+            this.dateTimePickerFromDateM.Size = new System.Drawing.Size(292, 28);
             this.dateTimePickerFromDateM.TabIndex = 16;
             this.dateTimePickerFromDateM.Value = new System.DateTime(2022, 9, 3, 0, 0, 0, 0);
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label2.Location = new System.Drawing.Point(631, 497);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.label2.Location = new System.Drawing.Point(675, 576);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 22);
+            this.label2.Size = new System.Drawing.Size(70, 24);
             this.label2.TabIndex = 15;
             this.label2.Text = "To Date:";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(179, 498);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.label1.Location = new System.Drawing.Point(669, 552);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 22);
+            this.label1.Size = new System.Drawing.Size(90, 24);
             this.label1.TabIndex = 14;
             this.label1.Text = "From Date:";
             // 
             // cmdFilterDateM
             // 
-            this.cmdFilterDateM.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdFilterDateM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmdFilterDateM.Location = new System.Drawing.Point(15, 474);
-            this.cmdFilterDateM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmdFilterDateM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdFilterDateM.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdFilterDateM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdFilterDateM.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdFilterDateM.Location = new System.Drawing.Point(414, 552);
+            this.cmdFilterDateM.Margin = new System.Windows.Forms.Padding(2);
             this.cmdFilterDateM.Name = "cmdFilterDateM";
-            this.cmdFilterDateM.Size = new System.Drawing.Size(157, 85);
+            this.cmdFilterDateM.Size = new System.Drawing.Size(241, 43);
             this.cmdFilterDateM.TabIndex = 13;
             this.cmdFilterDateM.Text = "Filter With Last Modify Date";
             this.cmdFilterDateM.UseVisualStyleBackColor = false;
@@ -182,77 +202,86 @@ namespace WriteNotesApplication
             // 
             // cmdFilterText
             // 
-            this.cmdFilterText.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdFilterText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmdFilterText.Location = new System.Drawing.Point(15, 564);
-            this.cmdFilterText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmdFilterText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdFilterText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdFilterText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdFilterText.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdFilterText.Location = new System.Drawing.Point(414, 364);
+            this.cmdFilterText.Margin = new System.Windows.Forms.Padding(2);
             this.cmdFilterText.Name = "cmdFilterText";
-            this.cmdFilterText.Size = new System.Drawing.Size(183, 49);
+            this.cmdFilterText.Size = new System.Drawing.Size(174, 40);
             this.cmdFilterText.TabIndex = 11;
-            this.cmdFilterText.Text = "Filter With Text";
+            this.cmdFilterText.Text = "Filter With Text:";
             this.cmdFilterText.UseVisualStyleBackColor = false;
             this.cmdFilterText.Click += new System.EventHandler(this.cmdFilterText_Click);
             // 
             // dateTimePickerToDateC
             // 
-            this.dateTimePickerToDateC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.dateTimePickerToDateC.Location = new System.Drawing.Point(717, 416);
-            this.dateTimePickerToDateC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerToDateC.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerToDateC.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
+            this.dateTimePickerToDateC.Location = new System.Drawing.Point(756, 488);
             this.dateTimePickerToDateC.Name = "dateTimePickerToDateC";
-            this.dateTimePickerToDateC.Size = new System.Drawing.Size(355, 27);
+            this.dateTimePickerToDateC.Size = new System.Drawing.Size(292, 28);
             this.dateTimePickerToDateC.TabIndex = 10;
             // 
             // dateTimePickerFromDateC
             // 
-            this.dateTimePickerFromDateC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.dateTimePickerFromDateC.Location = new System.Drawing.Point(279, 416);
-            this.dateTimePickerFromDateC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFromDateC.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerFromDateC.CalendarMonthBackground = System.Drawing.SystemColors.MenuBar;
+            this.dateTimePickerFromDateC.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateTimePickerFromDateC.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
+            this.dateTimePickerFromDateC.Location = new System.Drawing.Point(756, 460);
             this.dateTimePickerFromDateC.Name = "dateTimePickerFromDateC";
-            this.dateTimePickerFromDateC.Size = new System.Drawing.Size(344, 27);
+            this.dateTimePickerFromDateC.Size = new System.Drawing.Size(292, 28);
             this.dateTimePickerFromDateC.TabIndex = 9;
-            this.dateTimePickerFromDateC.Value = new System.DateTime(2022, 9, 3, 0, 0, 0, 0);
+            this.dateTimePickerFromDateC.Value = new System.DateTime(2022, 9, 5, 0, 0, 0, 0);
             // 
             // lblToDate
             // 
+            this.lblToDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblToDate.AutoSize = true;
-            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lblToDate.Location = new System.Drawing.Point(631, 416);
-            this.lblToDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblToDate.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.lblToDate.Location = new System.Drawing.Point(669, 488);
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(80, 22);
+            this.lblToDate.Size = new System.Drawing.Size(70, 24);
             this.lblToDate.TabIndex = 8;
             this.lblToDate.Text = "To Date:";
             // 
             // lblFromDate
             // 
+            this.lblFromDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lblFromDate.Location = new System.Drawing.Point(179, 416);
-            this.lblFromDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFromDate.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.lblFromDate.Location = new System.Drawing.Point(660, 464);
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(99, 22);
+            this.lblFromDate.Size = new System.Drawing.Size(90, 24);
             this.lblFromDate.TabIndex = 7;
             this.lblFromDate.Text = "From Date:";
             // 
             // cmdBack
             // 
-            this.cmdBack.Location = new System.Drawing.Point(15, 631);
-            this.cmdBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdBack.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdBack.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Italic);
+            this.cmdBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdBack.Location = new System.Drawing.Point(16, 683);
             this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(67, 30);
+            this.cmdBack.Size = new System.Drawing.Size(60, 33);
             this.cmdBack.TabIndex = 4;
             this.cmdBack.Text = "Back";
-            this.cmdBack.UseVisualStyleBackColor = true;
+            this.cmdBack.UseVisualStyleBackColor = false;
             this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // cmdFilterDateC
             // 
-            this.cmdFilterDateC.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdFilterDateC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmdFilterDateC.Location = new System.Drawing.Point(15, 395);
-            this.cmdFilterDateC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmdFilterDateC.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdFilterDateC.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdFilterDateC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdFilterDateC.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdFilterDateC.Location = new System.Drawing.Point(414, 464);
+            this.cmdFilterDateC.Margin = new System.Windows.Forms.Padding(2);
             this.cmdFilterDateC.Name = "cmdFilterDateC";
-            this.cmdFilterDateC.Size = new System.Drawing.Size(157, 74);
+            this.cmdFilterDateC.Size = new System.Drawing.Size(228, 38);
             this.cmdFilterDateC.TabIndex = 3;
             this.cmdFilterDateC.Text = "Filter With Creation Date";
             this.cmdFilterDateC.UseVisualStyleBackColor = false;
@@ -260,21 +289,24 @@ namespace WriteNotesApplication
             // 
             // textFilterNote
             // 
-            this.textFilterNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.textFilterNote.Location = new System.Drawing.Point(203, 576);
-            this.textFilterNote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textFilterNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textFilterNote.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.textFilterNote.Location = new System.Drawing.Point(592, 372);
+            this.textFilterNote.Margin = new System.Windows.Forms.Padding(2);
             this.textFilterNote.Name = "textFilterNote";
-            this.textFilterNote.Size = new System.Drawing.Size(360, 25);
+            this.textFilterNote.Size = new System.Drawing.Size(271, 26);
             this.textFilterNote.TabIndex = 2;
             // 
             // cmdGetAllNotes
             // 
-            this.cmdGetAllNotes.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.cmdGetAllNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmdGetAllNotes.Location = new System.Drawing.Point(15, 343);
-            this.cmdGetAllNotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmdGetAllNotes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdGetAllNotes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdGetAllNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdGetAllNotes.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.cmdGetAllNotes.Location = new System.Drawing.Point(414, 274);
+            this.cmdGetAllNotes.Margin = new System.Windows.Forms.Padding(2);
             this.cmdGetAllNotes.Name = "cmdGetAllNotes";
-            this.cmdGetAllNotes.Size = new System.Drawing.Size(183, 47);
+            this.cmdGetAllNotes.Size = new System.Drawing.Size(137, 38);
             this.cmdGetAllNotes.TabIndex = 1;
             this.cmdGetAllNotes.Text = "Get All notes";
             this.cmdGetAllNotes.UseVisualStyleBackColor = false;
@@ -283,23 +315,90 @@ namespace WriteNotesApplication
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NOTE,
+            this.NOTE_DESCRIPTION,
             this.NOTE_CREATION,
             this.NOTE_LASTMODIFY,
+            this.NOTE,
             this.NOTE_ID});
             this.dataGridView1.DataSource = this.bindingSource1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 21);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 14);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1059, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(1039, 219);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.findNotes;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 238);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(387, 439);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // NOTE_DESCRIPTION
+            // 
+            this.NOTE_DESCRIPTION.DataPropertyName = "NOTE_DESCRIPTION";
+            this.NOTE_DESCRIPTION.HeaderText = "NOTE TOPIC";
+            this.NOTE_DESCRIPTION.Name = "NOTE_DESCRIPTION";
+            this.NOTE_DESCRIPTION.ReadOnly = true;
+            this.NOTE_DESCRIPTION.Width = 300;
+            // 
+            // NOTE_CREATION
+            // 
+            this.NOTE_CREATION.DataPropertyName = "NOTE_CREATION";
+            this.NOTE_CREATION.HeaderText = "CREATED AT";
+            this.NOTE_CREATION.MinimumWidth = 6;
+            this.NOTE_CREATION.Name = "NOTE_CREATION";
+            this.NOTE_CREATION.ReadOnly = true;
+            this.NOTE_CREATION.Width = 145;
+            // 
+            // NOTE_LASTMODIFY
+            // 
+            this.NOTE_LASTMODIFY.DataPropertyName = "NOTE_LASTMODIFY";
+            this.NOTE_LASTMODIFY.HeaderText = "MODIFIED AT";
+            this.NOTE_LASTMODIFY.MinimumWidth = 6;
+            this.NOTE_LASTMODIFY.Name = "NOTE_LASTMODIFY";
+            this.NOTE_LASTMODIFY.ReadOnly = true;
+            this.NOTE_LASTMODIFY.Width = 145;
             // 
             // NOTE
             // 
@@ -309,25 +408,7 @@ namespace WriteNotesApplication
             this.NOTE.MinimumWidth = 6;
             this.NOTE.Name = "NOTE";
             this.NOTE.ReadOnly = true;
-            this.NOTE.Width = 539;
-            // 
-            // NOTE_CREATION
-            // 
-            this.NOTE_CREATION.DataPropertyName = "NOTE_CREATION";
-            this.NOTE_CREATION.HeaderText = "CREATED AT";
-            this.NOTE_CREATION.MinimumWidth = 6;
-            this.NOTE_CREATION.Name = "NOTE_CREATION";
-            this.NOTE_CREATION.ReadOnly = true;
-            this.NOTE_CREATION.Width = 125;
-            // 
-            // NOTE_LASTMODIFY
-            // 
-            this.NOTE_LASTMODIFY.DataPropertyName = "NOTE_LASTMODIFY";
-            this.NOTE_LASTMODIFY.HeaderText = "MODIFIED AT";
-            this.NOTE_LASTMODIFY.MinimumWidth = 6;
-            this.NOTE_LASTMODIFY.Name = "NOTE_LASTMODIFY";
-            this.NOTE_LASTMODIFY.ReadOnly = true;
-            this.NOTE_LASTMODIFY.Width = 125;
+            this.NOTE.Width = 395;
             // 
             // NOTE_ID
             // 
@@ -337,24 +418,26 @@ namespace WriteNotesApplication
             this.NOTE_ID.Name = "NOTE_ID";
             this.NOTE_ID.ReadOnly = true;
             this.NOTE_ID.Visible = false;
-            this.NOTE_ID.Width = 125;
+            this.NOTE_ID.Width = 385;
             // 
             // GetNotesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1093, 678);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(1066, 727);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GetNotesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Notes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GetNotesForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -382,10 +465,12 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Button cmdFilterDateM;
         private System.Windows.Forms.Button cmdModifyNote;
         private System.Windows.Forms.Button cmdOpenNote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOTE;
+        private System.Windows.Forms.Button cmdDeleteNote;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_DESCRIPTION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_CREATION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_LASTMODIFY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_ID;
-        private System.Windows.Forms.Button cmdDeleteNote;
     }
 }
