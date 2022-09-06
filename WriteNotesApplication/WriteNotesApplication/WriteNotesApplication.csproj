@@ -182,5 +182,11 @@
   <ItemGroup>
     <None Include="Resources\findNotes.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modifyNote.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

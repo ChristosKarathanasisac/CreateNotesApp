@@ -175,12 +175,14 @@ namespace WriteNotesApplication
             {
                 string noteId = "";
                 string note = "";
+                string noteTopic = "";
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 try
                 {
                     noteId = r.Cells["NOTE_ID"].Value.ToString();
                     note = r.Cells["NOTE"].Value.ToString();
-                    
+                    noteTopic = r.Cells["NOTE_DESCRIPTION"].Value.ToString();
+
                 }
                 catch (Exception exc)
                 {
@@ -194,7 +196,7 @@ namespace WriteNotesApplication
                 if (!string.IsNullOrEmpty(note) && !string.IsNullOrEmpty(noteId))
                 {
                     this.Hide();
-                    OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId);
+                    OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId,noteTopic);
                     openFullNoteForm.ShowDialog();
                 }
 

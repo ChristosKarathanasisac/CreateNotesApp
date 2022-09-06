@@ -17,13 +17,16 @@ namespace WriteNotesApplication
         private string note;
         private User user;
         private string noteId;
+        private string noteTopic;
 
-        public OpenFullNoteForm(User aUser, string aNote, string noteId)
+        public OpenFullNoteForm(User aUser, string aNote, string aNoteId,string aNoteTopic)
         {
             InitializeComponent();
             this.note = aNote;
             this.user = aUser;
-            this.noteId = noteId;
+            this.noteId = aNoteId;
+            this.noteTopic = aNoteTopic;
+            this.txtNoteTopic.Text = this.noteTopic;
             this.txtNote.Text = this.note;
         }
 

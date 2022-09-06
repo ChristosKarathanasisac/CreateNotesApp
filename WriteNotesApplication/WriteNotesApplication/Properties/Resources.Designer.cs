@@ -123,9 +123,29 @@ namespace WriteNotesApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap modifyNote {
+            get {
+                object obj = ResourceManager.GetObject("modifyNote", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap show {
             get {
                 object obj = ResourceManager.GetObject("show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowNote {
+            get {
+                object obj = ResourceManager.GetObject("ShowNote", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
