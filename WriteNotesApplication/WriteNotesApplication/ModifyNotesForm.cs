@@ -15,14 +15,17 @@ namespace WriteNotesApplication
         private string note;
         private User user;
         private string noteId;
+        private string noteTopic;
 
         DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
-        public ModifyNotesForm(User user, string note,string noteId)
+        public ModifyNotesForm(User user, string note,string noteId,string noteTopic)
         {
             InitializeComponent();
             this.note = note;
             this.user = user;
             this.noteId = noteId;
+            this.noteTopic = noteTopic;
+            this.txtNoteTopic.Text = this.noteTopic;
             this.txtModifyNote.Text = note;
         }
 
@@ -62,6 +65,11 @@ namespace WriteNotesApplication
             this.Hide();
             GetNotesForm getNotesForm = new GetNotesForm(user);
             getNotesForm.ShowDialog();
+        }
+
+        private void ModifyNotesForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -40,8 +40,13 @@ namespace WriteNotesApplication
         private void cmdModify_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user,this.note,this.noteId);
+            ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user,this.note,this.noteId,this.noteTopic);
             modifyNotesForm.ShowDialog();
+        }
+
+        private void OpenFullNoteForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
