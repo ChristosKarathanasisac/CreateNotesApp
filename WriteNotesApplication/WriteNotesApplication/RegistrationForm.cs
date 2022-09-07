@@ -36,6 +36,12 @@ namespace WriteNotesApplication
                 MessageBox.Show("New User Added Successfully. Log in to use the app");
                 this.Hide();
                 IntroForm introForm = new IntroForm();
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    introForm.WindowState = FormWindowState.Maximized;
+                    
+                }
+                introForm.StartPosition = FormStartPosition.CenterScreen;
                 introForm.ShowDialog();
 
 
@@ -279,6 +285,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             IntroForm introForm = new IntroForm();
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                introForm.WindowState = FormWindowState.Maximized;
+
+            }
+            introForm.StartPosition = FormStartPosition.CenterScreen;
             introForm.ShowDialog();
         }
 

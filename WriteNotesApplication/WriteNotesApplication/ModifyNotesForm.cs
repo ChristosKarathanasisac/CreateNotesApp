@@ -64,6 +64,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             GetNotesForm getNotesForm = new GetNotesForm(user);
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                getNotesForm.WindowState = FormWindowState.Maximized;
+
+            }
+            getNotesForm.StartPosition = FormStartPosition.CenterScreen;
             getNotesForm.ShowDialog();
         }
 

@@ -68,6 +68,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             UserOptionsForm userOptionsForm = new UserOptionsForm(this.user);
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                userOptionsForm.WindowState = FormWindowState.Maximized;
+                userOptionsForm.StartPosition = FormStartPosition.CenterScreen;
+
+            }
             userOptionsForm.ShowDialog();
 
 

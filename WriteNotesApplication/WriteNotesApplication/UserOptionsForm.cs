@@ -26,6 +26,11 @@ namespace WriteNotesApplication
             {
                 this.Hide();
                 CreateNotesForm createNotesForm = new CreateNotesForm(user);
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    createNotesForm.WindowState = FormWindowState.Maximized;
+                }
+                createNotesForm.StartPosition = FormStartPosition.CenterScreen;
                 createNotesForm.ShowDialog();
 
             }
@@ -37,6 +42,11 @@ namespace WriteNotesApplication
         {
             this.Hide();
             IntroForm introForm = new IntroForm();
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                introForm.WindowState = FormWindowState.Maximized;
+            }
+            introForm.StartPosition = FormStartPosition.CenterScreen;
             introForm.ShowDialog();
         }
 
@@ -46,6 +56,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             GetNotesForm getNotesForm = new GetNotesForm(this.user);
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                getNotesForm.WindowState = FormWindowState.Maximized;
+
+            }
+            getNotesForm.StartPosition = FormStartPosition.CenterScreen;
             getNotesForm.ShowDialog();
         }
 
@@ -62,6 +78,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             ChangeUserInfoForm changeUserInfoForm = new ChangeUserInfoForm(this.user);
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                changeUserInfoForm.WindowState = FormWindowState.Maximized;
+
+            }
+            changeUserInfoForm.StartPosition = FormStartPosition.CenterScreen;
             changeUserInfoForm.ShowDialog();
 
         }

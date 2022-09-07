@@ -55,7 +55,7 @@ namespace WriteNotesApplication
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Location = new System.Drawing.Point(7, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1044, 703);
+            this.groupBox1.Size = new System.Drawing.Size(1044, 717);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -66,7 +66,7 @@ namespace WriteNotesApplication
             this.lblNoteTopic.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblNoteTopic.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.lblNoteTopic.ForeColor = System.Drawing.Color.Black;
-            this.lblNoteTopic.Location = new System.Drawing.Point(509, 227);
+            this.lblNoteTopic.Location = new System.Drawing.Point(509, 234);
             this.lblNoteTopic.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNoteTopic.Name = "lblNoteTopic";
             this.lblNoteTopic.Size = new System.Drawing.Size(116, 31);
@@ -79,8 +79,8 @@ namespace WriteNotesApplication
             this.txtNoteTopic.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtNoteTopic.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNoteTopic.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.txtNoteTopic.Location = new System.Drawing.Point(629, 227);
-            this.txtNoteTopic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNoteTopic.Location = new System.Drawing.Point(629, 234);
+            this.txtNoteTopic.Margin = new System.Windows.Forms.Padding(2);
             this.txtNoteTopic.Name = "txtNoteTopic";
             this.txtNoteTopic.ReadOnly = true;
             this.txtNoteTopic.Size = new System.Drawing.Size(256, 31);
@@ -90,8 +90,8 @@ namespace WriteNotesApplication
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.ShowNote;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 500);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -105,7 +105,7 @@ namespace WriteNotesApplication
             this.cmdModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdModify.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.cmdModify.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdModify.Location = new System.Drawing.Point(665, 130);
+            this.cmdModify.Location = new System.Drawing.Point(665, 137);
             this.cmdModify.Name = "cmdModify";
             this.cmdModify.Size = new System.Drawing.Size(149, 46);
             this.cmdModify.TabIndex = 2;
@@ -120,7 +120,7 @@ namespace WriteNotesApplication
             this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdBack.Font = new System.Drawing.Font("Segoe Print", 8.8F, System.Drawing.FontStyle.Italic);
             this.cmdBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdBack.Location = new System.Drawing.Point(5, 670);
+            this.cmdBack.Location = new System.Drawing.Point(5, 684);
             this.cmdBack.Name = "cmdBack";
             this.cmdBack.Size = new System.Drawing.Size(55, 27);
             this.cmdBack.TabIndex = 1;
@@ -135,7 +135,7 @@ namespace WriteNotesApplication
             this.txtNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNote.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.txtNote.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtNote.Location = new System.Drawing.Point(510, 263);
+            this.txtNote.Location = new System.Drawing.Point(510, 270);
             this.txtNote.Name = "txtNote";
             this.txtNote.ReadOnly = true;
             this.txtNote.Size = new System.Drawing.Size(528, 434);
@@ -146,8 +146,9 @@ namespace WriteNotesApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1066, 727);
+            this.ClientSize = new System.Drawing.Size(1066, 741);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenFullNoteForm";

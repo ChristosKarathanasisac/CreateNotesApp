@@ -54,6 +54,13 @@ namespace WriteNotesApplication
         {
             this.Hide();
             UserOptionsForm userOptionsForm = new UserOptionsForm(user);
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                userOptionsForm.WindowState = FormWindowState.Maximized;
+                
+
+            }
+            userOptionsForm.StartPosition = FormStartPosition.CenterScreen;
             userOptionsForm.ShowDialog();
         }
 
@@ -151,6 +158,12 @@ namespace WriteNotesApplication
                 {
                     this.Hide();
                     ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note,noteId,noteTopic);
+                    if (this.WindowState == FormWindowState.Maximized)
+                    {
+                        modifyNotesForm.WindowState = FormWindowState.Maximized;
+                        
+                    }
+                    modifyNotesForm.StartPosition = FormStartPosition.CenterScreen;
                     modifyNotesForm.ShowDialog();
                 }
 
@@ -199,6 +212,12 @@ namespace WriteNotesApplication
                 {
                     this.Hide();
                     OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId,noteTopic);
+                    if (this.WindowState == FormWindowState.Maximized)
+                    {
+                        openFullNoteForm.WindowState = FormWindowState.Maximized;
+                       
+                    }
+                    openFullNoteForm.StartPosition = FormStartPosition.CenterScreen;
                     openFullNoteForm.ShowDialog();
                 }
 

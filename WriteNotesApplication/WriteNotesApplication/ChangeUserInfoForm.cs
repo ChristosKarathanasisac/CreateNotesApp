@@ -223,6 +223,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             UserOptionsForm userOptionsForm = new UserOptionsForm(this.user);
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                userOptionsForm.WindowState = FormWindowState.Maximized;
+             
+            }
+            userOptionsForm.StartPosition = FormStartPosition.CenterScreen;
             userOptionsForm.ShowDialog();
         }
 
@@ -239,6 +245,12 @@ namespace WriteNotesApplication
                 MessageBox.Show("Your changes has added succesfully");
                 this.Hide();
                 IntroForm introForm = new IntroForm();
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    introForm.WindowState = FormWindowState.Maximized;
+                  
+                }
+                introForm.StartPosition = FormStartPosition.CenterScreen;
                 introForm.ShowDialog();
             
             }
@@ -283,6 +295,11 @@ namespace WriteNotesApplication
                 cmdConShow.BringToFront();
                 txtConPassword.PasswordChar = '*';
             }
+        }
+
+        private void ChangeUserInfoForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -27,6 +27,12 @@ namespace WriteNotesApplication
         {
             this.Hide();
             RegistrationForm registrationForm = new RegistrationForm();
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                registrationForm.WindowState = FormWindowState.Maximized;
+
+            }
+            registrationForm.StartPosition = FormStartPosition.CenterScreen;
             registrationForm.ShowDialog();
         }
 
@@ -60,7 +66,12 @@ namespace WriteNotesApplication
                 {
                     this.Hide();
                     UserOptionsForm userOptionsForm = new UserOptionsForm(this.user);
-                    userOptionsForm.ShowDialog();
+                    if(this.WindowState == FormWindowState.Maximized) 
+                    {
+                        userOptionsForm.WindowState = FormWindowState.Maximized; 
+                    }
+                    userOptionsForm.StartPosition = FormStartPosition.CenterScreen;
+                    userOptionsForm.Show();
 
                 }
                 

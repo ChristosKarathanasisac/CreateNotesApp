@@ -50,7 +50,6 @@ namespace WriteNotesApplication
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnHide);
@@ -66,7 +65,7 @@ namespace WriteNotesApplication
             this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Size = new System.Drawing.Size(1044, 703);
+            this.groupBox1.Size = new System.Drawing.Size(1044, 717);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -75,7 +74,7 @@ namespace WriteNotesApplication
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.logowhite;
-            this.pictureBox1.Location = new System.Drawing.Point(262, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(262, 83);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(505, 390);
@@ -89,7 +88,7 @@ namespace WriteNotesApplication
             this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.btnHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.btnHide.Location = new System.Drawing.Point(641, 499);
+            this.btnHide.Location = new System.Drawing.Point(641, 506);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(25, 26);
             this.btnHide.TabIndex = 21;
@@ -103,7 +102,7 @@ namespace WriteNotesApplication
             this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.btnShow.Image = global::WriteNotesApplication.Properties.Resources.show;
-            this.btnShow.Location = new System.Drawing.Point(617, 499);
+            this.btnShow.Location = new System.Drawing.Point(617, 506);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(25, 26);
             this.btnShow.TabIndex = 20;
@@ -118,7 +117,7 @@ namespace WriteNotesApplication
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(379, 580);
+            this.button1.Location = new System.Drawing.Point(379, 587);
             this.button1.Margin = new System.Windows.Forms.Padding(1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(280, 39);
@@ -134,7 +133,7 @@ namespace WriteNotesApplication
             this.btnCreateAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnCreateAccount.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
             this.btnCreateAccount.ForeColor = System.Drawing.Color.White;
-            this.btnCreateAccount.Location = new System.Drawing.Point(379, 580);
+            this.btnCreateAccount.Location = new System.Drawing.Point(379, 587);
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(1);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(280, 39);
@@ -146,11 +145,12 @@ namespace WriteNotesApplication
             // btnLogIn
             // 
             this.btnLogIn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogIn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnLogIn.BackColor = System.Drawing.Color.Black;
             this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogIn.Font = new System.Drawing.Font("Segoe Print", 14.8F, System.Drawing.FontStyle.Italic);
             this.btnLogIn.ForeColor = System.Drawing.Color.White;
-            this.btnLogIn.Location = new System.Drawing.Point(459, 535);
+            this.btnLogIn.Location = new System.Drawing.Point(459, 542);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(96, 41);
             this.btnLogIn.TabIndex = 5;
@@ -164,7 +164,7 @@ namespace WriteNotesApplication
             this.txtPassword.BackColor = System.Drawing.Color.White;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
-            this.txtPassword.Location = new System.Drawing.Point(418, 499);
+            this.txtPassword.Location = new System.Drawing.Point(418, 506);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(194, 26);
@@ -177,7 +177,7 @@ namespace WriteNotesApplication
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
             this.txtUserName.ForeColor = System.Drawing.Color.Black;
-            this.txtUserName.Location = new System.Drawing.Point(422, 473);
+            this.txtUserName.Location = new System.Drawing.Point(422, 480);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(1);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(194, 26);
@@ -190,7 +190,7 @@ namespace WriteNotesApplication
             this.lblPasword.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblPasword.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.lblPasword.ForeColor = System.Drawing.Color.Black;
-            this.lblPasword.Location = new System.Drawing.Point(303, 494);
+            this.lblPasword.Location = new System.Drawing.Point(303, 501);
             this.lblPasword.Name = "lblPasword";
             this.lblPasword.Size = new System.Drawing.Size(106, 31);
             this.lblPasword.TabIndex = 2;
@@ -203,7 +203,7 @@ namespace WriteNotesApplication
             this.lblUserName.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblUserName.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.lblUserName.ForeColor = System.Drawing.Color.Black;
-            this.lblUserName.Location = new System.Drawing.Point(303, 468);
+            this.lblUserName.Location = new System.Drawing.Point(303, 475);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(120, 31);
             this.lblUserName.TabIndex = 1;
@@ -213,9 +213,9 @@ namespace WriteNotesApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1062, 723);
+            this.ClientSize = new System.Drawing.Size(1062, 737);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -224,7 +224,7 @@ namespace WriteNotesApplication
             this.Name = "IntroForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Notes";
+            this.Text = "smart. note";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntroForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
