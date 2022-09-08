@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -76,6 +79,61 @@ namespace WriteNotesApplication
                 return Convert.ToBase64String(data);
             }
         }
+
+        public string getHtml(string note, string noteTopic)
+        {
+            try
+            {
+                string messageBody = "<font>The following are the records: </font><br><br>";
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
+                string htmlTableEnd = "</table>";
+                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+                string htmlHeaderRowEnd = "</tr>";
+                string htmlTrStart = "<tr style=\"color:#555555;\">";
+                string htmlTrEnd = "</tr>";
+                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdEnd = "</td>";
+                messageBody += htmlTableStart;
+                messageBody += htmlHeaderRowStart;
+                messageBody += htmlTdStart + "Note Topic" + htmlTdEnd;
+                messageBody += htmlTdStart + "Note" + htmlTdEnd;                messageBody += htmlHeaderRowEnd; 
+                messageBody = messageBody + htmlTrStart;
+                messageBody = messageBody + htmlTdStart + noteTopic;
+                messageBody = messageBody + htmlTdStart + note;
+                messageBody = messageBody + htmlTrEnd;
+                
+                messageBody = messageBody + htmlTableEnd;
+                return messageBody; // return HTML Table as string from this function  
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public bool Email(string htmlString,string subject, string toEmail)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress(ConfigurationManager.AppSettings["email"]);
+                message.To.Add(new MailAddress(toEmail));
+                message.Subject = subject;
+                message.IsBodyHtml = true; 
+                message.Body = htmlString;
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com";   
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["email"], ConfigurationManager.AppSettings["email_key"]);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+                return true;
+            }
+            catch (Exception exc) { return false; }
+        }
+
 
 
 

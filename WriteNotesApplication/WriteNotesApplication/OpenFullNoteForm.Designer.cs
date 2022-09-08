@@ -31,6 +31,10 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenFullNoteForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEmailSubject = new System.Windows.Forms.TextBox();
+            this.lblNoteSubject = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.cmdSentEmail = new System.Windows.Forms.Button();
             this.lblNoteTopic = new System.Windows.Forms.Label();
             this.txtNoteTopic = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,6 +51,10 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.txtEmailSubject);
+            this.groupBox1.Controls.Add(this.lblNoteSubject);
+            this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.cmdSentEmail);
             this.groupBox1.Controls.Add(this.lblNoteTopic);
             this.groupBox1.Controls.Add(this.txtNoteTopic);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -58,6 +66,61 @@ namespace WriteNotesApplication
             this.groupBox1.Size = new System.Drawing.Size(1044, 717);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // txtEmailSubject
+            // 
+            this.txtEmailSubject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmailSubject.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtEmailSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmailSubject.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.txtEmailSubject.Location = new System.Drawing.Point(677, 117);
+            this.txtEmailSubject.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmailSubject.Name = "txtEmailSubject";
+            this.txtEmailSubject.Size = new System.Drawing.Size(339, 26);
+            this.txtEmailSubject.TabIndex = 10;
+            this.txtEmailSubject.TextChanged += new System.EventHandler(this.txtEmailSubject_TextChanged);
+            // 
+            // lblNoteSubject
+            // 
+            this.lblNoteSubject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNoteSubject.AutoSize = true;
+            this.lblNoteSubject.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblNoteSubject.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.lblNoteSubject.ForeColor = System.Drawing.Color.Black;
+            this.lblNoteSubject.Location = new System.Drawing.Point(553, 115);
+            this.lblNoteSubject.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNoteSubject.Name = "lblNoteSubject";
+            this.lblNoteSubject.Size = new System.Drawing.Size(120, 26);
+            this.lblNoteSubject.TabIndex = 9;
+            this.lblNoteSubject.Text = "Email Subject:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.txtEmail.Location = new System.Drawing.Point(679, 74);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(356, 31);
+            this.txtEmail.TabIndex = 8;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            // 
+            // cmdSentEmail
+            // 
+            this.cmdSentEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdSentEmail.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdSentEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSentEmail.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdSentEmail.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdSentEmail.Location = new System.Drawing.Point(524, 66);
+            this.cmdSentEmail.Name = "cmdSentEmail";
+            this.cmdSentEmail.Size = new System.Drawing.Size(149, 46);
+            this.cmdSentEmail.TabIndex = 6;
+            this.cmdSentEmail.Text = "Send note to:";
+            this.cmdSentEmail.UseVisualStyleBackColor = false;
+            this.cmdSentEmail.Click += new System.EventHandler(this.cmdSentEmail_Click);
             // 
             // lblNoteTopic
             // 
@@ -105,7 +168,7 @@ namespace WriteNotesApplication
             this.cmdModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdModify.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.cmdModify.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdModify.Location = new System.Drawing.Point(665, 137);
+            this.cmdModify.Location = new System.Drawing.Point(524, 165);
             this.cmdModify.Name = "cmdModify";
             this.cmdModify.Size = new System.Drawing.Size(149, 46);
             this.cmdModify.TabIndex = 2;
@@ -171,5 +234,9 @@ namespace WriteNotesApplication
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtNoteTopic;
         private System.Windows.Forms.Label lblNoteTopic;
+        private System.Windows.Forms.Button cmdSentEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtEmailSubject;
+        private System.Windows.Forms.Label lblNoteSubject;
     }
 }
