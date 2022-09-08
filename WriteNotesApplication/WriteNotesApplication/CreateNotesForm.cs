@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,6 +97,19 @@ namespace WriteNotesApplication
                 this.txtNoteTopic.BackColor = Color.White;
             
             }
+        }
+
+        private void cmdUploadPhoto_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UploadPhotosForm uploadPhotosForm = new UploadPhotosForm();
+            if (this.WindowState == FormWindowState.Maximized) 
+            {
+                uploadPhotosForm.WindowState = FormWindowState.Maximized;
+
+
+            }
+            uploadPhotosForm.ShowDialog();
         }
     }
 }

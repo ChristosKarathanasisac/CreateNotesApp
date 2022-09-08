@@ -32,3 +32,4 @@ C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplicati
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.ChangeUserInfoForm.resources
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.OpenFullNoteForm.resources
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.csproj.AssemblyReference.cache
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\obj\Debug\WriteNotesApplication.UploadPhotosForm.resources
