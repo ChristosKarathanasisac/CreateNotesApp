@@ -159,12 +159,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imgs\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="imgs\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logowhite.png" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\modifyNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

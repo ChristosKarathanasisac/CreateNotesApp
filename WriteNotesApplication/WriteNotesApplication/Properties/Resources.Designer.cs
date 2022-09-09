@@ -83,6 +83,16 @@ namespace WriteNotesApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap findNotes {
             get {
                 object obj = ResourceManager.GetObject("findNotes", resourceCulture);
@@ -166,6 +176,16 @@ namespace WriteNotesApplication.Properties {
         internal static System.Drawing.Bitmap smart__noteSingUp {
             get {
                 object obj = ResourceManager.GetObject("smart. noteSingUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_image {
+            get {
+                object obj = ResourceManager.GetObject("upload-image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

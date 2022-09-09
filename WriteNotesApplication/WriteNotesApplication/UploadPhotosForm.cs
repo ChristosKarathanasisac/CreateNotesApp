@@ -15,93 +15,133 @@ namespace WriteNotesApplication
 {
     public partial class UploadPhotosForm : Form
     {
-        public UploadPhotosForm()
+        private string[] photos;
+        private User user;
+        private string uploadPhotos = "";
+        public DialogResult ReturnValue { get; set; }
+       // public string ReturnValue2 { get; set; }
+        public  UploadPhotosForm(string[] opnfd, User aUser)
         {
             InitializeComponent();
+            this.photos = opnfd;
+            this.user = aUser;
+
+            int x = 20;
+            int y = 20;
+            int maxHeight = -1;
+            bool flag = false;
+            foreach (string p in photos)
+            {
+                PictureBox pb = new PictureBox();
+                if (!checkImageSize(new Bitmap(p))) 
+                {
+                    flag = true;
+                    continue;
+                }
+                pb.Image = new Bitmap(p);
+                pb.Location = new Point(x, y);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                x += pb.Width + 10;
+                maxHeight = Math.Max(pb.Height, maxHeight);
+
+                if (x > this.ClientSize.Width - 100)
+                {
+                    x = 20;
+                    y += maxHeight + 10;
+                }
+                this.groupBox1.Controls.Add(pb);
+            }
+            if (flag) 
+            {
+                DialogResult dialogResult =MessageBox.Show("Do you want to upload the valid Images?",
+                    "Image Size Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                if(dialogResult == DialogResult.Yes) 
+                {
+                    //upload Images
+                
+                }else if(dialogResult == DialogResult.No) 
+                {
+                    //Open page
+                
+                }
+
+            }
+
         }
+
+
+        private bool checkImageSize(Image img) 
+        {
+            this.pictureBox1.Image = img;
+            if (pictureBox1.Size.Width > 600 || pictureBox1.Size.Height > 600) 
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         //private void cmdUploadPhoto_Click(object sender, EventArgs e)
         //{
-        //    OpenFileDialog opnfd = new OpenFileDialog();
-        //    opnfd.Filter = "Image Files (*.jpg;*.jpeg;*.png;)|*.jpg;*.jpeg;*.png";
+            
+         
+        //    //if (pictureBox2.Size.Width > 600 || pictureBox2.Size.Height > 600)
+        //    //{
+        //    //    pictureBox2.Image = null;
+        //    //    MessageBox.Show("Image size is too big. Upload an image with max size 600x600px and " +
+        //    //        "try again.");
+        //    //}
+        //    //else
+        //    //{
+        //    //    Image image = new Bitmap(opnfd.FileName);
 
+        //    //    System.Data.SqlClient.SqlConnection conn = null;
+        //    //    try
+        //    //    {
+        //    //        string connString = "";
+        //    //        connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection=true; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
+        //    //            "User ID = " + ConfigurationManager.AppSettings["db_username"] + "; Password = " + ConfigurationManager.AppSettings["db_psw"];
+        //    //        try
+        //    //        {
+        //    //            conn = new SqlConnection(connString);
+        //    //            conn.Open();
 
-        //    if (opnfd.ShowDialog() == DialogResult.OK)
-        //    {
-        //        //FileInfo fi = new FileInfo(opnfd.FileName);
-        //        //long fileSize = fi.Length;
+        //    //            System.Data.SqlClient.SqlCommand insertCommand =
+        //    //                new System.Data.SqlClient.SqlCommand(
+        //    //                "Insert into images (NOTE_ID, IMAGE_FILE) Values (5003, @Pic)", conn);
+        //    //            insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
+        //    //                ConvertImageToByteArray(image, System.Drawing.Imaging.ImageFormat.Jpeg);
+        //    //            int queryResult = insertCommand.ExecuteNonQuery();
+        //    //            if (queryResult == 1)
+        //    //                MessageBox.Show("Image added successfully");
+        //    //        }
+        //    //        catch (Exception exc)
+        //    //        {
 
-        //        pictureBox2.Image = new Bitmap(opnfd.FileName);
+        //    //        }
+        //    //    }
+        //    //    finally
+        //    //    {
+        //    //        if (conn != null)
+        //    //            conn.Close();
+        //    //    }
 
-        //    }
-
-        //    if (pictureBox2.Size.Width > 600 || pictureBox2.Size.Height > 600)
-        //    {
-        //        pictureBox2.Image = null;
-        //        MessageBox.Show("Image size is too big. Upload an image with max size 600x600px and " +
-        //            "try again.");
-        //    }
-        //    else
-        //    {
-        //        Image image = new Bitmap(opnfd.FileName);
-
-        //        System.Data.SqlClient.SqlConnection conn = null;
-        //        try
-        //        {
-        //            string connString = "";
-        //            connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection=true; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
-        //                "User ID = " + ConfigurationManager.AppSettings["db_username"] + "; Password = " + ConfigurationManager.AppSettings["db_psw"];
-        //            try
-        //            {
-        //                conn = new SqlConnection(connString);
-        //                conn.Open();
-
-        //                System.Data.SqlClient.SqlCommand insertCommand =
-        //                    new System.Data.SqlClient.SqlCommand(
-        //                    "Insert into images (NOTE_ID, IMAGE_FILE) Values (5003, @Pic)", conn);
-        //                insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
-        //                    ConvertImageToByteArray(image, System.Drawing.Imaging.ImageFormat.Jpeg);
-        //                int queryResult = insertCommand.ExecuteNonQuery();
-        //                if (queryResult == 1)
-        //                    MessageBox.Show("Image added successfully");
-        //            }
-        //            catch (Exception exc)
-        //            {
-
-        //            }
-        //        }
-        //        finally
-        //        {
-        //            if (conn != null)
-        //                conn.Close();
-        //        }
-
-        //    }
+        //    //}
 
 
         //}
 
-        private void cmdUploadPhoto_Click(object sender, EventArgs e) 
-        {
-            DataTable dt = getimage();
+        //private void cmdUploadPhoto_Click(object sender, EventArgs e)
+        //{
+        //    DataTable dt = getimage();
 
-            //string imageString = dt.Rows[0]["IMAGE_FILE"].ToString();
-            //byte[] byteArray = Encoding.ASCII.GetBytes(imageString);
-            //Image img = byteArrayToImage(dt.Rows[0]["IMAGE_FILE"]);
+        //    byte[] photo_aray = (byte[])dt.Rows[0]["IMAGE_FILE"];
 
+        //    MemoryStream ms = new MemoryStream(photo_aray);
+        //    this.pictureBox2.Image = Image.FromStream(ms);
 
-            byte[] photo_aray = (byte[])dt.Rows[0]["IMAGE_FILE"];
-            //Image img = Image.FromStream(dt.Rows[0]["IMAGE_FILE"]);
-
-
-
-            MemoryStream ms = new MemoryStream(photo_aray);
-            this.pictureBox2.Image = Image.FromStream(ms);
-            
-
-
-
-        }
+        //}
 
         private byte[] ConvertImageToByteArray(System.Drawing.Image imageToConvert,
                                        System.Drawing.Imaging.ImageFormat formatOfImage)
@@ -156,7 +196,33 @@ namespace WriteNotesApplication
 
         }
 
+        
 
+        private void cmdUploadPhoto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdConfirm_Click(object sender, EventArgs e)
+        {
+            this.ReturnValue = DialogResult.OK;
+            this.Hide();
+            
+        }
+
+        private void cmdCancel_Click(object sender, EventArgs e)
+        {
+            this.ReturnValue = DialogResult.No;
+            this.Hide();
+        }
+
+        private void UploadPhotosForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.ReturnValue = DialogResult.No;
+            this.Hide();
+            //CreateNotesForm createNotesForm = new CreateNotesForm(this.user);
+            //createNotesForm.ShowDialog();
+        }
     }
 }
             
