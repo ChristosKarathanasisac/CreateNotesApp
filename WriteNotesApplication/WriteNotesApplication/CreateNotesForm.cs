@@ -19,6 +19,8 @@ namespace WriteNotesApplication
         private bool uploadPhotosFlag = false;
         DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
 
+        Image[] images;
+
         public CreateNotesForm(User aUser)
         {
             InitializeComponent();
@@ -27,33 +29,50 @@ namespace WriteNotesApplication
             this.cmdCancelPhotos.Visible = false;
         }
 
-        private void showUploadLabel() 
-        {
+        //private void showUploadLabel() 
+        //{
             
-            Label lblPhotosUploaded = new Label();
-            lblPhotosUploaded.Text = "Your photos have uploaded";
-            lblPhotosUploaded.Location = this.cmdUploadPhoto.Location;
-            System.Drawing.Font font = new Font("Segoe Print", 10.8f, FontStyle.Italic);
-            lblPhotosUploaded.Font = font;
-            lblPhotosUploaded.ForeColor = Color.Red;
-            lblPhotosUploaded.BackColor = Color.White;
-            lblPhotosUploaded.Size = new Size(260,35);
-            lblPhotosUploaded.Dock = DockStyle.None;
-            this.cmdUploadPhoto.Hide();
-            this.gridcondrol1.Controls.Add(lblPhotosUploaded);
-            lblPhotosUploaded.Show();
+        //    Label lblPhotosUploaded = new Label();
+        //    lblPhotosUploaded.Text = "Your photos have uploaded";
+        //    lblPhotosUploaded.Location = this.cmdUploadPhoto.Location;
+        //    System.Drawing.Font font = new Font("Segoe Print", 10.8f, FontStyle.Italic);
+        //    lblPhotosUploaded.Font = font;
+        //    lblPhotosUploaded.ForeColor = Color.Red;
+        //    lblPhotosUploaded.BackColor = Color.White;
+        //    lblPhotosUploaded.Size = new Size(260,35);
+        //    lblPhotosUploaded.Dock = DockStyle.None;
+        //    this.cmdUploadPhoto.Hide();
+        //    this.gridcondrol1.Controls.Add(lblPhotosUploaded);
+        //    lblPhotosUploaded.Show();
 
-        }
+        //}
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
             string noteTopic = this.txtNoteTopic.Text.Trim();
             string note = this.txtNote.Text;
 
-            if (saveNote(note, noteTopic)) 
+            if (this.uploadPhotosFlag) 
             {
-                MessageBox.Show("Your note has added successfully");
+                if (images.Length > 0) 
+                {
+                    if (saveNote(note, noteTopic, images))
+                    {
+                        MessageBox.Show("Your note has added successfully");
+                    }
+                }
+                
             }
+            else
+            {
+                if (saveNote(note, noteTopic))
+                {
+                    MessageBox.Show("Your note has added successfully");
+                }
+
+            }
+
+            
 
         }
 
@@ -74,12 +93,7 @@ namespace WriteNotesApplication
 
         private void CreateNotesForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //this.Hide();
-            //UserOptionsForm userOptionsForm = new UserOptionsForm(user);
-            //userOptionsForm.ShowDialog();
             Application.Exit();
-
-
         }
 
         private void txtNoteTopic_TextChanged(object sender, EventArgs e)
@@ -103,16 +117,35 @@ namespace WriteNotesApplication
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
                 
-                string[] files = opnfd.FileNames;
-                using (var uploadPhotosForm = new UploadPhotosForm(files, this.user))
+                string[] allSelectedImages = opnfd.FileNames;
+                using (var uploadPhotosForm = new UploadPhotosForm(allSelectedImages, this.user))
                 {
                     uploadPhotosForm.ShowDialog();
                     var result = uploadPhotosForm.ReturnValue;
+                    int[] invalidPhotos = uploadPhotosForm.invalidPhotosPos;
                     if (result == DialogResult.OK)
                     {
                         this.cmdUploadPhoto.BackColor = Color.GreenYellow;
                         this.uploadPhotosFlag = true;
                         this.cmdCancelPhotos.Visible = true;
+
+                        images = new Image[allSelectedImages.Length - invalidPhotos.Length];
+                        int allSelectedImagesCount = 0;
+                        int imagesCount = 0;
+                        foreach(string fileName in allSelectedImages) 
+                        {
+                            if (invalidPhotos.Contains(allSelectedImagesCount)) 
+                            {
+                                allSelectedImagesCount += 1;
+                                continue;
+                            }
+                            Image image = new Bitmap(fileName);
+
+                            images[imagesCount] = image;
+                            imagesCount += 1;
+                            allSelectedImagesCount += 1;
+
+                        }
                     }
                 }
 
@@ -189,6 +222,42 @@ namespace WriteNotesApplication
                 return  false;
             }
             if (this.dbUtilities.writeNoteToDB(note, noteTopic, user.UserName.ToString()))
+            {
+                this.txtNote.Clear();
+                this.txtNoteTopic.Clear();
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Your note was not stored");
+                return false;
+
+            }
+
+        }
+
+        private bool saveNote(string note, string noteTopic,Image[] imgs)
+        {
+            if (string.IsNullOrEmpty(noteTopic))
+            {
+                this.txtNoteTopic.BackColor = Color.Red;
+                MessageBox.Show("Please add a note topic to continue!");
+                return false;
+
+            }
+            if (noteTopic.Length > 40)
+            {
+                MessageBox.Show("The Topic is too long");
+                this.txtNoteTopic.BackColor = Color.Red;
+                return false;
+
+            }
+            if (string.IsNullOrEmpty(note))
+            {
+                MessageBox.Show("Write a note and try again");
+                return false;
+            }
+            if (this.dbUtilities.writeNoteWithPhotosToDB(note, noteTopic, user.UserName.ToString(),imgs))
             {
                 this.txtNote.Clear();
                 this.txtNoteTopic.Clear();

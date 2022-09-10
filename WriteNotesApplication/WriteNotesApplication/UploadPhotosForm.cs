@@ -17,25 +17,64 @@ namespace WriteNotesApplication
     {
         private string[] photos;
         private User user;
-        private string uploadPhotos = "";
+        
         public DialogResult ReturnValue { get; set; }
-       // public string ReturnValue2 { get; set; }
+        public int[] invalidPhotosPos { get; set; }
+        
         public  UploadPhotosForm(string[] opnfd, User aUser)
         {
             InitializeComponent();
             this.photos = opnfd;
             this.user = aUser;
 
+            ShowPhotos();
+
+        }
+
+        private void CreateInvalidPhotosForm() 
+        {
+            this.groupBox1.Controls.Clear();
+            this.cmdConfirm.BackColor = Color.White;
+            this.lblUploadPhotos.Text = "Return to Create Notes and upload pistures " +
+                "with max size 600x600px ";
+            this.lblUploadPhotos.ForeColor = Color.Red;
+            System.Drawing.Font font = new Font("Segoe Print", 8.8f, FontStyle.Italic);
+            this.lblUploadPhotos.Font = font;
+            this.cmdCancel.Text = "Return";
+            this.lblUploadPhotos.Dock = DockStyle.None;
+            this.cmdConfirm.Enabled = false;
+
+        }
+
+        private bool checkImageSize(Image img) 
+        {
+            this.pictureBox1.Image = img;
+            if (pictureBox1.Size.Width > 600 || pictureBox1.Size.Height > 600) 
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void ShowPhotos() 
+        {
+           
             int x = 20;
             int y = 20;
             int maxHeight = -1;
             bool flag = false;
+            int imagesIndex = 0;
+            int invalidImagesCount = 0;
+            this.invalidPhotosPos = new int[CalculteInvalidImagesTableSize()];
             foreach (string p in photos)
             {
                 PictureBox pb = new PictureBox();
-                if (!checkImageSize(new Bitmap(p))) 
+                if (!checkImageSize(new Bitmap(p)))
                 {
                     flag = true;
+                    this.invalidPhotosPos[invalidImagesCount] = imagesIndex;
+                    invalidImagesCount += 1;
+                    imagesIndex += 1;
                     continue;
                 }
                 pb.Image = new Bitmap(p);
@@ -50,35 +89,63 @@ namespace WriteNotesApplication
                     y += maxHeight + 10;
                 }
                 this.groupBox1.Controls.Add(pb);
+                imagesIndex += 1;
             }
-            if (flag) 
-            {
-                DialogResult dialogResult =MessageBox.Show("Do you want to upload the valid Images?",
-                    "Image Size Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
-                if(dialogResult == DialogResult.Yes) 
+            if (flag) { InvalidImagesOptionsControl(imagesIndex- invalidImagesCount); }
+
+
+        }
+
+        private int CalculteInvalidImagesTableSize() 
+        {
+            int count = 0;
+            foreach (string p in photos) 
+            {
+                if(!checkImageSize(new Bitmap(p))) 
                 {
-                    //upload Images
+                    count += 1;
                 
-                }else if(dialogResult == DialogResult.No) 
+                }
+            
+            }
+            return count;
+
+        }
+        private void InvalidImagesOptionsControl(int validPhotos) 
+        {
+            if(validPhotos > 0) 
+            {
+                int invalidPhotos = this.photos.Length - validPhotos;
+                DialogResult dialogResult = MessageBox.Show(invalidPhotos.ToString() + " Image(s) with size bigger than 600x600px." +
+                       " Do you want to upload the only the valid Image(s)?",
+                       "Image Size Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                if (dialogResult == DialogResult.Yes)
                 {
-                    //Open page
-                
+                        this.ReturnValue = DialogResult.OK;
+                        this.Hide();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    this.ReturnValue = DialogResult.No;
+                    CreateInvalidPhotosForm();
+                    this.Hide();
+
+                }
+            }
+            else
+            {
+                {
+                    this.ReturnValue = DialogResult.No;
+                    MessageBox.Show("Please select Image(s) with max size 600x600px.");
+                    CreateInvalidPhotosForm();
+                    this.Hide();
                 }
 
             }
 
-        }
 
-
-        private bool checkImageSize(Image img) 
-        {
-            this.pictureBox1.Image = img;
-            if (pictureBox1.Size.Width > 600 || pictureBox1.Size.Height > 600) 
-            {
-                return false;
-            }
-            return true;
         }
 
 
@@ -220,8 +287,7 @@ namespace WriteNotesApplication
         {
             this.ReturnValue = DialogResult.No;
             this.Hide();
-            //CreateNotesForm createNotesForm = new CreateNotesForm(this.user);
-            //createNotesForm.ShowDialog();
+            
         }
     }
 }

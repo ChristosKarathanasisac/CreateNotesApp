@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace WriteNotesApplication
 {
     class DatabaseConUtilities
     {
-      
+        AppUtilities appUtilities = new AppUtilities();
         private string createConnectionString() 
         {
             string connString = "";
@@ -41,6 +42,90 @@ namespace WriteNotesApplication
             }
 
 
+            
+        }
+
+        public bool writeNoteWithPhotosToDB(string note, string noteTopic, string userName,Image[] images)
+        {
+            string userId = findUserId(userName);
+            string cretionDate = "";
+            bool flag = false;
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+
+                string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION)" +
+                                      " VALUES (" + userId + "," + "'" + note + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
+                                      + "', '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + noteTopic + "')";
+
+                flag = insertToDB(sql2);
+
+            }
+
+            string noteId = "";
+            if (flag) 
+            {
+                noteId = GetNoteID(userId, note, noteTopic, cretionDate);
+
+            }
+            if (noteId.Equals("")) 
+            {
+                return false;
+            }
+
+            System.Data.SqlClient.SqlConnection conn  = new SqlConnection(createConnectionString());
+
+            try 
+            {
+                conn.Open();
+
+                bool loopFlag = true;
+                for (int i = 0; i < images.Length; i++)
+                {
+                    System.Data.SqlClient.SqlCommand insertCommand =
+                              new System.Data.SqlClient.SqlCommand(
+                              "Insert into images (NOTE_ID, IMAGE_FILE) Values (+" + noteId + ", @Pic)", conn);
+                    insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
+                        appUtilities.ConvertImageToByteArray(images[0], System.Drawing.Imaging.ImageFormat.Jpeg);
+                    int queryResult = insertCommand.ExecuteNonQuery();
+                    if (queryResult == 1) { loopFlag = false; }
+
+                }
+
+
+                return loopFlag;
+
+            }catch(Exception exc) 
+            {
+                return false;
+            }
+            finally 
+            {
+                conn.Close();
+                
+            }
+            
+
+        }
+
+        private string GetNoteID(string userId,string note,string noteTopic,string noteCreationDate) 
+        {
+            string sql = "SELECT NOTE_ID FROM notes " +
+                         " INNER JOIN users ON users.USER_ID = notes.USER_ID " +
+                          "WHERE users.USER_ID=" + userId +
+                         " AND NOTE=" + note +
+                         " AND NOTE_DESCRIPTION=" + noteTopic +
+                         " AND NOTE_CREATION=" + noteCreationDate;
+            DataTable dt = new DataTable();
+            dt = getDataTableFromDB(sql);
+
+            if (dt.DefaultView.Count > 0) 
+            {
+                return dt.Rows[0]["NOTE_ID"].ToString();
+
+            }
+            else
+            { return ""; }
             
         }
 
@@ -327,6 +412,8 @@ namespace WriteNotesApplication
             return userId;
         
         }
+
+
         
     }
 }

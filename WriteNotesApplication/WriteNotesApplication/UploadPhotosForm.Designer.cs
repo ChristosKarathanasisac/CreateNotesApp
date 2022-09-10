@@ -59,7 +59,7 @@ namespace WriteNotesApplication
             this.groupBox2.Controls.Add(this.lblUploadPhotos);
             this.groupBox2.Location = new System.Drawing.Point(18, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 82);
+            this.groupBox2.Size = new System.Drawing.Size(536, 82);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -108,7 +108,7 @@ namespace WriteNotesApplication
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(422, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(454, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -120,6 +120,7 @@ namespace WriteNotesApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(566, 357);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
