@@ -80,7 +80,7 @@ namespace WriteNotesApplication
                 return;
 
             }
-            string htmlString = appUtilities.getHtml(this.note, this.noteTopic);
+            string htmlString = appUtilities.GetHtml(this.note, this.noteTopic);
             if (appUtilities.Email(htmlString,this.txtEmailSubject.Text.Trim(),this.txtEmail.Text.Trim())) 
             {
                 MessageBox.Show("Note sended succesfully to " + this.txtEmail.Text.Trim());

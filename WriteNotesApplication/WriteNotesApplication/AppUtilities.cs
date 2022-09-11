@@ -81,7 +81,7 @@ namespace WriteNotesApplication
             }
         }
 
-        public string getHtml(string note, string noteTopic)
+        public string GetHtml(string note, string noteTopic)
         {
             try
             {

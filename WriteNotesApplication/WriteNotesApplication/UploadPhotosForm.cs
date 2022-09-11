@@ -46,7 +46,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkImageSize(Image img) 
+        private bool CheckPhotoSize(Image img) 
         {
             this.pictureBox1.Image = img;
             if (pictureBox1.Size.Width > 600 || pictureBox1.Size.Height > 600) 
@@ -65,11 +65,11 @@ namespace WriteNotesApplication
             bool flag = false;
             int imagesIndex = 0;
             int invalidImagesCount = 0;
-            this.invalidPhotosPos = new int[CalculteInvalidImagesTableSize()];
+            this.invalidPhotosPos = new int[CalculteInvalidPhotosTableSize()];
             foreach (string p in photos)
             {
                 PictureBox pb = new PictureBox();
-                if (!checkImageSize(new Bitmap(p)))
+                if (!CheckPhotoSize(new Bitmap(p)))
                 {
                     flag = true;
                     this.invalidPhotosPos[invalidImagesCount] = imagesIndex;
@@ -92,17 +92,17 @@ namespace WriteNotesApplication
                 imagesIndex += 1;
             }
 
-            if (flag) { InvalidImagesOptionsControl(imagesIndex- invalidImagesCount); }
+            if (flag) { InvalidPhotosOptionsControl(imagesIndex- invalidImagesCount); }
 
 
         }
 
-        private int CalculteInvalidImagesTableSize() 
+        private int CalculteInvalidPhotosTableSize() 
         {
             int count = 0;
             foreach (string p in photos) 
             {
-                if(!checkImageSize(new Bitmap(p))) 
+                if(!CheckPhotoSize(new Bitmap(p))) 
                 {
                     count += 1;
                 
@@ -112,7 +112,7 @@ namespace WriteNotesApplication
             return count;
 
         }
-        private void InvalidImagesOptionsControl(int validPhotos) 
+        private void InvalidPhotosOptionsControl(int validPhotos) 
         {
             if(validPhotos > 0) 
             {
@@ -148,92 +148,7 @@ namespace WriteNotesApplication
 
         }
 
-
-        //private void cmdUploadPhoto_Click(object sender, EventArgs e)
-        //{
-            
-         
-        //    //if (pictureBox2.Size.Width > 600 || pictureBox2.Size.Height > 600)
-        //    //{
-        //    //    pictureBox2.Image = null;
-        //    //    MessageBox.Show("Image size is too big. Upload an image with max size 600x600px and " +
-        //    //        "try again.");
-        //    //}
-        //    //else
-        //    //{
-        //    //    Image image = new Bitmap(opnfd.FileName);
-
-        //    //    System.Data.SqlClient.SqlConnection conn = null;
-        //    //    try
-        //    //    {
-        //    //        string connString = "";
-        //    //        connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection=true; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
-        //    //            "User ID = " + ConfigurationManager.AppSettings["db_username"] + "; Password = " + ConfigurationManager.AppSettings["db_psw"];
-        //    //        try
-        //    //        {
-        //    //            conn = new SqlConnection(connString);
-        //    //            conn.Open();
-
-        //    //            System.Data.SqlClient.SqlCommand insertCommand =
-        //    //                new System.Data.SqlClient.SqlCommand(
-        //    //                "Insert into images (NOTE_ID, IMAGE_FILE) Values (5003, @Pic)", conn);
-        //    //            insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
-        //    //                ConvertImageToByteArray(image, System.Drawing.Imaging.ImageFormat.Jpeg);
-        //    //            int queryResult = insertCommand.ExecuteNonQuery();
-        //    //            if (queryResult == 1)
-        //    //                MessageBox.Show("Image added successfully");
-        //    //        }
-        //    //        catch (Exception exc)
-        //    //        {
-
-        //    //        }
-        //    //    }
-        //    //    finally
-        //    //    {
-        //    //        if (conn != null)
-        //    //            conn.Close();
-        //    //    }
-
-        //    //}
-
-
-        //}
-
-        //private void cmdUploadPhoto_Click(object sender, EventArgs e)
-        //{
-        //    DataTable dt = getimage();
-
-        //    byte[] photo_aray = (byte[])dt.Rows[0]["IMAGE_FILE"];
-
-        //    MemoryStream ms = new MemoryStream(photo_aray);
-        //    this.pictureBox2.Image = Image.FromStream(ms);
-
-        //}
-
-        private byte[] ConvertImageToByteArray(System.Drawing.Image imageToConvert,
-                                       System.Drawing.Imaging.ImageFormat formatOfImage)
-        {
-            byte[] Ret;
-            try
-            {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    imageToConvert.Save(ms, formatOfImage);
-                    Ret = ms.ToArray();
-                }
-            }
-            catch (Exception) { throw; }
-            return Ret;
-        }
-
-        public Image byteArrayToImage(byte[] source)
-        {
-            MemoryStream ms = new MemoryStream(source);
-            Image ret = Image.FromStream(ms);
-            return ret;
-        }
-
-        public DataTable getimage()
+        public DataTable GetPhoto()
         {
 
             try
@@ -260,13 +175,6 @@ namespace WriteNotesApplication
                 return dt;
             }
             catch (Exception exc) { return null; }
-
-        }
-
-        
-
-        private void cmdUploadPhoto_Click(object sender, EventArgs e)
-        {
 
         }
 

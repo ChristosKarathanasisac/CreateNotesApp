@@ -33,23 +33,23 @@ namespace WriteNotesApplication
             this.txtUserName.Text = this.user.UserName;
 
         }
-        private bool frmInputsValidation()
+        private bool FrmInputsValidation()
         {
-            if (!checkRegisterInputs()) { return false; }
-            if (!checkIfUserNameExist()) { return false; }
-            if (!checkIfEmailIsValid()) { return false; }
-            if (!checkIfPhoneIsValid()) { return false; }
-            if (!checkInputFieldLenght("Password", txtPassWord.Text, 6, 30)) { return false; }
-            if (!checkInputFieldLenght("UserName", txtUserName.Text, 8, 20)) { return false; }
+            if (!CheckRegisterInputs()) { return false; }
+            if (!CheckIfUserNameExist()) { return false; }
+            if (!CheckIfEmailIsValid()) { return false; }
+            if (!CheckIfPhoneIsValid()) { return false; }
+            if (!CheckInputFieldLenght("Password", txtPassWord.Text, 6, 30)) { return false; }
+            if (!CheckInputFieldLenght("UserName", txtUserName.Text, 8, 20)) { return false; }
 
             return true;
 
         }
 
-        private bool checkIfUserNameExist()
+        private bool CheckIfUserNameExist()
         {
             if (user.UserName.Equals(this.txtUserName.Text.Trim())) { return true; }
-            if (databaseConUtilities.checkIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
+            if (databaseConUtilities.CheckIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
             {
                 this.txtUserName.Text = "";
                 this.txtUserName.BackColor = Color.Red;
@@ -60,7 +60,7 @@ namespace WriteNotesApplication
             return true;
         }
 
-        private bool checkIfEmailIsValid()
+        private bool CheckIfEmailIsValid()
         {
             bool flag = appUtilities.IsValidEmail(this.txtEmail.Text.Trim());
             if (flag)
@@ -79,7 +79,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkIfPhoneIsValid()
+        private bool CheckIfPhoneIsValid()
         {
             if (string.IsNullOrEmpty(this.txtPhone.Text.Trim())) {return true;}
             bool flag = appUtilities.IsValidPhoneNumber(this.txtPhone.Text.Trim());
@@ -98,7 +98,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkRegisterInputs()
+        private bool CheckRegisterInputs()
         {
             if (string.IsNullOrEmpty(this.txtFirstName.Text.ToString()))
             {
@@ -148,7 +148,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkInputFieldLenght(string fieldName, string field, int min, int max)
+        private bool CheckInputFieldLenght(string fieldName, string field, int min, int max)
         {
             if (field.Length < min)
             {
@@ -234,13 +234,13 @@ namespace WriteNotesApplication
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
-            if (!frmInputsValidation()) { return; }
+            if (!FrmInputsValidation()) { return; }
 
             User newUser = new User(this.txtFirstName.Text.Trim(), this.txtLastName.Text.Trim(), 
             this.txtEmail.Text.Trim(), this.txtPhone.Text.Trim(), this.txtAddress.Text.Trim(), this.txtUserName.Text.Trim(),
             appUtilities.PassWordEncrypt(this.txtPassWord.Text.Trim()));
 
-            if (databaseConUtilities.updateUserToDB(newUser,this.user.UserName)) 
+            if (databaseConUtilities.UpdateUserToDB(newUser,this.user.UserName)) 
             {
                 MessageBox.Show("Your changes has added succesfully");
                 this.Hide();

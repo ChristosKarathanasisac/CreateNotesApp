@@ -50,7 +50,7 @@ namespace WriteNotesApplication
             string username = this.txtUserName.Text.Trim();
             string password = appUtilities.PassWordEncrypt(this.txtPassword.Text.Trim());
 
-            dtUser = databaseConUtilities.getLoginUserDT(username, password);
+            dtUser = databaseConUtilities.GetLoginUserDT(username, password);
 
             if (dtUser.DefaultView.Count > 0) 
             {

@@ -27,7 +27,7 @@ namespace WriteNotesApplication
 
         private void cmdGetAllNotes_Click(object sender, EventArgs e)
         {
-            DataTable dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString());
+            DataTable dt = databaseConUtilities.GetNotesFromDB(this.user.UserName.ToString());
             if(dt != null) 
             {
                 this.bindingSource1.DataSource = dt;
@@ -67,7 +67,7 @@ namespace WriteNotesApplication
         private void cmdFilterDate_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString(),
+            dt = databaseConUtilities.GetNotesFromDB(this.user.UserName.ToString(),
                 this.dateTimePickerFromDateC.Value.ToString("yyyy-MM-dd 00:00:00"),
                 this.dateTimePickerToDateC.Value.ToString("yyyy-MM-dd 23:59:59"),"create");
 
@@ -91,7 +91,7 @@ namespace WriteNotesApplication
         private void cmdFilterDateM_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString(),
+            dt = databaseConUtilities.GetNotesFromDB(this.user.UserName.ToString(),
                 this.dateTimePickerFromDateM.Value.ToString("yyyy-MM-dd 00:00:00"),
                 this.dateTimePickerToDateM.Value.ToString("yyyy-MM-dd 23:59:59"),"modify");
 
@@ -113,7 +113,7 @@ namespace WriteNotesApplication
         {
             string textFilter = this.textFilterNote.Text.Trim();
             DataTable dt = new DataTable();
-            dt = databaseConUtilities.getNotesFromDB(this.user.UserName.ToString(), textFilter);
+            dt = databaseConUtilities.GetNotesFromDB(this.user.UserName.ToString(), textFilter);
 
             if (dt != null)
             {
@@ -252,7 +252,7 @@ namespace WriteNotesApplication
 
                 if(!string.IsNullOrEmpty(noteId))
                 {
-                    if (databaseConUtilities.deleteNoteFromDB(noteId))
+                    if (databaseConUtilities.DeleteNoteFromDB(noteId))
                     {
                         MessageBox.Show("Note deleted successfully");
 

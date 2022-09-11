@@ -41,7 +41,7 @@ namespace WriteNotesApplication
                     return;
                 }
 
-                if (databaseConUtilities.modifyNoteToDB(this.user.UserName,
+                if (databaseConUtilities.ModifyNoteToDB(this.user.UserName,
                     newNote, this.noteId)) 
                 {
                     this.note = newNote;

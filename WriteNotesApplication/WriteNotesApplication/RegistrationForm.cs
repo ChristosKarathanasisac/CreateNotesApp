@@ -31,7 +31,7 @@ namespace WriteNotesApplication
             this.txtEmail.Text.Trim(), this.txtPhone.Text.Trim(), this.txtAddress.Text.Trim(), this.txtUserName.Text.Trim(),
             appUtilities.PassWordEncrypt(this.txtPassWord.Text.Trim()));
 
-            if (databaseConUtilities.insertUserToDB(aUser))
+            if (databaseConUtilities.InsertUserToDB(aUser))
             {
                 MessageBox.Show("New User Added Successfully. Log in to use the app");
                 this.Hide();
@@ -90,20 +90,20 @@ namespace WriteNotesApplication
 
         private bool frmInputsValidation() 
         {
-            if (!checkRegisterInputs()) { return false; }
-            if (!checkIfUserNameExist()) { return false; }
-            if (!checkIfEmailIsValid()) { return false; }
-            if (!checkIfPhoneIsValid()) { return false; }
-            if (!checkInputFieldLenght("Password",txtPassWord.Text, 6, 30)) { return false; }
-            if (!checkInputFieldLenght("UserName",txtUserName.Text, 8, 20)) { return false; }
+            if (!CheckRegisterInputs()) { return false; }
+            if (!CheckIfUserNameExist()) { return false; }
+            if (!CheckIfEmailIsValid()) { return false; }
+            if (!CheckIfPhoneIsValid()) { return false; }
+            if (!CheckRegisterInputs("Password",txtPassWord.Text, 6, 30)) { return false; }
+            if (!CheckRegisterInputs("UserName",txtUserName.Text, 8, 20)) { return false; }
 
             return true;
 
         }
 
-        private bool checkIfUserNameExist() 
+        private bool CheckIfUserNameExist() 
         {
-            if (databaseConUtilities.checkIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
+            if (databaseConUtilities.CheckIfUserCredentialsExists("USER_NAME", this.txtUserName.Text.Trim()))
             {
                 this.txtUserName.Text = "";
                 this.txtUserName.BackColor = Color.Red;
@@ -114,7 +114,7 @@ namespace WriteNotesApplication
             return true;
         }
 
-        private bool checkIfEmailIsValid() 
+        private bool CheckIfEmailIsValid() 
         {
             bool flag = appUtilities.IsValidEmail(this.txtEmail.Text.Trim());
             if (flag) 
@@ -133,7 +133,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkIfPhoneIsValid() 
+        private bool CheckIfPhoneIsValid() 
         {
             if (string.IsNullOrEmpty(this.txtPhone.Text.Trim())){ return true; }
 
@@ -153,7 +153,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkRegisterInputs() 
+        private bool CheckRegisterInputs() 
         {
             if (string.IsNullOrEmpty(this.txtFirstName.Text.ToString()))
             {
@@ -203,7 +203,7 @@ namespace WriteNotesApplication
 
         }
 
-        private bool checkInputFieldLenght(string fieldName,string field,int min,int max)  
+        private bool CheckRegisterInputs(string fieldName,string field,int min,int max)  
         {
             if (field.Length < min) 
             {
