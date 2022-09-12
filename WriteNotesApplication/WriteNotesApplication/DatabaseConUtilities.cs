@@ -140,6 +140,18 @@ namespace WriteNotesApplication
             
         }
 
+        public DataTable GetPhotosFromDB(string noteId) 
+        {
+            string sql = "SELECT IMAGE_FILE FROM images " +
+                         "WHERE NOTE_ID = '" + noteId + "'";
+
+            DataTable dt = new DataTable();
+
+            dt = GetDataTableFromDB(sql);
+            return dt;
+
+        }
+
         public DataTable GetNotesFromDB(string username) 
         {
             DataTable dt = new DataTable();

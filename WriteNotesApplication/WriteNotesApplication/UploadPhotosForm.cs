@@ -147,37 +147,6 @@ namespace WriteNotesApplication
 
 
         }
-
-        public DataTable GetPhoto()
-        {
-
-            try
-            {
-                System.Data.SqlClient.SqlConnection conn = null;
-
-                string connString = "";
-                DataTable dt = new DataTable();
-                connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection=true; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
-                    "User ID = " + ConfigurationManager.AppSettings["db_username"] + "; Password = " + ConfigurationManager.AppSettings["db_psw"];
-
-                conn = new SqlConnection(connString);
-                string query = "select IMAGE_FILE from images";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-                da.Fill(dt);
-                conn.Close();
-                da.Dispose();
-
-                return dt;
-            }
-            catch (Exception exc) { return null; }
-
-        }
-
         private void cmdConfirm_Click(object sender, EventArgs e)
         {
             this.ReturnValue = DialogResult.OK;

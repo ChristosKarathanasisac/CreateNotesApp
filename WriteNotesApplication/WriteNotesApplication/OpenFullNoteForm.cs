@@ -106,5 +106,11 @@ namespace WriteNotesApplication
                 this.txtEmailSubject.BackColor = Color.White;
             }
         }
+
+        private void cmdShowPhotos_Click(object sender, EventArgs e)
+        {
+            ShowPhotosForm showPhotosForm = new ShowPhotosForm(this.noteId);
+            showPhotosForm.ShowDialog();
+        }
     }
 }
