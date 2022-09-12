@@ -21,6 +21,7 @@ namespace WriteNotesApplication
         public IntroForm()
         {
             InitializeComponent();
+            this.cmdHide.Visible = false;
         }
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
@@ -84,21 +85,24 @@ namespace WriteNotesApplication
             }
         }
 
-        private void btnShow_Click(object sender, EventArgs e)
+        private void cmdShow_Click(object sender, EventArgs e)
         {
             if (this.txtPassword.PasswordChar == '*')
             {
-                btnHide.BringToFront();
+                cmdHide.Visible = true;
                 this.txtPassword.PasswordChar = '\0';
+                cmdShow.Visible = false;
             }
         }
 
-        private void btnHide_Click(object sender, EventArgs e)
+        private void cmdHide_Click(object sender, EventArgs e)
         {
             if (this.txtPassword.PasswordChar == '\0')
             {
-                btnShow.BringToFront();
+                
+                cmdShow.Visible = true;
                 this.txtPassword.PasswordChar = '*';
+                cmdHide.Visible = false;
             }
         }
 

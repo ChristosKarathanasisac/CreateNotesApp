@@ -36,8 +36,8 @@ namespace WriteNotesApplication
             this.cmdRegister = new System.Windows.Forms.Button();
             this.cmdConHide = new System.Windows.Forms.Button();
             this.cmdConShow = new System.Windows.Forms.Button();
-            this.btnHide = new System.Windows.Forms.Button();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.cmdHide = new System.Windows.Forms.Button();
+            this.cmdShow = new System.Windows.Forms.Button();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -71,8 +71,8 @@ namespace WriteNotesApplication
             groupBox1.Controls.Add(this.cmdRegister);
             groupBox1.Controls.Add(this.cmdConHide);
             groupBox1.Controls.Add(this.cmdConShow);
-            groupBox1.Controls.Add(this.btnHide);
-            groupBox1.Controls.Add(this.btnShow);
+            groupBox1.Controls.Add(this.cmdHide);
+            groupBox1.Controls.Add(this.cmdShow);
             groupBox1.Controls.Add(this.txtUserName);
             groupBox1.Controls.Add(this.txtAddress);
             groupBox1.Controls.Add(this.txtEmail);
@@ -149,7 +149,7 @@ namespace WriteNotesApplication
             this.cmdConHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdConHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.cmdConHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.cmdConHide.Location = new System.Drawing.Point(899, 463);
+            this.cmdConHide.Location = new System.Drawing.Point(871, 463);
             this.cmdConHide.Margin = new System.Windows.Forms.Padding(1);
             this.cmdConHide.Name = "cmdConHide";
             this.cmdConHide.Size = new System.Drawing.Size(29, 28);
@@ -169,31 +169,31 @@ namespace WriteNotesApplication
             this.cmdConShow.TabIndex = 21;
             this.cmdConShow.Click += new System.EventHandler(this.cmdConShow_Click);
             // 
-            // btnHide
+            // cmdHide
             // 
-            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btnHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.btnHide.Location = new System.Drawing.Point(996, 398);
-            this.btnHide.Margin = new System.Windows.Forms.Padding(1);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(29, 26);
-            this.btnHide.TabIndex = 20;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            this.cmdHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.cmdHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
+            this.cmdHide.Location = new System.Drawing.Point(967, 397);
+            this.cmdHide.Margin = new System.Windows.Forms.Padding(1);
+            this.cmdHide.Name = "cmdHide";
+            this.cmdHide.Size = new System.Drawing.Size(29, 26);
+            this.cmdHide.TabIndex = 20;
+            this.cmdHide.Click += new System.EventHandler(this.cmdHide_Click);
             // 
-            // btnShow
+            // cmdShow
             // 
-            this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btnShow.Image = global::WriteNotesApplication.Properties.Resources.show;
-            this.btnShow.Location = new System.Drawing.Point(970, 398);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(1);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(26, 26);
-            this.btnShow.TabIndex = 19;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.cmdShow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.cmdShow.Image = global::WriteNotesApplication.Properties.Resources.show;
+            this.cmdShow.Location = new System.Drawing.Point(970, 398);
+            this.cmdShow.Margin = new System.Windows.Forms.Padding(1);
+            this.cmdShow.Name = "cmdShow";
+            this.cmdShow.Size = new System.Drawing.Size(26, 26);
+            this.cmdShow.TabIndex = 19;
+            this.cmdShow.Click += new System.EventHandler(this.cmdShow_Click);
             // 
             // txtUserName
             // 
@@ -440,8 +440,8 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Button btnHide;
-        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button cmdHide;
+        private System.Windows.Forms.Button cmdShow;
         private System.Windows.Forms.Button cmdConHide;
         private System.Windows.Forms.Button cmdConShow;
         private System.Windows.Forms.Button cmdRegister;

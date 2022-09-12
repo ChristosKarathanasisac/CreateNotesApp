@@ -31,11 +31,12 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeUserInfoForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmdConHide = new System.Windows.Forms.Button();
             this.cmdConShow = new System.Windows.Forms.Button();
-            this.btnHide = new System.Windows.Forms.Button();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.cmdHide = new System.Windows.Forms.Button();
+            this.cmdShow = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.txtConPassword = new System.Windows.Forms.TextBox();
             this.txtPassWord = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@ namespace WriteNotesApplication
             this.lblFLastName = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,8 +70,8 @@ namespace WriteNotesApplication
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.cmdConHide);
             this.groupBox1.Controls.Add(this.cmdConShow);
-            this.groupBox1.Controls.Add(this.btnHide);
-            this.groupBox1.Controls.Add(this.btnShow);
+            this.groupBox1.Controls.Add(this.cmdHide);
+            this.groupBox1.Controls.Add(this.cmdShow);
             this.groupBox1.Controls.Add(this.cmdBack);
             this.groupBox1.Controls.Add(this.txtConPassword);
             this.groupBox1.Controls.Add(this.txtPassWord);
@@ -96,6 +96,17 @@ namespace WriteNotesApplication
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFirstName.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.txtFirstName.Location = new System.Drawing.Point(599, 49);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(157, 26);
+            this.txtFirstName.TabIndex = 35;
+            this.txtFirstName.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -113,9 +124,9 @@ namespace WriteNotesApplication
             this.cmdConHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdConHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.cmdConHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.cmdConHide.Location = new System.Drawing.Point(915, 465);
+            this.cmdConHide.Location = new System.Drawing.Point(883, 465);
             this.cmdConHide.Name = "cmdConHide";
-            this.cmdConHide.Size = new System.Drawing.Size(30, 26);
+            this.cmdConHide.Size = new System.Drawing.Size(27, 27);
             this.cmdConHide.TabIndex = 33;
             this.cmdConHide.Click += new System.EventHandler(this.cmdConHide_Click);
             // 
@@ -127,33 +138,33 @@ namespace WriteNotesApplication
             this.cmdConShow.Image = global::WriteNotesApplication.Properties.Resources.show;
             this.cmdConShow.Location = new System.Drawing.Point(883, 465);
             this.cmdConShow.Name = "cmdConShow";
-            this.cmdConShow.Size = new System.Drawing.Size(32, 26);
+            this.cmdConShow.Size = new System.Drawing.Size(27, 27);
             this.cmdConShow.TabIndex = 32;
             this.cmdConShow.Click += new System.EventHandler(this.cmdConShow_Click);
             // 
-            // btnHide
+            // cmdHide
             // 
-            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btnHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.btnHide.Location = new System.Drawing.Point(999, 398);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(30, 28);
-            this.btnHide.TabIndex = 31;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            this.cmdHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.cmdHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
+            this.cmdHide.Location = new System.Drawing.Point(937, 400);
+            this.cmdHide.Name = "cmdHide";
+            this.cmdHide.Size = new System.Drawing.Size(27, 27);
+            this.cmdHide.TabIndex = 31;
+            this.cmdHide.Click += new System.EventHandler(this.cmdHide_Click);
             // 
-            // btnShow
+            // cmdShow
             // 
-            this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btnShow.Image = global::WriteNotesApplication.Properties.Resources.show;
-            this.btnShow.Location = new System.Drawing.Point(970, 398);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(29, 28);
-            this.btnShow.TabIndex = 30;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.cmdShow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.cmdShow.Image = global::WriteNotesApplication.Properties.Resources.show;
+            this.cmdShow.Location = new System.Drawing.Point(937, 400);
+            this.cmdShow.Name = "cmdShow";
+            this.cmdShow.Size = new System.Drawing.Size(27, 27);
+            this.cmdShow.TabIndex = 30;
+            this.cmdShow.Click += new System.EventHandler(this.cmdShow_Click);
             // 
             // cmdBack
             // 
@@ -369,17 +380,6 @@ namespace WriteNotesApplication
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name*:";
             // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFirstName.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
-            this.txtFirstName.Location = new System.Drawing.Point(599, 49);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(157, 26);
-            this.txtFirstName.TabIndex = 35;
-            this.txtFirstName.TabStop = false;
-            // 
             // ChangeUserInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,10 +421,10 @@ namespace WriteNotesApplication
         private System.Windows.Forms.TextBox txtPassWord;
         private System.Windows.Forms.TextBox txtConPassword;
         private System.Windows.Forms.Button cmdBack;
-        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button cmdShow;
         private System.Windows.Forms.Button cmdConHide;
         private System.Windows.Forms.Button cmdConShow;
-        private System.Windows.Forms.Button btnHide;
+        private System.Windows.Forms.Button cmdHide;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtFirstName;
     }

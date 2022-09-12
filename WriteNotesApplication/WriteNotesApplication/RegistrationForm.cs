@@ -20,6 +20,8 @@ namespace WriteNotesApplication
         public RegistrationForm()
         {
             InitializeComponent();
+            cmdHide.Visible= false;
+            cmdConHide.Visible = false;
         }
 
 
@@ -52,21 +54,24 @@ namespace WriteNotesApplication
             }
         }
 
-        private void btnShow_Click(object sender, EventArgs e)
+        private void cmdShow_Click(object sender, EventArgs e)
         {
-            if(this.txtPassWord.PasswordChar == '*') 
+            if (this.txtPassWord.PasswordChar == '*')
             {
-                btnHide.BringToFront();
-                txtPassWord.PasswordChar = '\0';
+                cmdHide.Visible = true;
+                this.txtPassWord.PasswordChar = '\0';
+                cmdShow.Visible = false;
             }
         }
 
-        private void btnHide_Click(object sender, EventArgs e)
+        private void cmdHide_Click(object sender, EventArgs e)
         {
             if (this.txtPassWord.PasswordChar == '\0')
             {
-                btnShow.BringToFront();
-                txtPassWord.PasswordChar = '*';
+
+                cmdShow.Visible = true;
+                this.txtPassWord.PasswordChar = '*';
+                cmdHide.Visible = false;
             }
         }
 
@@ -74,8 +79,9 @@ namespace WriteNotesApplication
         {
             if (this.txtConPassword.PasswordChar == '*')
             {
-                cmdConHide.BringToFront();
+                cmdConHide.Visible = true;
                 txtConPassword.PasswordChar = '\0';
+                cmdConShow.Visible = false;
             }
         }
 
@@ -83,10 +89,13 @@ namespace WriteNotesApplication
         {
             if (this.txtConPassword.PasswordChar == '\0')
             {
-                cmdConShow.BringToFront();
+                cmdConShow.Visible = true;
                 txtConPassword.PasswordChar = '*';
+                cmdConHide.Visible = false;
             }
         }
+
+       
 
         private bool frmInputsValidation() 
         {

@@ -32,8 +32,8 @@ namespace WriteNotesApplication
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntroForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnHide = new System.Windows.Forms.Button();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.cmdHide = new System.Windows.Forms.Button();
+            this.cmdShow = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.btnLogIn = new System.Windows.Forms.Button();
@@ -52,8 +52,8 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnHide);
-            this.groupBox1.Controls.Add(this.btnShow);
+            this.groupBox1.Controls.Add(this.cmdHide);
+            this.groupBox1.Controls.Add(this.cmdShow);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnCreateAccount);
             this.groupBox1.Controls.Add(this.btnLogIn);
@@ -81,33 +81,33 @@ namespace WriteNotesApplication
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // btnHide
+            // cmdHide
             // 
-            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHide.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btnHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
-            this.btnHide.Location = new System.Drawing.Point(641, 506);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(25, 26);
-            this.btnHide.TabIndex = 21;
-            this.btnHide.UseVisualStyleBackColor = false;
-            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            this.cmdHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdHide.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.cmdHide.Image = global::WriteNotesApplication.Properties.Resources.hide__1_;
+            this.cmdHide.Location = new System.Drawing.Point(620, 506);
+            this.cmdHide.Name = "cmdHide";
+            this.cmdHide.Size = new System.Drawing.Size(27, 27);
+            this.cmdHide.TabIndex = 21;
+            this.cmdHide.UseVisualStyleBackColor = false;
+            this.cmdHide.Click += new System.EventHandler(this.cmdHide_Click);
             // 
-            // btnShow
+            // cmdShow
             // 
-            this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnShow.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btnShow.Image = global::WriteNotesApplication.Properties.Resources.show;
-            this.btnShow.Location = new System.Drawing.Point(617, 506);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(25, 26);
-            this.btnShow.TabIndex = 20;
-            this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.cmdShow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdShow.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.cmdShow.Image = global::WriteNotesApplication.Properties.Resources.show;
+            this.cmdShow.Location = new System.Drawing.Point(617, 506);
+            this.cmdShow.Name = "cmdShow";
+            this.cmdShow.Size = new System.Drawing.Size(27, 27);
+            this.cmdShow.TabIndex = 20;
+            this.cmdShow.UseVisualStyleBackColor = false;
+            this.cmdShow.Click += new System.EventHandler(this.cmdShow_Click);
             // 
             // button1
             // 
@@ -242,8 +242,8 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Label lblPasword;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnCreateAccount;
-        private System.Windows.Forms.Button btnShow;
-        private System.Windows.Forms.Button btnHide;
+        private System.Windows.Forms.Button cmdShow;
+        private System.Windows.Forms.Button cmdHide;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
     }

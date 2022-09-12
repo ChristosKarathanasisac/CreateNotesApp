@@ -32,6 +32,9 @@ namespace WriteNotesApplication
             this.txtAddress.Text = this.user.Address;
             this.txtUserName.Text = this.user.UserName;
 
+            cmdHide.Visible = false;
+            cmdConHide.Visible = false;
+
         }
         private bool FrmInputsValidation()
         {
@@ -261,21 +264,23 @@ namespace WriteNotesApplication
             }
         }
 
-        private void btnShow_Click(object sender, EventArgs e)
+        private void cmdShow_Click(object sender, EventArgs e)
         {
             if (this.txtPassWord.PasswordChar == '*')
             {
-                btnHide.BringToFront();
+                cmdHide.Visible = true;
                 txtPassWord.PasswordChar = '\0';
+                cmdShow.Visible = false;
             }
         }
 
-        private void btnHide_Click(object sender, EventArgs e)
+        private void cmdHide_Click(object sender, EventArgs e)
         {
             if (this.txtPassWord.PasswordChar == '\0')
             {
-                btnShow.BringToFront();
+                cmdShow.Visible = true;
                 txtPassWord.PasswordChar = '*';
+                cmdHide.Visible = false;
             }
         }
 
@@ -283,8 +288,9 @@ namespace WriteNotesApplication
         {
             if (this.txtConPassword.PasswordChar == '*')
             {
-                cmdConHide.BringToFront();
+                cmdConHide.Visible = true;
                 txtConPassword.PasswordChar = '\0';
+                cmdConShow.Visible = false;
             }
         }
 
@@ -292,8 +298,9 @@ namespace WriteNotesApplication
         {
             if (this.txtConPassword.PasswordChar == '\0')
             {
-                cmdConShow.BringToFront();
+                cmdConShow.Visible = true;
                 txtConPassword.PasswordChar = '*';
+                cmdConHide.Visible = false;
             }
         }
 

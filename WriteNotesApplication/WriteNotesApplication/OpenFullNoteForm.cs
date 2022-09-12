@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,5 +114,31 @@ namespace WriteNotesApplication
             ShowPhotosForm showPhotosForm = new ShowPhotosForm(this.noteId);
             showPhotosForm.ShowDialog();
         }
+
+        private void cmdSaveToFile_Click(object sender, EventArgs e)
+        {
+            var folderBrowserDialog1 = new FolderBrowserDialog();
+
+            string folderName = string.Empty;
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                folderName = folderBrowserDialog1.SelectedPath;
+                string str = string.Concat(folderName, @"\" + this.noteId + ".log");
+
+                if (appUtilities.WriteNoteToTextFile(str, this.user.UserName, this.noteTopic, this.note) &&
+                    appUtilities.DownloadPhotosLocal(folderName,this.noteId))
+                {  
+                    MessageBox.Show("Your note saved to folder: " + folderName);
+                }
+                else
+                {
+                    MessageBox.Show("Note Save Error. Please try again!");
+                }
+
+            }
+        }
+
     }
-}
+    }
+

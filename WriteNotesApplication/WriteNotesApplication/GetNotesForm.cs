@@ -135,12 +135,15 @@ namespace WriteNotesApplication
             if (selectedRowCount ==1)
             {
 
-
-               
                 string noteId = "";
                 string note = "";
                 string noteTopic = "";
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
+                if (r.Cells["NOTE_ID"].Value == null)
+                {
+                    MessageBox.Show("No data Selected");
+                    return;
+                }
                 try
                 {
                     noteId = r.Cells["NOTE_ID"].Value.ToString();
@@ -192,6 +195,11 @@ namespace WriteNotesApplication
                 string note = "";
                 string noteTopic = "";
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
+                if(r.Cells["NOTE_ID"].Value == null) 
+                {
+                    MessageBox.Show("No data Selected");
+                    return;
+                }
                 try
                 {
                     noteId = r.Cells["NOTE_ID"].Value.ToString();
@@ -240,6 +248,11 @@ namespace WriteNotesApplication
             {
                 string noteId = "";
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
+                if (r.Cells["NOTE_ID"].Value == null)
+                {
+                    MessageBox.Show("No data Selected");
+                    return;
+                }
                 try 
                 {
                      noteId = r.Cells["NOTE_ID"].Value.ToString();

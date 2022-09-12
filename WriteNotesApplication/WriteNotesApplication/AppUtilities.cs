@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -15,6 +18,7 @@ namespace WriteNotesApplication
 {
     class AppUtilities
     {
+        
         public bool IsValidEmail(string email)
         {
             //Code from Microsoft.com
@@ -137,7 +141,7 @@ namespace WriteNotesApplication
 
 
         public byte[] ConvertImageToByteArray(System.Drawing.Image imageToConvert,
-                                       System.Drawing.Imaging.ImageFormat formatOfImage)
+                                   System.Drawing.Imaging.ImageFormat formatOfImage)
         {
             byte[] Ret;
             try
@@ -150,6 +154,80 @@ namespace WriteNotesApplication
             }
             catch (Exception) { throw; }
             return Ret;
+        }
+
+        public bool WriteNoteToTextFile(string str,string userName,string noteTopic,string note) 
+        {
+            StreamWriter streamWriter = new StreamWriter(str, true);
+            try
+            {
+                DateTime now = DateTime.Now;
+                streamWriter.WriteLine(string.Concat("---", now.ToString("dd/MM/yyyy HH:mm:ss"), ": ", "Download---"));
+                streamWriter.WriteLine(string.Concat("Note Created by", ": ", userName));
+                streamWriter.WriteLine(string.Concat("Note Topic", ": ", noteTopic));
+                streamWriter.WriteLine(string.Concat("Note", ": ", note + "\n"));
+              
+                return true;
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+            finally 
+            {
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+
+        }
+
+        public bool DownloadPhotosLocal(string folderName, string noteId) 
+        {
+            DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
+            DataTable photosDt = new DataTable();
+            photosDt = databaseConUtilities.GetPhotosFromDB(noteId);
+            int counter = 1;
+            try 
+            {
+                foreach (DataRow row in photosDt.Rows)
+                {
+                    byte[] photo_aray = (byte[])row["IMAGE_FILE"];
+                    MemoryStream ms = new MemoryStream(photo_aray);
+
+                    Bitmap myBitmap;
+                    ImageCodecInfo myImageCodecInfo;
+                    System.Drawing.Imaging.Encoder myEncoder;
+                    EncoderParameter myEncoderParameter;
+                    EncoderParameters myEncoderParameters;
+
+                    myBitmap = new Bitmap(new Bitmap(ms));
+                    myImageCodecInfo = GetEncoderInfo("image/jpeg");
+                    myEncoder = System.Drawing.Imaging.Encoder.Quality;
+                    myEncoderParameters = new EncoderParameters(1);
+
+                    myEncoderParameter = new EncoderParameter(myEncoder, 75L);
+                    myEncoderParameters.Param[0] = myEncoderParameter;
+                    myBitmap.Save(folderName + @"\pic" + counter.ToString() + ".jpeg", myImageCodecInfo, myEncoderParameters);
+                    counter++;
+                }
+                return true;
+            }catch(Exception exc) 
+            {
+                return false;
+            }
+        }
+        public ImageCodecInfo GetEncoderInfo(String mimeType)
+        {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
         }
 
     }

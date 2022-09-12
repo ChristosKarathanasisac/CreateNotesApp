@@ -40,6 +40,7 @@ namespace WriteNotesApplication
             int maxHeight = -1;
             foreach (DataRow row in photosDt.Rows)
             {
+                
                 byte[] photo_aray = (byte[])row["IMAGE_FILE"];
                 PictureBox pb = new PictureBox();
 
