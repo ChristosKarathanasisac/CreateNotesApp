@@ -73,6 +73,7 @@ namespace WriteNotesApplication
             this.cmdReturn.TabIndex = 9;
             this.cmdReturn.Text = "Return";
             this.cmdReturn.UseVisualStyleBackColor = false;
+            this.cmdReturn.Click += new System.EventHandler(this.cmdReturn_Click);
             // 
             // ShowPhotosForm
             // 
@@ -86,6 +87,7 @@ namespace WriteNotesApplication
             this.Name = "ShowPhotosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "smart .note";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ShowPhotosForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

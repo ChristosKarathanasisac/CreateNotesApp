@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,31 +34,42 @@ namespace WriteNotesApplication
                 this.lblPhotos.Text = "This note has no photos";
                 this.Hide();
             }
-
-            System.Byte[] photos = photosDt.AsEnumerable().Select(r => r.Field<System.Byte>("IMAGE_FILE")).ToArray();
-
+           
             int x = 20;
             int y = 20;
             int maxHeight = -1;
-            foreach (System.Byte p in photos)
+            foreach (DataRow row in photosDt.Rows)
             {
-                //PictureBox pb = new PictureBox();
-               
-                //pb.Image = new Bitmap(p);
-                //pb.Location = new Point(x, y);
-                //pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                //x += pb.Width + 10;
-                //maxHeight = Math.Max(pb.Height, maxHeight);
+                byte[] photo_aray = (byte[])row["IMAGE_FILE"];
+                PictureBox pb = new PictureBox();
 
-                //if (x > this.ClientSize.Width - 100)
-                //{
-                //    x = 20;
-                //    y += maxHeight + 10;
-                //}
-                //this.groupBox1.Controls.Add(pb);
+                MemoryStream ms = new MemoryStream(photo_aray);
                 
+                pb.Image = new Bitmap(new Bitmap(ms));
+                pb.Location = new Point(x, y);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                x += pb.Width + 10;
+                maxHeight = Math.Max(pb.Height, maxHeight);
+
+                if (x > this.ClientSize.Width - 100)
+                {
+                    x = 20;
+                    y += maxHeight + 10;
+                }
+                this.groupBox1.Controls.Add(pb);
+
             }
 
+        }
+
+        private void ShowPhotosForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void cmdReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

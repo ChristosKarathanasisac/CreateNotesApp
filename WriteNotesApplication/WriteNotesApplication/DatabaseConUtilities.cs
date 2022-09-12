@@ -92,7 +92,7 @@ namespace WriteNotesApplication
                               new System.Data.SqlClient.SqlCommand(
                               "Insert into images (NOTE_ID, IMAGE_FILE) Values (+" + noteId + ", @Pic)", conn);
                     insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
-                        appUtilities.ConvertImageToByteArray(images[0], System.Drawing.Imaging.ImageFormat.Jpeg);
+                        appUtilities.ConvertImageToByteArray(images[i], System.Drawing.Imaging.ImageFormat.Jpeg);
                     int queryResult = insertCommand.ExecuteNonQuery();
                     if (!(queryResult == 1)) { loopFlag = false; }
 
