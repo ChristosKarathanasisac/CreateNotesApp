@@ -31,14 +31,16 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNotesForm));
             this.gridcondrol1 = new System.Windows.Forms.GroupBox();
+            this.cmdUploadFile = new System.Windows.Forms.Button();
+            this.cmdCancelPhotos = new System.Windows.Forms.Button();
+            this.cmdUploadPhoto = new System.Windows.Forms.Button();
             this.txtNoteTopic = new System.Windows.Forms.TextBox();
             this.lblNoteTopic = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.RichTextBox();
-            this.cmdCancelPhotos = new System.Windows.Forms.Button();
-            this.cmdUploadPhoto = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmdCancelFileUpload = new System.Windows.Forms.Button();
             this.gridcondrol1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,8 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridcondrol1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.gridcondrol1.Controls.Add(this.cmdCancelFileUpload);
+            this.gridcondrol1.Controls.Add(this.cmdUploadFile);
             this.gridcondrol1.Controls.Add(this.cmdCancelPhotos);
             this.gridcondrol1.Controls.Add(this.cmdUploadPhoto);
             this.gridcondrol1.Controls.Add(this.txtNoteTopic);
@@ -65,6 +69,54 @@ namespace WriteNotesApplication
             this.gridcondrol1.Size = new System.Drawing.Size(1044, 717);
             this.gridcondrol1.TabIndex = 0;
             this.gridcondrol1.TabStop = false;
+            // 
+            // cmdUploadFile
+            // 
+            this.cmdUploadFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdUploadFile.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdUploadFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdUploadFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdUploadFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdUploadFile.Image = global::WriteNotesApplication.Properties.Resources.files;
+            this.cmdUploadFile.Location = new System.Drawing.Point(625, 671);
+            this.cmdUploadFile.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdUploadFile.Name = "cmdUploadFile";
+            this.cmdUploadFile.Size = new System.Drawing.Size(41, 37);
+            this.cmdUploadFile.TabIndex = 8;
+            this.cmdUploadFile.UseVisualStyleBackColor = false;
+            this.cmdUploadFile.Click += new System.EventHandler(this.cmdUploadFile_Click);
+            // 
+            // cmdCancelPhotos
+            // 
+            this.cmdCancelPhotos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdCancelPhotos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdCancelPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancelPhotos.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdCancelPhotos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdCancelPhotos.Image = global::WriteNotesApplication.Properties.Resources.delete;
+            this.cmdCancelPhotos.Location = new System.Drawing.Point(560, 671);
+            this.cmdCancelPhotos.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdCancelPhotos.Name = "cmdCancelPhotos";
+            this.cmdCancelPhotos.Size = new System.Drawing.Size(41, 37);
+            this.cmdCancelPhotos.TabIndex = 7;
+            this.cmdCancelPhotos.UseVisualStyleBackColor = false;
+            this.cmdCancelPhotos.Click += new System.EventHandler(this.cmdCancelPhotos_Click);
+            // 
+            // cmdUploadPhoto
+            // 
+            this.cmdUploadPhoto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdUploadPhoto.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdUploadPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdUploadPhoto.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdUploadPhoto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdUploadPhoto.Image = global::WriteNotesApplication.Properties.Resources.upload_image;
+            this.cmdUploadPhoto.Location = new System.Drawing.Point(515, 671);
+            this.cmdUploadPhoto.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdUploadPhoto.Name = "cmdUploadPhoto";
+            this.cmdUploadPhoto.Size = new System.Drawing.Size(41, 37);
+            this.cmdUploadPhoto.TabIndex = 6;
+            this.cmdUploadPhoto.UseVisualStyleBackColor = false;
+            this.cmdUploadPhoto.Click += new System.EventHandler(this.cmdUploadPhoto_Click);
             // 
             // txtNoteTopic
             // 
@@ -88,6 +140,17 @@ namespace WriteNotesApplication
             this.lblNoteTopic.Size = new System.Drawing.Size(125, 31);
             this.lblNoteTopic.TabIndex = 4;
             this.lblNoteTopic.Text = "Note Topic*:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources._NewNote__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(500, 500);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // cmdBack
             // 
@@ -132,53 +195,26 @@ namespace WriteNotesApplication
             this.txtNote.Margin = new System.Windows.Forms.Padding(2);
             this.txtNote.Name = "txtNote";
             this.txtNote.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtNote.Size = new System.Drawing.Size(519, 426);
+            this.txtNote.Size = new System.Drawing.Size(519, 388);
             this.txtNote.TabIndex = 0;
             this.txtNote.Text = "";
             this.txtNote.TextChanged += new System.EventHandler(this.txtNote_TextChanged);
             // 
-            // cmdCancelPhotos
+            // cmdCancelFileUpload
             // 
-            this.cmdCancelPhotos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdCancelPhotos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdCancelPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancelPhotos.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.cmdCancelPhotos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmdCancelPhotos.Image = global::WriteNotesApplication.Properties.Resources.delete;
-            this.cmdCancelPhotos.Location = new System.Drawing.Point(770, 200);
-            this.cmdCancelPhotos.Margin = new System.Windows.Forms.Padding(2);
-            this.cmdCancelPhotos.Name = "cmdCancelPhotos";
-            this.cmdCancelPhotos.Size = new System.Drawing.Size(41, 37);
-            this.cmdCancelPhotos.TabIndex = 7;
-            this.cmdCancelPhotos.UseVisualStyleBackColor = false;
-            this.cmdCancelPhotos.Click += new System.EventHandler(this.cmdCancelPhotos_Click);
-            // 
-            // cmdUploadPhoto
-            // 
-            this.cmdUploadPhoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdUploadPhoto.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdUploadPhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdUploadPhoto.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.cmdUploadPhoto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmdUploadPhoto.Image = global::WriteNotesApplication.Properties.Resources.upload_image;
-            this.cmdUploadPhoto.Location = new System.Drawing.Point(725, 200);
-            this.cmdUploadPhoto.Margin = new System.Windows.Forms.Padding(2);
-            this.cmdUploadPhoto.Name = "cmdUploadPhoto";
-            this.cmdUploadPhoto.Size = new System.Drawing.Size(41, 37);
-            this.cmdUploadPhoto.TabIndex = 6;
-            this.cmdUploadPhoto.UseVisualStyleBackColor = false;
-            this.cmdUploadPhoto.Click += new System.EventHandler(this.cmdUploadPhoto_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources._NewNote__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.cmdCancelFileUpload.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdCancelFileUpload.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdCancelFileUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancelFileUpload.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdCancelFileUpload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdCancelFileUpload.Image = global::WriteNotesApplication.Properties.Resources.delete;
+            this.cmdCancelFileUpload.Location = new System.Drawing.Point(680, 671);
+            this.cmdCancelFileUpload.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdCancelFileUpload.Name = "cmdCancelFileUpload";
+            this.cmdCancelFileUpload.Size = new System.Drawing.Size(41, 37);
+            this.cmdCancelFileUpload.TabIndex = 9;
+            this.cmdCancelFileUpload.UseVisualStyleBackColor = false;
+            this.cmdCancelFileUpload.Click += new System.EventHandler(this.cmdCancelFileUpload_Click);
             // 
             // CreateNotesForm
             // 
@@ -213,6 +249,8 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Label lblNoteTopic;
         private System.Windows.Forms.Button cmdUploadPhoto;
         private System.Windows.Forms.Button cmdCancelPhotos;
+        private System.Windows.Forms.Button cmdUploadFile;
+        private System.Windows.Forms.Button cmdCancelFileUpload;
     }
 }
 

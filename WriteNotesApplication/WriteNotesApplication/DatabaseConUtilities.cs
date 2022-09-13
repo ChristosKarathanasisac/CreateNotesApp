@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -21,7 +22,7 @@ namespace WriteNotesApplication
             return connString;
         }
 
-        public bool WriteNoteToDB(string note,string noteTopic,string userName)
+        public bool WriteNoteToDB(string note,string noteTopic,string userName, string cretionDate)
         {
             string userId = FindUserId(userName);
 
@@ -29,8 +30,8 @@ namespace WriteNotesApplication
             {
                 
                 string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION)" +
-                                      " VALUES (" + userId + "," + "'" + note + "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
-                                      + "', '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','"+noteTopic+"')";
+                                      " VALUES (" + userId + "," + "'" + note + "','" + cretionDate
+                                      + "', '" + cretionDate + "','"+noteTopic+"')";
 
                 return InsertToDB(sql2);
 
@@ -48,35 +49,69 @@ namespace WriteNotesApplication
         public bool WriteNoteWithPhotosToDB(string note, string noteTopic, string userName,Image[] images)
         {
             string userId = FindUserId(userName);
-            string cretionDate = "";
+            string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             bool flag = false;
-
-            if (!string.IsNullOrEmpty(userId))
-            {
-                cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-                string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION)" +
-                                      " VALUES (" + userId + "," + "'" + note + "','" + cretionDate
-                                      + "', '" + cretionDate + "','" + noteTopic + "')";
-
-                flag = InsertToDB(sql2);
-
-            }
-
             string noteId = "";
 
-            if (flag) 
+            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
+                if (flag)
+                {
+                    noteId = GetNoteID(userId, note, noteTopic, cretionDate);
+                }
+
+                if (noteId.Equals(""))
+                {
+                    return false;
+                }
+
+                return InsertPhotosToDB(noteId, images);
+
+            
+        }
+
+        public bool WriteNoteWithFileToDB(string note, string noteTopic, string userName, byte[] fileBytes, string contentType) 
+        {
+            string userId = FindUserId(userName);
+            string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            bool flag = false;
+            string noteId = "";
+
+            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
+            if (flag)
             {
                 noteId = GetNoteID(userId, note, noteTopic, cretionDate);
-
             }
-            if (noteId.Equals("")) 
+
+            if (noteId.Equals(""))
             {
                 return false;
             }
 
-            return InsertPhotosToDB(noteId, images);
+            return InsertFilesToDB(fileBytes, noteId, contentType);
         }
 
+        public bool WriteNoteWithFileAndPhotoToDB(string note, string noteTopic, string userName, Image[] images,
+            byte[] fileBytes, string contentType)
+        {
+            string userId = FindUserId(userName);
+            string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            bool flag = false;
+            string noteId = "";
+
+            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
+            if (flag)
+            {
+                noteId = GetNoteID(userId, note, noteTopic, cretionDate);
+            }
+
+            if (noteId.Equals(""))
+            {
+                return false;
+            }
+
+            return InsertFilesToDB(fileBytes, noteId, contentType) && InsertPhotosToDB(noteId,images);
+
+        }
         private bool InsertPhotosToDB(string noteId, Image[] images) 
         {
             System.Data.SqlClient.SqlConnection conn = new SqlConnection(CreateConnectionString());
@@ -118,6 +153,35 @@ namespace WriteNotesApplication
             }
 
 
+        }
+
+        private bool InsertFilesToDB(byte[] bytes,string noteId,string contentType) 
+        {
+            
+            try
+            {
+                string result = System.Text.Encoding.UTF8.GetString(bytes);
+                using (SqlConnection con = new SqlConnection(CreateConnectionString()))
+                {
+                    string query = "insert into files values (@NOTE_ID, @FILE_CONTENTTYPE, @FILE_DATA)";
+                    using (SqlCommand cmd = new SqlCommand(query))
+                    {
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@NOTE_ID", noteId);
+                        cmd.Parameters.AddWithValue("@FILE_CONTENTTYPE", contentType);
+                        cmd.Parameters.AddWithValue("@FILE_DATA", bytes);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+                return true;
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+          
         }
         private string GetNoteID(string userId,string note,string noteTopic,string noteCreationDate) 
         {
@@ -436,6 +500,7 @@ namespace WriteNotesApplication
             DataTable dt = new DataTable();
             string sql1 = "SELECT USER_ID FROM users WHERE USER_NAME = '" + username + "'";
             dt = GetDataTableFromDB(sql1);
+            if (!(dt.DefaultView.Count > 0)){ return null; }
              userId = dt.DefaultView[0]["USER_ID"].ToString();
 
             return userId;

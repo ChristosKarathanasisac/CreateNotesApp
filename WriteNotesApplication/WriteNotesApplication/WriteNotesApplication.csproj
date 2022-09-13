@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -63,6 +69,7 @@
       <DependentUpon>CreateNotesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConUtilities.cs" />
+    <Compile Include="FileToUpload.cs" />
     <Compile Include="GetNotesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,7 @@
     <EmbeddedResource Include="UserOptionsForm.resx">
       <DependentUpon>UserOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,6 +213,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\files.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
