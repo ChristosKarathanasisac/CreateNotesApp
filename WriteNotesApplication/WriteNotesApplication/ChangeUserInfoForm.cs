@@ -245,7 +245,7 @@ namespace WriteNotesApplication
 
             if (databaseConUtilities.UpdateUserToDB(newUser,this.user.UserName)) 
             {
-                MessageBox.Show("Your changes has added succesfully");
+                MessageBox.Show("Your changes has added successfully");
                 this.Hide();
                 IntroForm introForm = new IntroForm();
                 if (this.WindowState == FormWindowState.Maximized)

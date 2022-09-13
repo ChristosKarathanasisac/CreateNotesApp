@@ -67,10 +67,6 @@ namespace WriteNotesApplication
 
         private void UserOptionsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //this.Hide();
-            //IntroForm introForm = new IntroForm();
-            //introForm.ShowDialog();
-
             Application.Exit();
         }
 
