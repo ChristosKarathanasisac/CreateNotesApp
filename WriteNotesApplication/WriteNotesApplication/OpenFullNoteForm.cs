@@ -82,8 +82,10 @@ namespace WriteNotesApplication
                 return;
 
             }
+            DataTable photosDt = databaseConUtilities.GetPhotosFromDB(this.noteId);
+
             string htmlString = appUtilities.GetHtml(this.note, this.noteTopic);
-            if (appUtilities.Email(htmlString,this.txtEmailSubject.Text.Trim(),this.txtEmail.Text.Trim())) 
+            if (appUtilities.Email(htmlString,this.txtEmailSubject.Text.Trim(),this.txtEmail.Text.Trim(), photosDt)) 
             {
                 MessageBox.Show("Note sended succesfully to " + this.txtEmail.Text.Trim());
             }

@@ -31,6 +31,7 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenFullNoteForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmdSaveToFile = new System.Windows.Forms.Button();
             this.cmdShowPhotos = new System.Windows.Forms.Button();
             this.txtEmailSubject = new System.Windows.Forms.TextBox();
             this.lblNoteSubject = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@ namespace WriteNotesApplication
             this.cmdModify = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.RichTextBox();
-            this.cmdSaveToFile = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,21 @@ namespace WriteNotesApplication
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // cmdSaveToFile
+            // 
+            this.cmdSaveToFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdSaveToFile.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdSaveToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSaveToFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdSaveToFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdSaveToFile.Location = new System.Drawing.Point(677, 658);
+            this.cmdSaveToFile.Name = "cmdSaveToFile";
+            this.cmdSaveToFile.Size = new System.Drawing.Size(149, 46);
+            this.cmdSaveToFile.TabIndex = 12;
+            this.cmdSaveToFile.Text = "Save to File";
+            this.cmdSaveToFile.UseVisualStyleBackColor = false;
+            this.cmdSaveToFile.Click += new System.EventHandler(this.cmdSaveToFile_Click);
+            // 
             // cmdShowPhotos
             // 
             this.cmdShowPhotos.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -93,7 +108,7 @@ namespace WriteNotesApplication
             this.txtEmailSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmailSubject.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
             this.txtEmailSubject.Location = new System.Drawing.Point(668, 171);
-            this.txtEmailSubject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmailSubject.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmailSubject.Name = "txtEmailSubject";
             this.txtEmailSubject.Size = new System.Drawing.Size(339, 26);
             this.txtEmailSubject.TabIndex = 10;
@@ -119,8 +134,8 @@ namespace WriteNotesApplication
             this.txtEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.txtEmail.Location = new System.Drawing.Point(679, 74);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Location = new System.Drawing.Point(674, 128);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(356, 31);
             this.txtEmail.TabIndex = 8;
@@ -162,7 +177,7 @@ namespace WriteNotesApplication
             this.txtNoteTopic.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNoteTopic.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.txtNoteTopic.Location = new System.Drawing.Point(629, 234);
-            this.txtNoteTopic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNoteTopic.Margin = new System.Windows.Forms.Padding(2);
             this.txtNoteTopic.Name = "txtNoteTopic";
             this.txtNoteTopic.ReadOnly = true;
             this.txtNoteTopic.Size = new System.Drawing.Size(256, 31);
@@ -173,7 +188,7 @@ namespace WriteNotesApplication
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::WriteNotesApplication.Properties.Resources.ShowNote;
             this.pictureBox1.Location = new System.Drawing.Point(5, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 500);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -223,21 +238,6 @@ namespace WriteNotesApplication
             this.txtNote.Size = new System.Drawing.Size(528, 382);
             this.txtNote.TabIndex = 0;
             this.txtNote.Text = "";
-            // 
-            // cmdSaveToFile
-            // 
-            this.cmdSaveToFile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdSaveToFile.BackColor = System.Drawing.SystemColors.Desktop;
-            this.cmdSaveToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSaveToFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.cmdSaveToFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdSaveToFile.Location = new System.Drawing.Point(677, 658);
-            this.cmdSaveToFile.Name = "cmdSaveToFile";
-            this.cmdSaveToFile.Size = new System.Drawing.Size(149, 46);
-            this.cmdSaveToFile.TabIndex = 12;
-            this.cmdSaveToFile.Text = "Save to File";
-            this.cmdSaveToFile.UseVisualStyleBackColor = false;
-            this.cmdSaveToFile.Click += new System.EventHandler(this.cmdSaveToFile_Click);
             // 
             // OpenFullNoteForm
             // 

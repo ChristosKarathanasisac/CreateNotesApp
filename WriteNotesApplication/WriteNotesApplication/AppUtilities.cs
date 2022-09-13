@@ -13,6 +13,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Net.Mime;
+
 
 namespace WriteNotesApplication
 {
@@ -116,9 +118,16 @@ namespace WriteNotesApplication
             }
         }
 
-        public bool Email(string htmlString,string subject, string toEmail)
+        public bool Email(string htmlString,string subject, string toEmail,DataTable photos)
         {
-            try
+            MemoryStream ms = null;
+            foreach (DataRow row in photos.Rows)
+            {
+
+                byte[] photo_aray = (byte[])row["IMAGE_FILE"];
+                ms = new MemoryStream(photo_aray);
+            }
+                try
             {
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
@@ -127,19 +136,43 @@ namespace WriteNotesApplication
                 message.Subject = subject;
                 message.IsBodyHtml = true; 
                 message.Body = htmlString;
+                message.AlternateViews.Add(Mail_Body(ms));
                 smtp.Port = 587;
                 smtp.Host = "smtp.gmail.com";   
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["email"], ConfigurationManager.AppSettings["email_key"]);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                message.BodyEncoding = Encoding.Default;
                 smtp.Send(message);
                 return true;
             }
             catch (Exception exc) { return false; }
         }
 
+        private AlternateView Mail_Body(MemoryStream ms)
+        {
 
+           // public LinkedResource(Stream contentStream, ContentType contentType);
+            LinkedResource Img = new LinkedResource(ms, MediaTypeNames.Image.Jpeg);
+            Img.ContentId = "MyImage";
+            string str = @"  
+            <table>  
+                <tr>  
+                    <td> '" +"My message" + @"'  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td>  
+                      <img src=cid:MyImage  id='img' alt='' width='500px' height='500px'/>   
+                    </td>  
+                </tr></table>  
+            ";
+            AlternateView AV =
+            AlternateView.CreateAlternateViewFromString(str, null, MediaTypeNames.Text.Html);
+            AV.LinkedResources.Add(Img);
+            return AV;
+        }
         public byte[] ConvertImageToByteArray(System.Drawing.Image imageToConvert,
                                    System.Drawing.Imaging.ImageFormat formatOfImage)
         {
