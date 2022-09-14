@@ -29,6 +29,7 @@ namespace WriteNotesApplication
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPhotosForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPhotos = new System.Windows.Forms.Label();
             this.cmdReturn = new System.Windows.Forms.Button();
@@ -84,6 +85,7 @@ namespace WriteNotesApplication
             this.Controls.Add(this.cmdReturn);
             this.Controls.Add(this.lblPhotos);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowPhotosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "smart .note";

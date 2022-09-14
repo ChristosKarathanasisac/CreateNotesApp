@@ -43,6 +43,7 @@ namespace WriteNotesApplication
             this.cmdModify = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.RichTextBox();
+            this.cmdOpenFile = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.cmdOpenFile);
             this.groupBox1.Controls.Add(this.cmdSaveToFile);
             this.groupBox1.Controls.Add(this.cmdShowPhotos);
             this.groupBox1.Controls.Add(this.txtEmailSubject);
@@ -78,11 +80,11 @@ namespace WriteNotesApplication
             this.cmdSaveToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSaveToFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.cmdSaveToFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdSaveToFile.Location = new System.Drawing.Point(677, 658);
+            this.cmdSaveToFile.Location = new System.Drawing.Point(704, 658);
             this.cmdSaveToFile.Name = "cmdSaveToFile";
-            this.cmdSaveToFile.Size = new System.Drawing.Size(149, 46);
+            this.cmdSaveToFile.Size = new System.Drawing.Size(145, 46);
             this.cmdSaveToFile.TabIndex = 12;
-            this.cmdSaveToFile.Text = "Save to File";
+            this.cmdSaveToFile.Text = "Save To PC";
             this.cmdSaveToFile.UseVisualStyleBackColor = false;
             this.cmdSaveToFile.Click += new System.EventHandler(this.cmdSaveToFile_Click);
             // 
@@ -93,7 +95,7 @@ namespace WriteNotesApplication
             this.cmdShowPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdShowPhotos.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.cmdShowPhotos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdShowPhotos.Location = new System.Drawing.Point(510, 658);
+            this.cmdShowPhotos.Location = new System.Drawing.Point(549, 658);
             this.cmdShowPhotos.Name = "cmdShowPhotos";
             this.cmdShowPhotos.Size = new System.Drawing.Size(149, 46);
             this.cmdShowPhotos.TabIndex = 11;
@@ -202,7 +204,7 @@ namespace WriteNotesApplication
             this.cmdModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdModify.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
             this.cmdModify.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdModify.Location = new System.Drawing.Point(858, 658);
+            this.cmdModify.Location = new System.Drawing.Point(889, 658);
             this.cmdModify.Name = "cmdModify";
             this.cmdModify.Size = new System.Drawing.Size(149, 46);
             this.cmdModify.TabIndex = 2;
@@ -239,6 +241,21 @@ namespace WriteNotesApplication
             this.txtNote.TabIndex = 0;
             this.txtNote.Text = "";
             // 
+            // cmdOpenFile
+            // 
+            this.cmdOpenFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdOpenFile.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOpenFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdOpenFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdOpenFile.Location = new System.Drawing.Point(394, 658);
+            this.cmdOpenFile.Name = "cmdOpenFile";
+            this.cmdOpenFile.Size = new System.Drawing.Size(149, 46);
+            this.cmdOpenFile.TabIndex = 13;
+            this.cmdOpenFile.Text = "Open File";
+            this.cmdOpenFile.UseVisualStyleBackColor = false;
+            this.cmdOpenFile.Click += new System.EventHandler(this.cmdOpenFile_Click);
+            // 
             // OpenFullNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,5 +291,6 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Label lblNoteSubject;
         private System.Windows.Forms.Button cmdShowPhotos;
         private System.Windows.Forms.Button cmdSaveToFile;
+        private System.Windows.Forms.Button cmdOpenFile;
     }
 }

@@ -83,7 +83,8 @@ namespace WriteNotesApplication
 
             }
             DataTable photosDt = databaseConUtilities.GetPhotosFromDB(this.noteId);
-            if (appUtilities.Email(this.txtEmailSubject.Text.Trim(),this.txtEmail.Text.Trim(), photosDt,note,noteTopic)) 
+            DataTable filesDt = databaseConUtilities.GetFilesFromDB(this.noteId);
+            if (appUtilities.Email(this.txtEmailSubject.Text.Trim(),this.txtEmail.Text.Trim(), photosDt,note,noteTopic, filesDt)) 
             {
                 MessageBox.Show("Note sent successfully to " + this.txtEmail.Text.Trim());
             }
@@ -127,7 +128,8 @@ namespace WriteNotesApplication
                 string str = string.Concat(folderName, @"\" + this.noteId + ".log");
 
                 if (appUtilities.WriteNoteToTextFile(str, this.user.UserName, this.noteTopic, this.note) &&
-                    appUtilities.DownloadPhotosLocal(folderName,this.noteId))
+                    appUtilities.DownloadPhotosLocal(folderName,this.noteId)
+                    &&appUtilities.DowloadFileLocal(this.noteId,folderName))
                 {  
                     MessageBox.Show("Your note saved to folder: " + folderName);
                 }
@@ -136,9 +138,23 @@ namespace WriteNotesApplication
                     MessageBox.Show("Note Save Error. Please try again!");
                 }
 
+               
+
             }
         }
 
+        private void cmdOpenFile_Click(object sender, EventArgs e)
+        {
+            DataTable dtFiles = databaseConUtilities.GetFilesFromDB(this.noteId);
+
+            if (!(dtFiles.DefaultView.Count > 0)) 
+            {
+                MessageBox.Show("That note has no files");
+                return;
+            }
+
+            appUtilities.ShowFile(dtFiles, this.noteId);
+        }
     }
     }
 

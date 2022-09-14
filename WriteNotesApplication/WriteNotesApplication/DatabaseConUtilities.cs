@@ -179,6 +179,7 @@ namespace WriteNotesApplication
             }
             catch (Exception exc)
             {
+                DeleteNoteFromDB(noteId);
                 return false;
             }
           
@@ -207,13 +208,24 @@ namespace WriteNotesApplication
         public DataTable GetPhotosFromDB(string noteId) 
         {
             string sql = "SELECT IMAGE_FILE FROM images " +
-                         "WHERE NOTE_ID = '" + noteId + "'";
+                         "WHERE NOTE_ID = " + noteId;
 
             DataTable dt = new DataTable();
 
             dt = GetDataTableFromDB(sql);
             return dt;
 
+        }
+
+        public DataTable GetFilesFromDB(string noteId) 
+        {
+            string sql = "SELECT FILE_CONTENTTYPE,FILE_DATA FROM files " +
+                        "WHERE NOTE_ID = " + noteId ;
+
+            DataTable dt = new DataTable();
+
+            dt = GetDataTableFromDB(sql);
+            return dt;
         }
 
         public DataTable GetNotesFromDB(string username) 
@@ -345,14 +357,16 @@ namespace WriteNotesApplication
 
         public bool DeleteNoteFromDB(string noteId) 
         {
+            string sql3 = "DELETE FROM files WHERE NOTE_ID = " + noteId;
             string sql1 = "DELETE FROM notes WHERE NOTE_ID = " + noteId;
             string sql2 = "DELETE FROM images WHERE NOTE_ID = " + noteId;
 
+            bool deleteFileExec = InsertToDB(sql3);
             bool deletePhotoExec = InsertToDB(sql2);
             bool deleteNoteExec = InsertToDB(sql1);
             
 
-            return (deleteNoteExec && deletePhotoExec);
+            return (deleteNoteExec && deletePhotoExec && deleteFileExec);
 
 
         }

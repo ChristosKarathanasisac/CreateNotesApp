@@ -121,7 +121,7 @@ namespace WriteNotesApplication
         //    }
         //}
 
-        public bool Email(string subject, string toEmail,DataTable photos,string  note, string noteTopic)
+        public bool Email(string subject, string toEmail,DataTable photos,string  note, string noteTopic,DataTable files)
         {
            
             try
@@ -131,8 +131,8 @@ namespace WriteNotesApplication
                 message.From = new MailAddress(ConfigurationManager.AppSettings["email"]);
                 message.To.Add(new MailAddress(toEmail));
                 message.Subject = subject;
-                message.IsBodyHtml = true; 
-                message.AlternateViews.Add(Mail_Body(photos, note,noteTopic));
+                message.IsBodyHtml = true;
+                message.AlternateViews.Add(Mail_Body(photos, note, noteTopic, files));
                 smtp.Port = 587;
                 smtp.Host = "smtp.gmail.com";   
                 smtp.EnableSsl = true;
@@ -146,7 +146,7 @@ namespace WriteNotesApplication
             catch (Exception exc) { return false; }
         }
 
-        private AlternateView Mail_Body(DataTable photos,string note, string noteTopic)
+        private AlternateView Mail_Body(DataTable photos,string note, string noteTopic,DataTable dtfFile)
         {
             LinkedResource[] imgs = new LinkedResource[photos.DefaultView.Count];
             int count = 0;
@@ -190,8 +190,52 @@ namespace WriteNotesApplication
                     AV.LinkedResources.Add(imgs[i]);
                 }           
             }
-            
+
+            if (CreateFileResource(dtfFile) != null) 
+            {
+                AV.LinkedResources.Add(CreateFileResource(dtfFile));
+            }
             return AV;
+        }
+
+        private LinkedResource CreateFileResource(DataTable dtfFile) 
+        {
+            if (dtfFile != null)
+            {
+                string fileType = dtfFile.Rows[0]["FILE_CONTENTTYPE"].ToString();
+                byte[] file = (byte[])dtfFile.Rows[0]["FILE_DATA"];
+                MemoryStream ms = new MemoryStream(file);
+
+                LinkedResource f = null;
+                if (fileType.Equals(".pdf"))
+                {
+                    f = new LinkedResource(ms, MediaTypeNames.Application.Pdf);
+
+                }
+                else if (fileType.Equals(".docx") || fileType.Equals(".doc"))
+                {
+                    f = new LinkedResource(ms, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+                   
+                }
+                else if (fileType.Equals(".doc") || fileType.Equals(".doc"))
+                {
+                    f = new LinkedResource(ms, "application/msword");
+                    
+                }
+                else if (fileType.Equals(".xlsx"))
+                {
+                    f = new LinkedResource(ms, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                }
+                else if (fileType.Equals(".xls"))
+                {
+                    f = new LinkedResource(ms, "application/vnd.ms-excel");
+                }
+                if (f == null) { return null; }
+                return f;
+                
+            }
+            else { return null; }
+
         }
         public byte[] ConvertImageToByteArray(System.Drawing.Image imageToConvert,
                                    System.Drawing.Imaging.ImageFormat formatOfImage)
@@ -270,6 +314,27 @@ namespace WriteNotesApplication
                 return false;
             }
         }
+
+        public bool DowloadFileLocal(string noteId,string folderName) 
+        {
+            DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
+
+            DataTable dtFiles = databaseConUtilities.GetFilesFromDB(noteId);
+            byte[] buffer = (byte[])dtFiles.Rows[0]["FILE_DATA"];
+            string fileType = dtFiles.Rows[0]["FILE_CONTENTTYPE"].ToString();
+
+            try 
+            {
+                File.WriteAllBytes(Path.Combine(folderName, noteId + "File" + fileType), buffer);
+                return true;
+            }
+            catch(Exception exc)
+            {
+                return false;
+            }
+            
+
+        }
         public ImageCodecInfo GetEncoderInfo(String mimeType)
         {
             int j;
@@ -281,6 +346,29 @@ namespace WriteNotesApplication
                     return encoders[j];
             }
             return null;
+        }
+
+        public void ShowFile(DataTable dtFiles,string noteId) 
+        {
+            byte[] buffer = (byte[])dtFiles.Rows[0]["FILE_DATA"];
+            string fileType = dtFiles.Rows[0]["FILE_CONTENTTYPE"].ToString();
+
+            try 
+            {
+                using (FileStream fstream = new FileStream(noteId + "File" + fileType, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    fstream.Write(buffer, 0, buffer.Length);
+                }
+
+                System.Diagnostics.Process.Start(noteId + "File" + fileType);
+
+            }catch(Exception exc) 
+            {
+
+            
+            }
+            
+
         }
 
     }

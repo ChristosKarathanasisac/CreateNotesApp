@@ -289,6 +289,8 @@ namespace WriteNotesApplication
                 this.cmdUploadFile.BackColor = Color.White;
                 this.cmdCancelPhotos.Visible = false;
                 this.cmdCancelFileUpload.Visible = false;
+                this.photos = null;
+                this.file = null;
             }
         }
 
@@ -302,9 +304,11 @@ namespace WriteNotesApplication
         private void cmdUploadFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
-           
-            opnfd.Filter = "Pdf Files|*.pdf|Office Files (*.docx, *.doc, *.xls,*.xlsx, *.ppt) |*.docx; *.doc; *.xls; *.xlsx; *.ppt";
-           
+
+            
+            opnfd.Filter = @"All Files| *.docx; *.doc; *.xls; *.xlsx; *.pdf";
+
+
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
                 using (Stream fs = opnfd.OpenFile())
