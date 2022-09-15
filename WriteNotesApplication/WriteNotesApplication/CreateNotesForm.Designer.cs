@@ -31,6 +31,11 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNotesForm));
             this.gridcondrol1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
+            this.cmdSaveRem = new System.Windows.Forms.Button();
+            this.dateTimePickerReminder = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxReminder = new System.Windows.Forms.CheckBox();
+            this.cmdCancelFileUpload = new System.Windows.Forms.Button();
             this.cmdUploadFile = new System.Windows.Forms.Button();
             this.cmdCancelPhotos = new System.Windows.Forms.Button();
             this.cmdUploadPhoto = new System.Windows.Forms.Button();
@@ -40,7 +45,9 @@ namespace WriteNotesApplication
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.RichTextBox();
-            this.cmdCancelFileUpload = new System.Windows.Forms.Button();
+            this.lblAddedReminder = new System.Windows.Forms.Label();
+            this.cmdDeleteRem = new System.Windows.Forms.Button();
+            this.lblDateTime = new System.Windows.Forms.Label();
             this.gridcondrol1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +58,13 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridcondrol1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.gridcondrol1.Controls.Add(this.lblDateTime);
+            this.gridcondrol1.Controls.Add(this.cmdDeleteRem);
+            this.gridcondrol1.Controls.Add(this.lblAddedReminder);
+            this.gridcondrol1.Controls.Add(this.dateTimePickerTime);
+            this.gridcondrol1.Controls.Add(this.cmdSaveRem);
+            this.gridcondrol1.Controls.Add(this.dateTimePickerReminder);
+            this.gridcondrol1.Controls.Add(this.checkBoxReminder);
             this.gridcondrol1.Controls.Add(this.cmdCancelFileUpload);
             this.gridcondrol1.Controls.Add(this.cmdUploadFile);
             this.gridcondrol1.Controls.Add(this.cmdCancelPhotos);
@@ -69,6 +83,72 @@ namespace WriteNotesApplication
             this.gridcondrol1.Size = new System.Drawing.Size(1044, 717);
             this.gridcondrol1.TabIndex = 0;
             this.gridcondrol1.TabStop = false;
+            // 
+            // dateTimePickerTime
+            // 
+            this.dateTimePickerTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerTime.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerTime.Location = new System.Drawing.Point(517, 137);
+            this.dateTimePickerTime.Name = "dateTimePickerTime";
+            this.dateTimePickerTime.Size = new System.Drawing.Size(157, 33);
+            this.dateTimePickerTime.TabIndex = 13;
+            // 
+            // cmdSaveRem
+            // 
+            this.cmdSaveRem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdSaveRem.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdSaveRem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSaveRem.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.cmdSaveRem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdSaveRem.Location = new System.Drawing.Point(691, 140);
+            this.cmdSaveRem.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdSaveRem.Name = "cmdSaveRem";
+            this.cmdSaveRem.Size = new System.Drawing.Size(130, 31);
+            this.cmdSaveRem.TabIndex = 12;
+            this.cmdSaveRem.Text = "Save Reminder";
+            this.cmdSaveRem.UseVisualStyleBackColor = false;
+            this.cmdSaveRem.Click += new System.EventHandler(this.cmdSaveRem_Click);
+            // 
+            // dateTimePickerReminder
+            // 
+            this.dateTimePickerReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerReminder.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.dateTimePickerReminder.Location = new System.Drawing.Point(517, 102);
+            this.dateTimePickerReminder.Name = "dateTimePickerReminder";
+            this.dateTimePickerReminder.Size = new System.Drawing.Size(304, 33);
+            this.dateTimePickerReminder.TabIndex = 11;
+            // 
+            // checkBoxReminder
+            // 
+            this.checkBoxReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBoxReminder.AutoSize = true;
+            this.checkBoxReminder.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBoxReminder.Font = new System.Drawing.Font("Segoe Print", 10.8F, System.Drawing.FontStyle.Italic);
+            this.checkBoxReminder.ForeColor = System.Drawing.Color.Maroon;
+            this.checkBoxReminder.Location = new System.Drawing.Point(517, 66);
+            this.checkBoxReminder.Name = "checkBoxReminder";
+            this.checkBoxReminder.Size = new System.Drawing.Size(105, 30);
+            this.checkBoxReminder.TabIndex = 10;
+            this.checkBoxReminder.Text = "Reminder";
+            this.checkBoxReminder.UseVisualStyleBackColor = false;
+            this.checkBoxReminder.CheckedChanged += new System.EventHandler(this.checkBoxReminder_CheckedChanged);
+            // 
+            // cmdCancelFileUpload
+            // 
+            this.cmdCancelFileUpload.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdCancelFileUpload.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdCancelFileUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancelFileUpload.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdCancelFileUpload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdCancelFileUpload.Image = global::WriteNotesApplication.Properties.Resources.delete;
+            this.cmdCancelFileUpload.Location = new System.Drawing.Point(680, 671);
+            this.cmdCancelFileUpload.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdCancelFileUpload.Name = "cmdCancelFileUpload";
+            this.cmdCancelFileUpload.Size = new System.Drawing.Size(41, 37);
+            this.cmdCancelFileUpload.TabIndex = 9;
+            this.cmdCancelFileUpload.UseVisualStyleBackColor = false;
+            this.cmdCancelFileUpload.Click += new System.EventHandler(this.cmdCancelFileUpload_Click);
             // 
             // cmdUploadFile
             // 
@@ -200,21 +280,46 @@ namespace WriteNotesApplication
             this.txtNote.Text = "";
             this.txtNote.TextChanged += new System.EventHandler(this.txtNote_TextChanged);
             // 
-            // cmdCancelFileUpload
+            // lblAddedReminder
             // 
-            this.cmdCancelFileUpload.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdCancelFileUpload.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdCancelFileUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdCancelFileUpload.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.cmdCancelFileUpload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmdCancelFileUpload.Image = global::WriteNotesApplication.Properties.Resources.delete;
-            this.cmdCancelFileUpload.Location = new System.Drawing.Point(680, 671);
-            this.cmdCancelFileUpload.Margin = new System.Windows.Forms.Padding(2);
-            this.cmdCancelFileUpload.Name = "cmdCancelFileUpload";
-            this.cmdCancelFileUpload.Size = new System.Drawing.Size(41, 37);
-            this.cmdCancelFileUpload.TabIndex = 9;
-            this.cmdCancelFileUpload.UseVisualStyleBackColor = false;
-            this.cmdCancelFileUpload.Click += new System.EventHandler(this.cmdCancelFileUpload_Click);
+            this.lblAddedReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAddedReminder.AutoSize = true;
+            this.lblAddedReminder.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.lblAddedReminder.ForeColor = System.Drawing.Color.Maroon;
+            this.lblAddedReminder.Location = new System.Drawing.Point(513, 38);
+            this.lblAddedReminder.Margin = new System.Windows.Forms.Padding(1);
+            this.lblAddedReminder.Name = "lblAddedReminder";
+            this.lblAddedReminder.Size = new System.Drawing.Size(153, 24);
+            this.lblAddedReminder.TabIndex = 14;
+            this.lblAddedReminder.Text = "Added Reminder at:";
+            // 
+            // cmdDeleteRem
+            // 
+            this.cmdDeleteRem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdDeleteRem.BackColor = System.Drawing.Color.Maroon;
+            this.cmdDeleteRem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDeleteRem.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.cmdDeleteRem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdDeleteRem.Location = new System.Drawing.Point(871, 34);
+            this.cmdDeleteRem.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdDeleteRem.Name = "cmdDeleteRem";
+            this.cmdDeleteRem.Size = new System.Drawing.Size(142, 31);
+            this.cmdDeleteRem.TabIndex = 15;
+            this.cmdDeleteRem.Text = "Delete Reminder";
+            this.cmdDeleteRem.UseVisualStyleBackColor = false;
+            this.cmdDeleteRem.Click += new System.EventHandler(this.cmdDeleteRem_Click);
+            // 
+            // lblDateTime
+            // 
+            this.lblDateTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.lblDateTime.ForeColor = System.Drawing.Color.Maroon;
+            this.lblDateTime.Location = new System.Drawing.Point(668, 38);
+            this.lblDateTime.Margin = new System.Windows.Forms.Padding(1);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(0, 24);
+            this.lblDateTime.TabIndex = 16;
             // 
             // CreateNotesForm
             // 
@@ -251,6 +356,13 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Button cmdCancelPhotos;
         private System.Windows.Forms.Button cmdUploadFile;
         private System.Windows.Forms.Button cmdCancelFileUpload;
+        private System.Windows.Forms.DateTimePicker dateTimePickerReminder;
+        private System.Windows.Forms.CheckBox checkBoxReminder;
+        private System.Windows.Forms.Button cmdSaveRem;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTime;
+        private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.Button cmdDeleteRem;
+        private System.Windows.Forms.Label lblAddedReminder;
     }
 }
 

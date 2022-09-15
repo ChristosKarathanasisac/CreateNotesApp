@@ -20,6 +20,8 @@ namespace WriteNotesApplication
         private bool uploadPhotosFlag = false;
         private bool uploadFilesFlag = false;
         private FileToUpload file = null;
+        private bool reminder = false;
+        private string reminderDate = "";
         DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
 
         Image[] photos;
@@ -28,12 +30,28 @@ namespace WriteNotesApplication
         {
             InitializeComponent();
             this.user = aUser;
+
+            GeneralFirstJobs();
+        }
+        private void GeneralFirstJobs() 
+        { 
             this.cmdUploadPhoto.Enabled = false;
             this.cmdUploadFile.Enabled = false;
             this.cmdCancelPhotos.Visible = false;
             this.cmdCancelFileUpload.Visible = false;
-        }
+            this.dateTimePickerReminder.Visible = false;
+            this.dateTimePickerReminder.Value = DateTime.Now;
+            this.dateTimePickerTime.Visible = false;
+            this.cmdSaveRem.Visible = false;
+            this.checkBoxReminder.Visible = false;
+            this.lblAddedReminder.Visible = false;
+            this.lblDateTime.Visible = false;
+            this.cmdDeleteRem.Visible = false;
 
+            this.dateTimePickerTime.Format = DateTimePickerFormat.Custom;
+            this.dateTimePickerTime.CustomFormat = "HH:mm";
+            this.dateTimePickerTime.ShowUpDown = true;
+        }
         private void cmdSave_Click(object sender, EventArgs e)
         {
             string noteTopic = this.txtNoteTopic.Text.Trim();
@@ -113,10 +131,7 @@ namespace WriteNotesApplication
             if (this.txtNoteTopic.BackColor == Color.Red)
             {
                 this.txtNoteTopic.BackColor = Color.White;
-
-            }
-            
-           
+            } 
         }
 
         private void cmdUploadPhoto_Click(object sender, EventArgs e)
@@ -280,6 +295,7 @@ namespace WriteNotesApplication
             {
                 this.cmdUploadPhoto.Enabled = true;
                 this.cmdUploadFile.Enabled = true;
+                this.checkBoxReminder.Visible = true;
             }
             else 
             {
@@ -291,6 +307,8 @@ namespace WriteNotesApplication
                 this.cmdCancelFileUpload.Visible = false;
                 this.photos = null;
                 this.file = null;
+                this.checkBoxReminder.Visible = false;
+                this.reminder = false;
             }
         }
 
@@ -335,6 +353,56 @@ namespace WriteNotesApplication
             this.cmdCancelFileUpload.Visible = false;
             this.cmdUploadFile.BackColor = Color.White;
             this.file = null;
+        }
+
+        private void checkBoxReminder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxReminder.Checked) 
+            {
+                if (!string.IsNullOrEmpty(this.user.Email)) 
+                {
+                    dateTimePickerReminder.Format = DateTimePickerFormat.Custom;
+                    
+                    dateTimePickerReminder.CustomFormat = "MM/dd/yyyy";
+                    this.dateTimePickerTime.Visible = true;
+                    this.dateTimePickerReminder.Visible = true;
+                    this.cmdSaveRem.Visible = true;
+                }
+            }
+            else 
+            {
+                this.reminder = false;
+                this.dateTimePickerReminder.Visible = false;
+                this.cmdSaveRem.Visible = false;
+                this.dateTimePickerTime.Visible = false;
+            }
+        }
+
+        private void cmdSaveRem_Click(object sender, EventArgs e)
+        {
+            this.reminder = true;
+            DateTime remDate = dateTimePickerReminder.Value.Date +
+                    dateTimePickerTime.Value.TimeOfDay;
+
+           this.reminderDate = remDate.ToString("yyyy-MM-dd HH:mm");
+           this.checkBoxReminder.Visible = false;
+           this.dateTimePickerReminder.Visible = false;
+           this.dateTimePickerTime.Visible = false;
+           this.lblAddedReminder.Visible = true;
+           this.lblDateTime.Text = reminderDate;
+           this.lblDateTime.Visible = true;
+           this.cmdDeleteRem.Visible = true;
+        }
+
+        private void cmdDeleteRem_Click(object sender, EventArgs e)
+        {
+            this.reminder = false;
+            this.reminderDate = "";
+            this.checkBoxReminder.Visible = true;
+            this.checkBoxReminder.Checked = false;
+            this.lblDateTime.Visible = false;
+            this.lblAddedReminder.Visible = false;
+            this.cmdDeleteRem.Visible = false;
         }
     }
 }

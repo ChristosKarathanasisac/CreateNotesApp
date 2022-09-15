@@ -41,9 +41,6 @@ namespace WriteNotesApplication
                 return false;
             
             }
-
-
-            
         }
 
         public bool WriteNoteWithPhotosToDB(string note, string noteTopic, string userName,Image[] images)
@@ -267,9 +264,6 @@ namespace WriteNotesApplication
                                  "WHERE users.USER_ID = " + userId +
                                  " AND NOTE_CREATION BETWEEN '" + fromDate + "' AND '" + toDate + "' "+
                                  "ORDER BY NOTE_LASTMODIFY DESC";
-
-
-
 
                     dt = GetDataTableFromDB(sql);
                     return dt;
