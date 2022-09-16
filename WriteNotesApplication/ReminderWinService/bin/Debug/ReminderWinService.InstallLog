@@ -1,0 +1,13 @@
+﻿Εγκατάσταση της συγκρότησης 'C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe'.
+Οι παράμετροι που επηρεάζονται είναι οι:
+   logtoconsole = 
+   logfile = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.InstallLog
+   assemblypath = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe
+Εγκατάσταση υπηρεσίας ReminderWinService...
+Η υπηρεσία ReminderWinService εγκαταστάθηκε με επιτυχία.
+Δημιουργία προέλευσης EventLog ReminderWinService μέσα στο αρχείο καταγραφής Application...
+Ολοκλήρωση της συγκρότησης 'C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe'.
+Οι παράμετροι που επηρεάζονται είναι οι:
+   logtoconsole = 
+   logfile = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.InstallLog
+   assemblypath = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe

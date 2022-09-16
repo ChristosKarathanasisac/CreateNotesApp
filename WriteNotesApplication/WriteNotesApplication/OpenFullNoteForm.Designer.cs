@@ -31,6 +31,7 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenFullNoteForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmdOpenFile = new System.Windows.Forms.Button();
             this.cmdSaveToFile = new System.Windows.Forms.Button();
             this.cmdShowPhotos = new System.Windows.Forms.Button();
             this.txtEmailSubject = new System.Windows.Forms.TextBox();
@@ -43,7 +44,8 @@ namespace WriteNotesApplication
             this.cmdModify = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.RichTextBox();
-            this.cmdOpenFile = new System.Windows.Forms.Button();
+            this.lblReminderAt = new System.Windows.Forms.Label();
+            this.lblRemDate = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +56,8 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.lblRemDate);
+            this.groupBox1.Controls.Add(this.lblReminderAt);
             this.groupBox1.Controls.Add(this.cmdOpenFile);
             this.groupBox1.Controls.Add(this.cmdSaveToFile);
             this.groupBox1.Controls.Add(this.cmdShowPhotos);
@@ -72,6 +76,21 @@ namespace WriteNotesApplication
             this.groupBox1.Size = new System.Drawing.Size(1044, 717);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // cmdOpenFile
+            // 
+            this.cmdOpenFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdOpenFile.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOpenFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdOpenFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdOpenFile.Location = new System.Drawing.Point(394, 658);
+            this.cmdOpenFile.Name = "cmdOpenFile";
+            this.cmdOpenFile.Size = new System.Drawing.Size(149, 46);
+            this.cmdOpenFile.TabIndex = 13;
+            this.cmdOpenFile.Text = "Open File";
+            this.cmdOpenFile.UseVisualStyleBackColor = false;
+            this.cmdOpenFile.Click += new System.EventHandler(this.cmdOpenFile_Click);
             // 
             // cmdSaveToFile
             // 
@@ -241,20 +260,34 @@ namespace WriteNotesApplication
             this.txtNote.TabIndex = 0;
             this.txtNote.Text = "";
             // 
-            // cmdOpenFile
+            // lblReminderAt
             // 
-            this.cmdOpenFile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdOpenFile.BackColor = System.Drawing.SystemColors.Desktop;
-            this.cmdOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdOpenFile.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
-            this.cmdOpenFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdOpenFile.Location = new System.Drawing.Point(394, 658);
-            this.cmdOpenFile.Name = "cmdOpenFile";
-            this.cmdOpenFile.Size = new System.Drawing.Size(149, 46);
-            this.cmdOpenFile.TabIndex = 13;
-            this.cmdOpenFile.Text = "Open File";
-            this.cmdOpenFile.UseVisualStyleBackColor = false;
-            this.cmdOpenFile.Click += new System.EventHandler(this.cmdOpenFile_Click);
+            this.lblReminderAt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblReminderAt.AutoSize = true;
+            this.lblReminderAt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblReminderAt.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.lblReminderAt.ForeColor = System.Drawing.Color.Maroon;
+            this.lblReminderAt.Location = new System.Drawing.Point(509, 36);
+            this.lblReminderAt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblReminderAt.Name = "lblReminderAt";
+            this.lblReminderAt.Size = new System.Drawing.Size(136, 31);
+            this.lblReminderAt.TabIndex = 14;
+            this.lblReminderAt.Text = "Reminder At:";
+            this.lblReminderAt.Visible = false;
+            // 
+            // lblRemDate
+            // 
+            this.lblRemDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRemDate.AutoSize = true;
+            this.lblRemDate.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblRemDate.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.lblRemDate.ForeColor = System.Drawing.Color.Maroon;
+            this.lblRemDate.Location = new System.Drawing.Point(642, 36);
+            this.lblRemDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRemDate.Name = "lblRemDate";
+            this.lblRemDate.Size = new System.Drawing.Size(0, 31);
+            this.lblRemDate.TabIndex = 15;
+            this.lblRemDate.Visible = false;
             // 
             // OpenFullNoteForm
             // 
@@ -292,5 +325,7 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Button cmdShowPhotos;
         private System.Windows.Forms.Button cmdSaveToFile;
         private System.Windows.Forms.Button cmdOpenFile;
+        private System.Windows.Forms.Label lblRemDate;
+        private System.Windows.Forms.Label lblReminderAt;
     }
 }

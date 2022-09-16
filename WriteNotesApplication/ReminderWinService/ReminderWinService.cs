@@ -21,6 +21,8 @@ namespace ReminderWinService
 
         protected override void OnStart(string[] args)
         {
+            serviceUtilities.WriteLog("Service Start");
+            System.Diagnostics.Debugger.Launch();
             tmrExecutor.Elapsed += new ElapsedEventHandler(tmrExecutor_Elapsed);
             tmrExecutor.Interval = 60000;
             tmrExecutor.Enabled = true;

@@ -24,7 +24,7 @@ namespace WriteNotesApplication
         private string reminderDate = "";
         DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
 
-        Image[] photos;
+        Image[] photos= null;
 
         public CreateNotesForm(User aUser)
         {
@@ -57,53 +57,53 @@ namespace WriteNotesApplication
             string noteTopic = this.txtNoteTopic.Text.Trim();
             string note = this.txtNote.Text;
 
-            if(this.uploadFilesFlag && this.uploadPhotosFlag) 
+            //if(this.uploadFilesFlag && this.uploadPhotosFlag) 
+            //{
+            //    if(photos.Length > 0 && this.file != null)
+            //    {
+            if (SaveNote(note, noteTopic, this.file, this.photos,this.reminderDate,this.reminder))
             {
-                if(photos.Length > 0 && this.file != null)
-                {
-                    if (SaveNote(note, noteTopic, this.file, this.photos)) 
-                    {
-                        MessageBox.Show("Your note has added successfully");
-                        photos = null;
-                        this.uploadPhotosFlag = false;
-                        this.uploadFilesFlag = false;
-
-                    }
-                }
-            
-            }
-            else if (this.uploadPhotosFlag) 
-            {
-                if (photos.Length > 0) 
-                {
-                    if (SaveNote(note, noteTopic, photos))
-                    {
-                        MessageBox.Show("Your note has added successfully");
-                        photos = null;
-                        this.uploadPhotosFlag = false;
-                    }
-                }                
-            }
-            else if (this.uploadFilesFlag)
-            {
-                if (this.file != null)
-                {
-                    if (SaveNote(note, noteTopic,this.file))
-                    {
-                        MessageBox.Show("Your note has added successfully");
-                        this.file = null;
-                        this.uploadFilesFlag = false;
-                    }
-                }
-            }
-            else
-            {
-                if (SaveNote(note, noteTopic))
-                {
-                    MessageBox.Show("Your note has added successfully");
-                }
+                MessageBox.Show("Your note has added successfully");
+                photos = null;
+                this.uploadPhotosFlag = false;
+                this.uploadFilesFlag = false;
 
             }
+            //    }
+
+            //}
+            //else if (this.uploadPhotosFlag) 
+            //{
+            //    if (photos.Length > 0) 
+            //    {
+            //        if (SaveNote(note, noteTopic, photos))
+            //        {
+            //            MessageBox.Show("Your note has added successfully");
+            //            photos = null;
+            //            this.uploadPhotosFlag = false;
+            //        }
+            //    }                
+            //}
+            //else if (this.uploadFilesFlag)
+            //{
+            //    if (this.file != null)
+            //    {
+            //        if (SaveNote(note, noteTopic,this.file))
+            //        {
+            //            MessageBox.Show("Your note has added successfully");
+            //            this.file = null;
+            //            this.uploadFilesFlag = false;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    if (SaveNote(note, noteTopic))
+            //    {
+            //        MessageBox.Show("Your note has added successfully");
+            //    }
+
+            //}
         }
 
         private void cmdBack_Click(object sender, EventArgs e)
@@ -190,77 +190,90 @@ namespace WriteNotesApplication
 
             }
         }
-        private bool SaveNote(string note, string noteTopic) 
+        //private bool SaveNote(string note, string noteTopic) 
+        //{
+        //    if (!GeneralChecks(note, noteTopic)) { return false; }
+        //    if (this.dbUtilities.WriteNoteToDB(note, noteTopic, user.UserName.ToString(), DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")))
+        //    {
+        //        this.txtNote.Clear();
+        //        this.txtNoteTopic.Clear();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Your note was not stored");
+        //        return false;
+
+        //    }
+
+        //}
+
+        //private bool SaveNote(string note, string noteTopic,Image[] imgs)
+        //{
+        //    if (!GeneralChecks(note, noteTopic)){ return false; }
+
+        //    if (this.dbUtilities.WriteNoteWithPhotosToDB(note, noteTopic, user.UserName.ToString(),imgs))
+        //    {
+        //        this.txtNote.Clear();
+        //        this.txtNoteTopic.Clear();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Your note was not stored");
+        //        return false;
+
+        //    }
+
+        //}
+
+        //private bool SaveNote(string note, string noteTopic,FileToUpload aFile)
+        //{
+        //    if (!GeneralChecks(note, noteTopic)) { return false; }
+        //    if (this.dbUtilities.WriteNoteWithFileToDB(note, noteTopic, user.UserName.ToString(),
+        //        aFile.Bytes, aFile.ContentType)) 
+        //    {
+        //        this.txtNote.Clear();
+        //        this.txtNoteTopic.Clear();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Your note was not stored");
+        //        return false;
+
+        //    }
+
+        //}
+
+        private bool SaveNote(string note, string noteTopic, FileToUpload aFile, Image[] imgs,
+            string reminderDate,bool reminderFlag)
         {
             if (!GeneralChecks(note, noteTopic)) { return false; }
-            if (this.dbUtilities.WriteNoteToDB(note, noteTopic, user.UserName.ToString(), DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")))
+            bool flag = false;
+            if(this.file == null) 
+            {
+                flag = this.dbUtilities.WriteNoteWithFileAndPhotoToDB(note, noteTopic, user.UserName.ToString(), imgs,
+               null, "", reminderDate, reminderFlag);
+            }
+            else 
+            {
+                flag = this.dbUtilities.WriteNoteWithFileAndPhotoToDB(note, noteTopic, user.UserName.ToString(), imgs,
+                aFile.Bytes, aFile.ContentType, reminderDate, reminderFlag);
+            }
+            if (flag)
             {
                 this.txtNote.Clear();
                 this.txtNoteTopic.Clear();
+                this.dateTimePickerReminder.Value = DateTime.Now;
+                this.dateTimePickerTime.Value = DateTime.Now;
+                this.checkBoxReminder.Enabled = true;
                 return true;
             }
             else
             {
                 MessageBox.Show("Your note was not stored");
                 return false;
-
-            }
-
-        }
-
-        private bool SaveNote(string note, string noteTopic,Image[] imgs)
-        {
-            if (!GeneralChecks(note, noteTopic)){ return false; }
-
-            if (this.dbUtilities.WriteNoteWithPhotosToDB(note, noteTopic, user.UserName.ToString(),imgs))
-            {
-                this.txtNote.Clear();
-                this.txtNoteTopic.Clear();
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Your note was not stored");
-                return false;
-
-            }
-
-        }
-
-        private bool SaveNote(string note, string noteTopic,FileToUpload aFile)
-        {
-            if (!GeneralChecks(note, noteTopic)) { return false; }
-            if (this.dbUtilities.WriteNoteWithFileToDB(note, noteTopic, user.UserName.ToString(),
-                aFile.Bytes, aFile.ContentType)) 
-            {
-                this.txtNote.Clear();
-                this.txtNoteTopic.Clear();
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Your note was not stored");
-                return false;
-
-            }
-
-        }
-
-        private bool SaveNote(string note, string noteTopic, FileToUpload aFile, Image[] imgs)
-        {
-            if (!GeneralChecks(note, noteTopic)) { return false; }
-            if (this.dbUtilities.WriteNoteWithFileAndPhotoToDB(note, noteTopic, user.UserName.ToString(),imgs,
-                aFile.Bytes, aFile.ContentType))
-            {
-                this.txtNote.Clear();
-                this.txtNoteTopic.Clear();
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Your note was not stored");
-                return false;
-
             }
 
         }
@@ -299,17 +312,32 @@ namespace WriteNotesApplication
             }
             else 
             {
-                this.cmdUploadPhoto.Enabled = false;
-                this.cmdUploadFile.Enabled = false;
-                this.cmdUploadPhoto.BackColor = Color.White;
-                this.cmdUploadFile.BackColor = Color.White;
-                this.cmdCancelPhotos.Visible = false;
-                this.cmdCancelFileUpload.Visible = false;
-                this.photos = null;
-                this.file = null;
-                this.checkBoxReminder.Visible = false;
-                this.reminder = false;
+                JobsOnTxtNoteClear();
             }
+        }
+
+        private void JobsOnTxtNoteClear() 
+        {
+            this.cmdUploadPhoto.Enabled = false;
+            this.cmdUploadFile.Enabled = false;
+            this.cmdUploadPhoto.BackColor = Color.White;
+            this.cmdUploadFile.BackColor = Color.White;
+            this.cmdCancelPhotos.Visible = false;
+            this.cmdCancelFileUpload.Visible = false;
+            this.photos = null;
+            this.file = null;
+            this.reminderDate = "";
+            this.checkBoxReminder.Visible = false;
+            this.reminder = false;
+            this.cmdDeleteRem.Visible = false;
+            this.cmdSaveRem.Visible = false;
+            //this.lblAddedReminder.Text = "";
+            this.lblAddedReminder.Visible = false;
+            this.lblDateTime.Text = "";
+            this.lblDateTime.Visible = false;
+            this.checkBoxReminder.Checked = false;
+            this.checkBoxReminder.Enabled = true;
+
         }
 
         private void cmdCancelPhotos_Click(object sender, EventArgs e)
@@ -379,22 +407,38 @@ namespace WriteNotesApplication
         }
 
         private void cmdSaveRem_Click(object sender, EventArgs e)
-        {
-            this.reminder = true;
-            DateTime remDate = dateTimePickerReminder.Value.Date +
+        {   
+           DateTime remDate = dateTimePickerReminder.Value.Date +
                     dateTimePickerTime.Value.TimeOfDay;
 
-           this.reminderDate = remDate.ToString("yyyy-MM-dd HH:mm");
-           this.checkBoxReminder.Visible = false;
-           this.dateTimePickerReminder.Visible = false;
-           this.dateTimePickerTime.Visible = false;
-           this.lblAddedReminder.Visible = true;
-           this.lblDateTime.Text = reminderDate;
-           this.lblDateTime.Visible = true;
-           this.cmdDeleteRem.Visible = true;
+           if(remDate <= DateTime.Now) 
+            {
+                MessageBox.Show("Εnter a future date");
+                return;
+            }
+            JobsAfterSaveRemClick(remDate);
+        }
+        private void JobsAfterSaveRemClick(DateTime remDate)
+        {
+            this.reminder = true;
+            this.reminderDate = remDate.ToString("yyyy-MM-dd HH:mm");
+            this.checkBoxReminder.Visible = false;
+            this.dateTimePickerReminder.Visible = false;
+            this.dateTimePickerTime.Visible = false;
+            this.lblAddedReminder.Visible = true;
+            this.lblDateTime.Text = reminderDate;
+            this.lblDateTime.Visible = true;
+            this.cmdDeleteRem.Visible = true;
+            this.cmdSaveRem.Visible = false;
+            //this.checkBoxReminder.Enabled = false;
+
         }
 
         private void cmdDeleteRem_Click(object sender, EventArgs e)
+        {
+            JobsAfterDeleteRemClick();
+        }
+        private void JobsAfterDeleteRemClick() 
         {
             this.reminder = false;
             this.reminderDate = "";
@@ -403,6 +447,19 @@ namespace WriteNotesApplication
             this.lblDateTime.Visible = false;
             this.lblAddedReminder.Visible = false;
             this.cmdDeleteRem.Visible = false;
+            this.checkBoxReminder.Enabled = true;
+            
+
+        }
+
+        private void dateTimePickerReminder_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerTime_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

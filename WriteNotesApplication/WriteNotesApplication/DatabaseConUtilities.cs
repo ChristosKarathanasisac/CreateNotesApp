@@ -22,16 +22,28 @@ namespace WriteNotesApplication
             return connString;
         }
 
-        public bool WriteNoteToDB(string note,string noteTopic,string userName, string cretionDate)
+        public bool WriteNoteToDB(string note,string noteTopic,string userName, string cretionDate,
+            string reminderDate,bool reminderFlag)
         {
             string userId = FindUserId(userName);
-
+            string sql2 = "";
             if (!string.IsNullOrEmpty(userId)) 
             {
-                
-                string sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION)" +
+                if (reminderFlag) 
+                {
+                    sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION,NOTE_REMINDER_FLAG,NOTE_REMINDER_DATE)" +
                                       " VALUES (" + userId + "," + "'" + note + "','" + cretionDate
-                                      + "', '" + cretionDate + "','"+noteTopic+"')";
+                                      + "', '" + cretionDate + "','" + noteTopic + "',1,'"+ reminderDate+"')";
+
+                }
+                else 
+                {
+                    sql2 = @"INSERT INTO notes(USER_ID, NOTE, NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION,NOTE_REMINDER_FLAG)" +
+                                      " VALUES (" + userId + "," + "'" + note + "','" + cretionDate
+                                      + "', '" + cretionDate + "','" + noteTopic + "',0)";
+
+                }
+                
 
                 return InsertToDB(sql2);
 
@@ -43,59 +55,59 @@ namespace WriteNotesApplication
             }
         }
 
-        public bool WriteNoteWithPhotosToDB(string note, string noteTopic, string userName,Image[] images)
-        {
-            string userId = FindUserId(userName);
-            string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-            bool flag = false;
-            string noteId = "";
+        //public bool WriteNoteWithPhotosToDB(string note, string noteTopic, string userName,Image[] images)
+        //{
+        //    string userId = FindUserId(userName);
+        //    string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+        //    bool flag = false;
+        //    string noteId = "";
 
-            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
-                if (flag)
-                {
-                    noteId = GetNoteID(userId, note, noteTopic, cretionDate);
-                }
+        //    flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
+        //        if (flag)
+        //        {
+        //            noteId = GetNoteID(userId, note, noteTopic, cretionDate);
+        //        }
 
-                if (noteId.Equals(""))
-                {
-                    return false;
-                }
+        //        if (noteId.Equals(""))
+        //        {
+        //            return false;
+        //        }
 
-                return InsertPhotosToDB(noteId, images);
+        //        return InsertPhotosToDB(noteId, images);
 
             
-        }
+        //}
 
-        public bool WriteNoteWithFileToDB(string note, string noteTopic, string userName, byte[] fileBytes, string contentType) 
-        {
-            string userId = FindUserId(userName);
-            string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-            bool flag = false;
-            string noteId = "";
+        //public bool WriteNoteWithFileToDB(string note, string noteTopic, string userName, byte[] fileBytes, string contentType) 
+        //{
+        //    string userId = FindUserId(userName);
+        //    string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+        //    bool flag = false;
+        //    string noteId = "";
 
-            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
-            if (flag)
-            {
-                noteId = GetNoteID(userId, note, noteTopic, cretionDate);
-            }
+        //    flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
+        //    if (flag)
+        //    {
+        //        noteId = GetNoteID(userId, note, noteTopic, cretionDate);
+        //    }
 
-            if (noteId.Equals(""))
-            {
-                return false;
-            }
+        //    if (noteId.Equals(""))
+        //    {
+        //        return false;
+        //    }
 
-            return InsertFilesToDB(fileBytes, noteId, contentType);
-        }
+        //    return InsertFilesToDB(fileBytes, noteId, contentType);
+        //}
 
         public bool WriteNoteWithFileAndPhotoToDB(string note, string noteTopic, string userName, Image[] images,
-            byte[] fileBytes, string contentType)
+            byte[] fileBytes, string contentType,string remDate,bool remFlag)
         {
             string userId = FindUserId(userName);
             string cretionDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             bool flag = false;
             string noteId = "";
 
-            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate);
+            flag = WriteNoteToDB(note, noteTopic, userName, cretionDate,remDate, remFlag);
             if (flag)
             {
                 noteId = GetNoteID(userId, note, noteTopic, cretionDate);
@@ -105,8 +117,17 @@ namespace WriteNotesApplication
             {
                 return false;
             }
-
-            return InsertFilesToDB(fileBytes, noteId, contentType) && InsertPhotosToDB(noteId,images);
+            bool filesFlag = true;
+            if (fileBytes != null) 
+            {
+                if(!InsertFilesToDB(fileBytes, noteId, contentType)) { filesFlag = false; }
+            }
+            bool imgsFlag = true;
+            if(images!=null && images.Length > 0) 
+            {
+                if(!InsertPhotosToDB(noteId, images)) { imgsFlag = false; }
+            }
+            return filesFlag && imgsFlag;
 
         }
         private bool InsertPhotosToDB(string noteId, Image[] images) 
@@ -153,8 +174,7 @@ namespace WriteNotesApplication
         }
 
         private bool InsertFilesToDB(byte[] bytes,string noteId,string contentType) 
-        {
-            
+        {  
             try
             {
                 string result = System.Text.Encoding.UTF8.GetString(bytes);
@@ -233,7 +253,7 @@ namespace WriteNotesApplication
 
             if (!string.IsNullOrWhiteSpace(userId)) 
             {
-                string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION FROM notes " +
+                string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION,NOTE_REMINDER_DATE,NOTE_REMINDER_FLAG FROM notes " +
                          "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                          "WHERE users.USER_ID = " + userId+
                          " ORDER BY NOTE_LASTMODIFY DESC";
@@ -259,7 +279,7 @@ namespace WriteNotesApplication
             {
                 if (!string.IsNullOrWhiteSpace(userId))
                 {
-                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION FROM notes " +
+                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION,NOTE_REMINDER_DATE,NOTE_REMINDER_FLAG  FROM notes " +
                                  "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                                  "WHERE users.USER_ID = " + userId +
                                  " AND NOTE_CREATION BETWEEN '" + fromDate + "' AND '" + toDate + "' "+
@@ -280,7 +300,7 @@ namespace WriteNotesApplication
             {
                 if (!string.IsNullOrWhiteSpace(userId))
                 {
-                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION FROM notes " +
+                    string sql = "SELECT NOTE_ID,NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_DESCRIPTION,NOTE_REMINDER_DATE,NOTE_REMINDER_FLAG  FROM notes " +
                                  "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                                  "WHERE users.USER_ID = " + userId +
                                  " AND NOTE_LASTMODIFY BETWEEN '" + fromDate + "' AND '" + toDate + "'";
@@ -319,7 +339,7 @@ namespace WriteNotesApplication
 
             if (!string.IsNullOrWhiteSpace(userId))
             {
-                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_ID,NOTE_DESCRIPTION FROM notes " +
+                string sql = "SELECT NOTE,NOTE_CREATION,NOTE_LASTMODIFY,NOTE_ID,NOTE_DESCRIPTION,NOTE_REMINDER_DATE,NOTE_REMINDER_FLAG FROM notes " +
                          "INNER JOIN users ON users.USER_ID = notes.USER_ID " +
                          "WHERE users.USER_ID = " + userId + "AND NOTE LIKE '%"+ filertxt + "%' "+
                          "ORDER BY NOTE_LASTMODIFY DESC";
@@ -336,6 +356,20 @@ namespace WriteNotesApplication
 
         }
 
+        public bool DeleteReminderToDB(string noteId) 
+        {
+            string sql = "UPDATE notes SET NOTE_REMINDER_FLAG = 0 WHERE NOTE_ID = " + noteId;
+            return InsertToDB(sql);
+
+        }
+
+        public bool InsertReminderToDB(string noteId,string remDate)
+        {
+            string sql = "UPDATE notes SET NOTE_REMINDER_FLAG = 1,NOTE_REMINDER_DATE='"+ remDate +"'"+
+                " WHERE NOTE_ID = " + noteId;
+            return InsertToDB(sql);
+
+        }
         public bool ModifyNoteToDB(string username,string newnote,string noteId) 
         {
             string sql = "UPDATE notes " +
@@ -435,14 +469,14 @@ namespace WriteNotesApplication
 
         public DataTable GetDataTableFromDB(string query)
         {
+            string connString = CreateConnectionString();
+
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(query, conn);
             try 
             {
                 DataTable dt = new DataTable();
-                string connString = CreateConnectionString();
-
-
-                SqlConnection conn = new SqlConnection(connString);
-                SqlCommand cmd = new SqlCommand(query, conn);
+               
                 conn.Open();
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -456,7 +490,13 @@ namespace WriteNotesApplication
             }catch(Exception exc) 
             {
                 return null;
-            
+
+            }
+            finally 
+            {
+                conn.Close();
+
+
             }
             
         }

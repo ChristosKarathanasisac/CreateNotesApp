@@ -138,6 +138,9 @@ namespace WriteNotesApplication
                 string noteId = "";
                 string note = "";
                 string noteTopic = "";
+                string noteRemFlag = "";
+                string noteRemDate = "";
+
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 if (r.Cells["NOTE_ID"].Value == null)
                 {
@@ -149,6 +152,11 @@ namespace WriteNotesApplication
                     noteId = r.Cells["NOTE_ID"].Value.ToString();
                     note = r.Cells["NOTE"].Value.ToString();
                     noteTopic = r.Cells["NOTE_DESCRIPTION"].Value.ToString();
+                    noteRemFlag = r.Cells["NOTE_REMINDER_FLAG"].Value.ToString();
+                    if (noteRemFlag.Equals("True"))
+                    {
+                        noteRemDate = r.Cells["NOTE_REMINDER_DATE"].Value.ToString();
+                    }
 
                 }
                 catch (Exception exc)
@@ -160,7 +168,7 @@ namespace WriteNotesApplication
                 if (!string.IsNullOrEmpty(note) && !string.IsNullOrEmpty(noteId)) 
                 {
                     this.Hide();
-                    ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note,noteId,noteTopic);
+                    ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user, note,noteId,noteTopic, noteRemFlag, noteRemDate);
                     if (this.WindowState == FormWindowState.Maximized)
                     {
                         modifyNotesForm.WindowState = FormWindowState.Maximized;
@@ -194,6 +202,8 @@ namespace WriteNotesApplication
                 string noteId = "";
                 string note = "";
                 string noteTopic = "";
+                string noteRemFlag = "";
+                string noteRemDate = "";
                 DataGridViewRow r = this.dataGridView1.SelectedRows[0];
                 if(r.Cells["NOTE_ID"].Value == null) 
                 {
@@ -205,6 +215,13 @@ namespace WriteNotesApplication
                     noteId = r.Cells["NOTE_ID"].Value.ToString();
                     note = r.Cells["NOTE"].Value.ToString();
                     noteTopic = r.Cells["NOTE_DESCRIPTION"].Value.ToString();
+                    noteRemFlag = r.Cells["NOTE_REMINDER_FLAG"].Value.ToString();
+                    if (noteRemFlag.Equals("True"))
+                    {
+                        noteRemDate = r.Cells["NOTE_REMINDER_DATE"].Value.ToString();
+
+                    }
+                        
 
                 }
                 catch (Exception exc)
@@ -212,14 +229,10 @@ namespace WriteNotesApplication
                     MessageBox.Show("Error:" + exc.Message);
 
                 }
-
-                
-                
-
                 if (!string.IsNullOrEmpty(note) && !string.IsNullOrEmpty(noteId))
                 {
                     this.Hide();
-                    OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId,noteTopic);
+                    OpenFullNoteForm openFullNoteForm = new OpenFullNoteForm(this.user, note, noteId,noteTopic,noteRemFlag, noteRemDate);
                     if (this.WindowState == FormWindowState.Maximized)
                     {
                         openFullNoteForm.WindowState = FormWindowState.Maximized;

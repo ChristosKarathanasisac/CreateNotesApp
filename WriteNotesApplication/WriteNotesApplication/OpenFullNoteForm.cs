@@ -21,8 +21,11 @@ namespace WriteNotesApplication
         private User user;
         private string noteId;
         private string noteTopic;
+        private string noteRemFlag;
+        private string noteRemDate;
 
-        public OpenFullNoteForm(User aUser, string aNote, string aNoteId,string aNoteTopic)
+        public OpenFullNoteForm(User aUser, string aNote, string aNoteId,string aNoteTopic,
+             string aNoteRemFlag,string  aNoteRemDate )
         {
             InitializeComponent();
             this.note = aNote;
@@ -33,8 +36,22 @@ namespace WriteNotesApplication
             this.txtNoteTopic.Text = this.noteTopic;
             this.txtEmailSubject.Text = this.noteTopic;
             this.txtNote.Text = this.note;
-        }
+            this.noteRemFlag = aNoteRemFlag;
+            this.noteRemDate = aNoteRemDate;
 
+            ShowReminder();
+        }
+        private void ShowReminder() 
+        {
+            if (this.noteRemFlag.Equals("True"))
+            {
+                this.lblReminderAt.Visible = true;
+                this.lblRemDate.Visible = true;
+                this.lblRemDate.Text = this.noteRemDate;
+
+
+            }
+        }
         private void cmdBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -52,7 +69,7 @@ namespace WriteNotesApplication
         private void cmdModify_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user,this.note,this.noteId,this.noteTopic);
+            ModifyNotesForm modifyNotesForm = new ModifyNotesForm(this.user,this.note,this.noteId,this.noteTopic,this.noteRemFlag,this.noteRemDate);
             if (this.WindowState == FormWindowState.Maximized)
             {
                 modifyNotesForm.WindowState = FormWindowState.Maximized;

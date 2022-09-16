@@ -194,5 +194,42 @@ namespace ReminderWinService
                 dv.Dispose();
             }
         }
+
+        public  DataTable GetDataTable(string sql)
+        {
+            try
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = GetConfigValueString("server_name");
+                builder.UserID = GetConfigValueString("db_username");
+                builder.Password = GetConfigValueString("db_psw");
+                builder.InitialCatalog = GetConfigValueString("db_name");
+                builder.ConnectTimeout = 0;
+
+                using (SqlConnection con = new SqlConnection(builder.ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.CommandTimeout = 0;
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                return dt;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                WriteLog("GetDataTable Error. Error Message: " + exp.Message);
+                return null;
+            }
+
+
+        }
     }
 }

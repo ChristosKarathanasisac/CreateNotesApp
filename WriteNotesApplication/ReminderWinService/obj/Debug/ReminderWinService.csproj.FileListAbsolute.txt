@@ -1,0 +1,9 @@
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.ProjectInstaller.resources
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.csproj.GenerateResource.cache
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.csproj.CoreCompileInputs.cache
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe.config
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.pdb
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.exe
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.pdb
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.csproj.AssemblyReference.cache

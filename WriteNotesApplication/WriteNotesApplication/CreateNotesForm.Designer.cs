@@ -31,6 +31,9 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNotesForm));
             this.gridcondrol1 = new System.Windows.Forms.GroupBox();
+            this.lblDateTime = new System.Windows.Forms.Label();
+            this.cmdDeleteRem = new System.Windows.Forms.Button();
+            this.lblAddedReminder = new System.Windows.Forms.Label();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.cmdSaveRem = new System.Windows.Forms.Button();
             this.dateTimePickerReminder = new System.Windows.Forms.DateTimePicker();
@@ -45,9 +48,6 @@ namespace WriteNotesApplication
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.RichTextBox();
-            this.lblAddedReminder = new System.Windows.Forms.Label();
-            this.cmdDeleteRem = new System.Windows.Forms.Button();
-            this.lblDateTime = new System.Windows.Forms.Label();
             this.gridcondrol1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,47 @@ namespace WriteNotesApplication
             this.gridcondrol1.TabIndex = 0;
             this.gridcondrol1.TabStop = false;
             // 
+            // lblDateTime
+            // 
+            this.lblDateTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.lblDateTime.ForeColor = System.Drawing.Color.Maroon;
+            this.lblDateTime.Location = new System.Drawing.Point(668, 38);
+            this.lblDateTime.Margin = new System.Windows.Forms.Padding(1);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(0, 24);
+            this.lblDateTime.TabIndex = 16;
+            // 
+            // cmdDeleteRem
+            // 
+            this.cmdDeleteRem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdDeleteRem.BackColor = System.Drawing.Color.Maroon;
+            this.cmdDeleteRem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDeleteRem.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.cmdDeleteRem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdDeleteRem.Location = new System.Drawing.Point(871, 34);
+            this.cmdDeleteRem.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdDeleteRem.Name = "cmdDeleteRem";
+            this.cmdDeleteRem.Size = new System.Drawing.Size(142, 31);
+            this.cmdDeleteRem.TabIndex = 15;
+            this.cmdDeleteRem.Text = "Delete Reminder";
+            this.cmdDeleteRem.UseVisualStyleBackColor = false;
+            this.cmdDeleteRem.Click += new System.EventHandler(this.cmdDeleteRem_Click);
+            // 
+            // lblAddedReminder
+            // 
+            this.lblAddedReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAddedReminder.AutoSize = true;
+            this.lblAddedReminder.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
+            this.lblAddedReminder.ForeColor = System.Drawing.Color.Maroon;
+            this.lblAddedReminder.Location = new System.Drawing.Point(513, 38);
+            this.lblAddedReminder.Margin = new System.Windows.Forms.Padding(1);
+            this.lblAddedReminder.Name = "lblAddedReminder";
+            this.lblAddedReminder.Size = new System.Drawing.Size(153, 24);
+            this.lblAddedReminder.TabIndex = 14;
+            this.lblAddedReminder.Text = "Added Reminder at:";
+            // 
             // dateTimePickerTime
             // 
             this.dateTimePickerTime.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -93,6 +134,7 @@ namespace WriteNotesApplication
             this.dateTimePickerTime.Name = "dateTimePickerTime";
             this.dateTimePickerTime.Size = new System.Drawing.Size(157, 33);
             this.dateTimePickerTime.TabIndex = 13;
+            this.dateTimePickerTime.ValueChanged += new System.EventHandler(this.dateTimePickerTime_ValueChanged);
             // 
             // cmdSaveRem
             // 
@@ -118,6 +160,7 @@ namespace WriteNotesApplication
             this.dateTimePickerReminder.Name = "dateTimePickerReminder";
             this.dateTimePickerReminder.Size = new System.Drawing.Size(304, 33);
             this.dateTimePickerReminder.TabIndex = 11;
+            this.dateTimePickerReminder.ValueChanged += new System.EventHandler(this.dateTimePickerReminder_ValueChanged);
             // 
             // checkBoxReminder
             // 
@@ -279,47 +322,6 @@ namespace WriteNotesApplication
             this.txtNote.TabIndex = 0;
             this.txtNote.Text = "";
             this.txtNote.TextChanged += new System.EventHandler(this.txtNote_TextChanged);
-            // 
-            // lblAddedReminder
-            // 
-            this.lblAddedReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAddedReminder.AutoSize = true;
-            this.lblAddedReminder.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
-            this.lblAddedReminder.ForeColor = System.Drawing.Color.Maroon;
-            this.lblAddedReminder.Location = new System.Drawing.Point(513, 38);
-            this.lblAddedReminder.Margin = new System.Windows.Forms.Padding(1);
-            this.lblAddedReminder.Name = "lblAddedReminder";
-            this.lblAddedReminder.Size = new System.Drawing.Size(153, 24);
-            this.lblAddedReminder.TabIndex = 14;
-            this.lblAddedReminder.Text = "Added Reminder at:";
-            // 
-            // cmdDeleteRem
-            // 
-            this.cmdDeleteRem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdDeleteRem.BackColor = System.Drawing.Color.Maroon;
-            this.cmdDeleteRem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDeleteRem.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
-            this.cmdDeleteRem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdDeleteRem.Location = new System.Drawing.Point(871, 34);
-            this.cmdDeleteRem.Margin = new System.Windows.Forms.Padding(2);
-            this.cmdDeleteRem.Name = "cmdDeleteRem";
-            this.cmdDeleteRem.Size = new System.Drawing.Size(142, 31);
-            this.cmdDeleteRem.TabIndex = 15;
-            this.cmdDeleteRem.Text = "Delete Reminder";
-            this.cmdDeleteRem.UseVisualStyleBackColor = false;
-            this.cmdDeleteRem.Click += new System.EventHandler(this.cmdDeleteRem_Click);
-            // 
-            // lblDateTime
-            // 
-            this.lblDateTime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDateTime.AutoSize = true;
-            this.lblDateTime.Font = new System.Drawing.Font("Segoe Print", 9.8F, System.Drawing.FontStyle.Italic);
-            this.lblDateTime.ForeColor = System.Drawing.Color.Maroon;
-            this.lblDateTime.Location = new System.Drawing.Point(668, 38);
-            this.lblDateTime.Margin = new System.Windows.Forms.Padding(1);
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(0, 24);
-            this.lblDateTime.TabIndex = 16;
             // 
             // CreateNotesForm
             // 

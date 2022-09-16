@@ -56,12 +56,14 @@ namespace WriteNotesApplication
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmdBack = new System.Windows.Forms.Button();
             this.NOTE_DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE_CREATION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE_LASTMODIFY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOTE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmdBack = new System.Windows.Forms.Button();
+            this.NOTE_REMINDER_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOTE_REMINDER_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -347,7 +349,9 @@ namespace WriteNotesApplication
             this.NOTE_CREATION,
             this.NOTE_LASTMODIFY,
             this.NOTE,
-            this.NOTE_ID});
+            this.NOTE_ID,
+            this.NOTE_REMINDER_FLAG,
+            this.NOTE_REMINDER_DATE});
             this.dataGridView1.DataSource = this.bindingSource1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -373,6 +377,21 @@ namespace WriteNotesApplication
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1032, 179);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // cmdBack
+            // 
+            this.cmdBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmdBack.BackColor = System.Drawing.SystemColors.ControlText;
+            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdBack.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Italic);
+            this.cmdBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdBack.Location = new System.Drawing.Point(12, 708);
+            this.cmdBack.Name = "cmdBack";
+            this.cmdBack.Size = new System.Drawing.Size(62, 31);
+            this.cmdBack.TabIndex = 2;
+            this.cmdBack.Text = "Back";
+            this.cmdBack.UseVisualStyleBackColor = false;
+            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // NOTE_DESCRIPTION
             // 
@@ -421,20 +440,19 @@ namespace WriteNotesApplication
             this.NOTE_ID.Visible = false;
             this.NOTE_ID.Width = 385;
             // 
-            // cmdBack
+            // NOTE_REMINDER_FLAG
             // 
-            this.cmdBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmdBack.BackColor = System.Drawing.SystemColors.ControlText;
-            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdBack.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Italic);
-            this.cmdBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cmdBack.Location = new System.Drawing.Point(12, 708);
-            this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(62, 31);
-            this.cmdBack.TabIndex = 2;
-            this.cmdBack.Text = "Back";
-            this.cmdBack.UseVisualStyleBackColor = false;
-            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
+            this.NOTE_REMINDER_FLAG.DataPropertyName = "NOTE_REMINDER_FLAG";
+            this.NOTE_REMINDER_FLAG.HeaderText = "NOTE_REMINDER_FLAG";
+            this.NOTE_REMINDER_FLAG.Name = "NOTE_REMINDER_FLAG";
+            this.NOTE_REMINDER_FLAG.Visible = false;
+            // 
+            // NOTE_REMINDER_DATE
+            // 
+            this.NOTE_REMINDER_DATE.DataPropertyName = "NOTE_REMINDER_DATE";
+            this.NOTE_REMINDER_DATE.HeaderText = "NOTE_REMINDER_DATE";
+            this.NOTE_REMINDER_DATE.Name = "NOTE_REMINDER_DATE";
+            this.NOTE_REMINDER_DATE.Visible = false;
             // 
             // GetNotesForm
             // 
@@ -485,12 +503,14 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Button cmdDeleteNote;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button cmdBack;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_DESCRIPTION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_CREATION;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_LASTMODIFY;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_ID;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button cmdBack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_REMINDER_FLAG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOTE_REMINDER_DATE;
     }
 }
