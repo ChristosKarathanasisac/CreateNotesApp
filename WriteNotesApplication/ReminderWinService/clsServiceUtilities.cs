@@ -17,18 +17,20 @@ namespace ReminderWinService
         public string CurrendPath { set => currentPath = value; }
         public  bool CheckConnection()
         {
+            string connString = CreateConnectionString();
             try
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-                builder.DataSource = GetConfigValueString("server_name");
-                builder.UserID = GetConfigValueString("db_username");
-                builder.Password = GetConfigValueString("db_psw");
-                builder.InitialCatalog = GetConfigValueString("db_name");
-                builder.ConnectTimeout = 0;
+                //builder.DataSource = GetConfigValueString("server_name");
+                //builder.UserID = GetConfigValueString("db_username");
+                //builder.Password = GetConfigValueString("db_psw");
+                //builder.InitialCatalog = GetConfigValueString("db_name");
+                //builder.TrustServerCertificate = true;
+                //builder.ConnectTimeout = 0;
 
 
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(connString))
                 {
                     WriteLog("Try connect to database");
 
@@ -105,19 +107,22 @@ namespace ReminderWinService
 
         public  bool ExecuteNonQuery(string sql)
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            builder.DataSource = GetConfigValueString("DataSource");
-            builder.UserID = GetConfigValueString("UserID");
-            builder.Password = GetConfigValueString("Password");
-            builder.InitialCatalog = GetConfigValueString("InitialCatalog");
-            builder.ConnectTimeout = 0;
+            //builder.DataSource = GetConfigValueString("DataSource");
+            //builder.UserID = GetConfigValueString("UserID");
+            //builder.Password = GetConfigValueString("Password");
+            //builder.InitialCatalog = GetConfigValueString("InitialCatalog");
+            //builder.TrustServerCertificate = true;
+            //builder.ConnectTimeout = 0;
+
+            string connString = CreateConnectionString();
 
 
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(connString))
 
                 {
 
@@ -199,14 +204,17 @@ namespace ReminderWinService
         {
             try
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = GetConfigValueString("server_name");
-                builder.UserID = GetConfigValueString("db_username");
-                builder.Password = GetConfigValueString("db_psw");
-                builder.InitialCatalog = GetConfigValueString("db_name");
-                builder.ConnectTimeout = 0;
+                //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                //builder.DataSource = GetConfigValueString("server_name");
+                //builder.UserID = GetConfigValueString("db_username");
+                //builder.Password = GetConfigValueString("db_psw");
+                //builder.InitialCatalog = GetConfigValueString("db_name");
+                //builder.TrustServerCertificate = true;
+                //builder.ConnectTimeout = 0;
 
-                using (SqlConnection con = new SqlConnection(builder.ConnectionString))
+                string connString = CreateConnectionString();
+
+                using (SqlConnection con = new SqlConnection(connString))
                 {
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {
@@ -230,6 +238,14 @@ namespace ReminderWinService
             }
 
 
+        }
+
+        private string CreateConnectionString()
+        {
+            string connString = "";
+            connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection=true; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
+                "User ID = " + ConfigurationManager.AppSettings["db_username"] + "; Password = " + ConfigurationManager.AppSettings["db_psw"];
+            return connString;
         }
     }
 }
