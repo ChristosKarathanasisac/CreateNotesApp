@@ -482,5 +482,7 @@ namespace WriteNotesApplication
         {
             recognizer.RecognizeAsyncStop();
         }
+
+       
     }
 }

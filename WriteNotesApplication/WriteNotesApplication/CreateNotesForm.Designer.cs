@@ -100,6 +100,7 @@ namespace WriteNotesApplication
             this.cmdMicrophone.Size = new System.Drawing.Size(41, 37);
             this.cmdMicrophone.TabIndex = 17;
             this.cmdMicrophone.UseVisualStyleBackColor = false;
+            //this.cmdMicrophone.Click += new System.EventHandler(this.cmdMicrophone_Click);
             this.cmdMicrophone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cmdMicrophone_MouseDown);
             this.cmdMicrophone.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cmdMicrophone_MouseUp);
             // 
