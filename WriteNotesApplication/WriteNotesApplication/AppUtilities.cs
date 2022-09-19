@@ -87,40 +87,6 @@ namespace WriteNotesApplication
             }
         }
 
-        //public string GetHtml(string note, string noteTopic, DataTable photos)
-        //{
-          
-        //    try
-        //    {
-        //        string messageBody = "<font>The following are the records: </font><br><br>";
-        //        string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
-        //        string htmlTableEnd = "</table>";
-        //        string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
-        //        string htmlHeaderRowEnd = "</tr>";
-        //        string htmlTrStart = "<tr style=\"color:#555555;\">";
-        //        string htmlTrEnd = "</tr>";
-        //        string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
-        //        string htmlTdEnd = "</td>";
-        //        messageBody += htmlTableStart;
-        //        messageBody += htmlHeaderRowStart;
-        //        messageBody += htmlTdStart + "Note Topic" + htmlTdEnd;
-        //        messageBody += htmlTdStart + "Note" + htmlTdEnd;
-        //        //messageBody += htmlTdStart + "<img src=cid:MyImage  id='img' alt='' width='200px' height='200px'/>" + htmlTdEnd;
-        //        messageBody += htmlHeaderRowEnd; 
-        //        messageBody = messageBody + htmlTrStart;
-        //        messageBody = messageBody + htmlTdStart + noteTopic;
-        //        messageBody = messageBody + htmlTdStart + note;
-        //        messageBody = messageBody + htmlTrEnd;
-                
-        //        messageBody = messageBody + htmlTableEnd;
-        //        return messageBody; // return HTML Table as string from this function  
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return null;
-        //    }
-        //}
-
         public bool Email(string subject, string toEmail,DataTable photos,string  note, string noteTopic,DataTable files)
         {
            
