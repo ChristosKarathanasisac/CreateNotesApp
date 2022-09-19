@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Mime;
+using System.Speech.Recognition;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,10 @@ namespace WriteNotesApplication
         private bool reminder = false;
         private string reminderDate = "";
         DatabaseConUtilities dbUtilities = new DatabaseConUtilities();
+
+        SpeechRecognitionEngine recognizer =
+                    new SpeechRecognitionEngine(
+                  new System.Globalization.CultureInfo("en-US"));
 
         Image[] photos= null;
 
@@ -431,7 +436,6 @@ namespace WriteNotesApplication
             this.cmdDeleteRem.Visible = true;
             this.cmdSaveRem.Visible = false;
             //this.checkBoxReminder.Enabled = false;
-
         }
 
         private void cmdDeleteRem_Click(object sender, EventArgs e)
@@ -452,14 +456,31 @@ namespace WriteNotesApplication
 
         }
 
-        private void dateTimePickerReminder_ValueChanged(object sender, EventArgs e)
+        private void cmdMicrophone_MouseDown(object sender, MouseEventArgs e)
+        { 
+            {
+                try 
+                {
+                    recognizer.RequestRecognizerUpdate();
+                    recognizer.LoadGrammar(new DictationGrammar());
+                    recognizer.SpeechRecognized +=
+                      new EventHandler<SpeechRecognizedEventArgs>(recognizer_SpeechRecognized);
+                    recognizer.SetInputToDefaultAudioDevice();
+                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                }catch(Exception exc) 
+                {
+                    MessageBox.Show("Voice Recognition Error: " + exc.Message);
+                }
+            }
+        }
+        private void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-
+            this.txtNote.Text = this.txtNote.Text + e.Result.Text.ToString() + Environment.NewLine;
         }
 
-        private void dateTimePickerTime_ValueChanged(object sender, EventArgs e)
+        private void cmdMicrophone_MouseUp(object sender, MouseEventArgs e)
         {
-
+            recognizer.RecognizeAsyncStop();
         }
     }
 }

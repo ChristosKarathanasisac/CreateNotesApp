@@ -1,14 +1,22 @@
-16/09/2022 16:46:55: Service Stop
-16/09/2022 16:49:05: Service Stop
-16/09/2022 16:49:13: Service Start
-16/09/2022 16:50:25: Try connect to database
-16/09/2022 16:52:30: Service Stop
-16/09/2022 16:52:33: Service Start
-16/09/2022 16:53:59: Try connect to database
-16/09/2022 16:55:05: Service Stop
-16/09/2022 16:55:09: Service Start
-16/09/2022 16:56:48: Try connect to database
-16/09/2022 17:01:55: Service Stop
-16/09/2022 17:02:10: Service Start
-16/09/2022 17:03:45: Try connect to database
-16/09/2022 17:03:51: Connect to database success!!
+17/09/2022 19:35:27: Service Start
+17/09/2022 19:36:45: Try connect to database
+17/09/2022 19:36:45: Connect to database success!!
+17/09/2022 19:36:45: StartSend Start
+17/09/2022 19:36:56: SentEmail Start
+17/09/2022 19:36:57: Notes to sent = 4
+17/09/2022 19:37:22: Function ExecuteNonQuery : Εκτέλεση sql : UPDATE notes SET NOTE_REMINDER_FLAG = 0 WHERE NOTE_ID = 26
+17/09/2022 19:37:22: Note: 26. NOTE_REMINDER_FLAG = 0. Email sent OK
+17/09/2022 19:37:27: Function ExecuteNonQuery : Εκτέλεση sql : UPDATE notes SET NOTE_REMINDER_FLAG = 0 WHERE NOTE_ID = 27
+17/09/2022 19:37:27: Note: 27. NOTE_REMINDER_FLAG = 0. Email sent OK
+17/09/2022 19:37:29: Function ExecuteNonQuery : Εκτέλεση sql : UPDATE notes SET NOTE_REMINDER_FLAG = 0 WHERE NOTE_ID = 28
+17/09/2022 19:37:29: Note: 28. NOTE_REMINDER_FLAG = 0. Email sent OK
+17/09/2022 19:37:30: Function ExecuteNonQuery : Εκτέλεση sql : UPDATE notes SET NOTE_REMINDER_FLAG = 0 WHERE NOTE_ID = 33
+17/09/2022 19:37:30: Note: 33. NOTE_REMINDER_FLAG = 0. Email sent OK
+17/09/2022 19:37:30: Notes Sent Count = 4
+17/09/2022 19:37:30: Notes With Error = 0
+17/09/2022 19:37:30: SentEmail End
+17/09/2022 19:37:30: StartSend End
+17/09/2022 19:38:30: Try connect to database
+17/09/2022 19:38:30: Connect to database success!!
+17/09/2022 19:38:30: StartSend Start
+17/09/2022 19:42:04: Service Stop

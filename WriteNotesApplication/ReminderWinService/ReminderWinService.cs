@@ -37,16 +37,7 @@ namespace ReminderWinService
             if (serviceUtilities.CheckConnection())
             {
                 clsSendNotes startSent = new clsSendNotes();
-                Boolean flag = startSent.StartSend();
-                if (startSent != null)
-                {
-                    startSent = null;
-                }
-                if (!flag)
-                {
-                    serviceUtilities.WriteLog("StartSent did not run");
-
-                }
+                startSent.StartSend();
             }
 
             tmrExecutor.Enabled = true;

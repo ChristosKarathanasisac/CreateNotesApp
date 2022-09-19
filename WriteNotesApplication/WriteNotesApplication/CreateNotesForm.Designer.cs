@@ -31,6 +31,7 @@ namespace WriteNotesApplication
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNotesForm));
             this.gridcondrol1 = new System.Windows.Forms.GroupBox();
+            this.cmdMicrophone = new System.Windows.Forms.Button();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.cmdDeleteRem = new System.Windows.Forms.Button();
             this.lblAddedReminder = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@ namespace WriteNotesApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridcondrol1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.gridcondrol1.Controls.Add(this.cmdMicrophone);
             this.gridcondrol1.Controls.Add(this.lblDateTime);
             this.gridcondrol1.Controls.Add(this.cmdDeleteRem);
             this.gridcondrol1.Controls.Add(this.lblAddedReminder);
@@ -83,6 +85,23 @@ namespace WriteNotesApplication
             this.gridcondrol1.Size = new System.Drawing.Size(1044, 717);
             this.gridcondrol1.TabIndex = 0;
             this.gridcondrol1.TabStop = false;
+            // 
+            // cmdMicrophone
+            // 
+            this.cmdMicrophone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdMicrophone.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cmdMicrophone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdMicrophone.Font = new System.Drawing.Font("Segoe Print", 12.8F, System.Drawing.FontStyle.Italic);
+            this.cmdMicrophone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdMicrophone.Image = global::WriteNotesApplication.Properties.Resources.microphone;
+            this.cmdMicrophone.Location = new System.Drawing.Point(744, 671);
+            this.cmdMicrophone.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdMicrophone.Name = "cmdMicrophone";
+            this.cmdMicrophone.Size = new System.Drawing.Size(41, 37);
+            this.cmdMicrophone.TabIndex = 17;
+            this.cmdMicrophone.UseVisualStyleBackColor = false;
+            this.cmdMicrophone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cmdMicrophone_MouseDown);
+            this.cmdMicrophone.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cmdMicrophone_MouseUp);
             // 
             // lblDateTime
             // 
@@ -134,7 +153,6 @@ namespace WriteNotesApplication
             this.dateTimePickerTime.Name = "dateTimePickerTime";
             this.dateTimePickerTime.Size = new System.Drawing.Size(157, 33);
             this.dateTimePickerTime.TabIndex = 13;
-            this.dateTimePickerTime.ValueChanged += new System.EventHandler(this.dateTimePickerTime_ValueChanged);
             // 
             // cmdSaveRem
             // 
@@ -160,7 +178,6 @@ namespace WriteNotesApplication
             this.dateTimePickerReminder.Name = "dateTimePickerReminder";
             this.dateTimePickerReminder.Size = new System.Drawing.Size(304, 33);
             this.dateTimePickerReminder.TabIndex = 11;
-            this.dateTimePickerReminder.ValueChanged += new System.EventHandler(this.dateTimePickerReminder_ValueChanged);
             // 
             // checkBoxReminder
             // 
@@ -365,6 +382,7 @@ namespace WriteNotesApplication
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button cmdDeleteRem;
         private System.Windows.Forms.Label lblAddedReminder;
+        private System.Windows.Forms.Button cmdMicrophone;
     }
 }
 

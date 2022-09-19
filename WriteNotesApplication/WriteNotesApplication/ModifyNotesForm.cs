@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Speech.Recognition;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,10 @@ namespace WriteNotesApplication
         private string noteReminderDate;
 
         DatabaseConUtilities databaseConUtilities = new DatabaseConUtilities();
+
+        SpeechRecognitionEngine recognizer =
+                    new SpeechRecognitionEngine(
+                  new System.Globalization.CultureInfo("en-US"));
         public ModifyNotesForm(User user, string note,string noteId,string noteTopic,
             string noteRemFlag,string noteRemDate)
         {
@@ -175,8 +180,6 @@ namespace WriteNotesApplication
             {
                 MessageBox.Show("Reminder save Error. Please try again");
             }
-            
-            
         }
 
         private void SuccessfullModifyRemJobs(string remDate) 
@@ -206,6 +209,35 @@ namespace WriteNotesApplication
             this.cmdSaveRem.Visible = false;
             this.cmdModifyRem.Text = "Modify Reminder";
             this.cmdDeleteRem.Visible = true;
+        }
+
+        private void cmdMicrophone_MouseUp(object sender, MouseEventArgs e)
+        {
+            recognizer.RecognizeAsyncStop();
+        }
+
+        private void cmdMicrophone_MouseDown(object sender, MouseEventArgs e)
+        {
+            {
+                try
+                {
+                    recognizer.RequestRecognizerUpdate();
+                    recognizer.LoadGrammar(new DictationGrammar());
+                    recognizer.SpeechRecognized +=
+                      new EventHandler<SpeechRecognizedEventArgs>(recognizer_SpeechRecognized);
+                    recognizer.SetInputToDefaultAudioDevice();
+                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Voice Recognition Error: " + exc.Message);
+                }
+            }
+        }
+
+        private void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            this.txtModifyNote.Text = this.txtModifyNote.Text + Environment.NewLine + e.Result.Text.ToString() + Environment.NewLine;
         }
     }
 }

@@ -18,7 +18,7 @@ using System.Net.Mime;
 
 namespace WriteNotesApplication
 {
-    class AppUtilities
+    public class AppUtilities
     {
         
         public bool IsValidEmail(string email)
@@ -191,7 +191,7 @@ namespace WriteNotesApplication
                 }           
             }
 
-            if (CreateFileResource(dtfFile) != null) 
+            if (CreateFileResource(dtfFile) != null ) 
             {
                 AV.LinkedResources.Add(CreateFileResource(dtfFile));
             }
@@ -200,6 +200,7 @@ namespace WriteNotesApplication
 
         private LinkedResource CreateFileResource(DataTable dtfFile) 
         {
+            if (!(dtfFile.DefaultView.Count > 0)) { return null; }
             if (dtfFile != null)
             {
                 string fileType = dtfFile.Rows[0]["FILE_CONTENTTYPE"].ToString();

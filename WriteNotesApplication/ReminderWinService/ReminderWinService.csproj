@@ -72,5 +72,11 @@
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WriteNotesApplication\WriteNotesApplication.csproj">
+      <Project>{7139A520-4274-4B9A-B24D-183F8DCF5D40}</Project>
+      <Name>WriteNotesApplication</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
