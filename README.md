@@ -7,12 +7,20 @@
 - How to run the project.
 
 ## **More Details**
-#### On the first page of the app, user has the option to log in or create a new account. 
+#### On the first page of the app, user has the options to log in or to create a new account.
 
 ![IntroForm](https://user-images.githubusercontent.com/95130533/190989494-5d138ea2-d414-4e79-ad89-8cc0675ff612.png)
 
-#### On the first page of the app, user has the option to log in or create a new account. 
+##### On the sing up page user can create a new account. The form:  
+- Checks that all required fields are completed.
+- Has email and phone validation. 
+- Check that the user doesn't exist and that passwords match.
+- Saves the user to the database. The passwords saved are encrypted.
 
-On the sing up page users can create a new account. The code of the form checks that all required fields are completed.  The form has email validation and phone validation. Check that the user doesn't exist and that passwords match. Finally, save the user to the database. The passwords saved are encrypted.
+![Στιγμιότυπο οθόνης (42)](https://user-images.githubusercontent.com/95130533/191171210-92f5eac3-7e0f-4932-a757-f93482af8d42.png)
+
+#### User after the successful creation of his account has the following options.
+![Στιγμιότυπο οθόνης (44)](https://user-images.githubusercontent.com/95130533/191172739-b6349a35-6691-4815-88e0-29fe075157ce.png)
+
 
 
