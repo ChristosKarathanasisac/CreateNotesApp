@@ -2,7 +2,7 @@
 
  ## Table of contents
 * [General info](#general-info)
-* [More Details](#more-details)
+* [More Details](#more-details-with-screenshots)
 * [Setup](#setup)
 
   ## **General Info**
@@ -11,7 +11,7 @@
    I created that project to discover the features provided by windows forms and be familiar with them. 
    
 
-   ## **More Details**
+   ## **More details with screenshots**
      ### On the first page of the app, user has the options to log in or to create a new account.
 
     ![IntroForm](https://user-images.githubusercontent.com/95130533/190989494-5d138ea2-d414-4e79-ad89-8cc0675ff612.png)
