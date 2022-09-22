@@ -1,13 +1,22 @@
 #  **smart .note** 
 
  ## Table of contents
-* [General info](#general-info)
+* [Description](#description)
 * [More Details](#more-details-with-screenshots)
 * [Application Videos](#application-videos)
 * [Setup](#setup)
 
-  ## **General Info**
-   **smart .note** is an application for saving notes. The application is designed to run in a local network and provide options like new note creation, adding reminders, upload/download files and senting notes and files via email. I used C# and I created the app in Visual Studio 2019. Regarding the database I used Microsoft SQL Server Management Studio 18.
+  ## **Description**
+  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC.The basic functionality of the app is to   create, store and manage notes. Someone who wants to use the app, first of all, has to create o new account. After the registration user can create his notes. These   notes can have attached files and photos. In addition to saving notes, the user can send them by email or save them locally on his PC. Furthermore, the user can add   a reminder on a certain date and time. On that day he will receive an email with his note.
+  
+  
+  I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server Management Studio 18. I chose that tools because they are free and very popular. Also in many cases, they are used in combination. The main app is a Windows Form Application. Μainly consists of forms and some supporting classes which   implement the conection with the database and some application opperations (like sending email, download/upload files, phone and email validation).
+  
+  //Να γράψω για το service στο reminder.
+  //Να βάλω στο τι χρεισιμοποίησα το canvas, τα εικονίδια.
+  //Γιατί έφτιαξα την εφαρμογή.
+  //Πως μπορεί κάποιος να την στήσει τοπικά και να την τρέξει.
+  
 
    I created that project to discover the features provided by windows forms and be familiar with them. 
    
