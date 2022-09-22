@@ -3,6 +3,7 @@
  ## Table of contents
 * [General info](#general-info)
 * [More Details](#more-details-with-screenshots)
+* [Application Videos](#application-videos)
 * [Setup](#setup)
 
   ## **General Info**
