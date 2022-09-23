@@ -10,15 +10,25 @@
   **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC.The basic functionality of the app is to   create, store and manage notes. Someone who wants to use the app, first of all, has to create o new account. After the registration user can create his notes. These   notes can have attached files and photos. In addition to saving notes, the user can send them by email or save them locally on his PC. Furthermore, the user can add   a reminder on a certain date and time. On that day he will receive an email with his note.
   
   
-  I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server Management Studio 18. I chose that tools because they are free and very popular. Also in many cases, they are used in combination. The main app is a Windows Form Application. Μainly consists of forms and some supporting classes which   implement the conection with the database and some application opperations (like sending email, download/upload files, phone and email validation).
-  
-  //Να γράψω για το service στο reminder.
-  //Να βάλω στο τι χρεισιμοποίησα το canvas, τα εικονίδια.
-  //Γιατί έφτιαξα την εφαρμογή.
-  //Πως μπορεί κάποιος να την στήσει τοπικά και να την τρέξει.
-  
+  - I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server Management Studio 18. I chose that tools because they are free and very popular. Also in many cases, they are used in combination.
+  - The main app is a Windows Form Application. Μainly consists of forms and some supporting classes which implement the connection with the database and some application operations (like sending email, downloading/uploading files, phone, and email validation).
+  - To create the images on the forms I used Canva and I found the icons on IconScout.
+  - For the function of the reminder, I used a windows service. This service runs in the background every minute and checks for notes that need to be sent. After collecting the notes it sends them using email to the users who created them.
 
-   I created that project to discover the features provided by windows forms and be familiar with them. 
+ 
+  I created that project to :
+  - Discover the features provided by windows forms and be familiar with them. 
+  - Practice the managing of the registration and login forms.
+  - Practice saving and retrieving files from a database.
+  - Create a windows service.
+
+ ## **Setup**
+ ##### Microsoft SQL Server Management Studio 18 is required to run the application.
+ 
+ ##### Steps to run the application:
+ [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip)
+
+ 
    
 
    ## **More details with screenshots**
