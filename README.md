@@ -22,14 +22,21 @@
   - Practice saving and retrieving files from a database.
   - Create a windows service.
 
- ## **Setup**
- ##### Microsoft SQL Server Management Studio 18 is required to run the application.
+  ## **Setup**
+  ##### Microsoft SQL Server Management Studio 18 is required to run the application.
  
- ##### Steps to run the application:
- [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip)
+  ##### Steps to run the application:
+  - Open with SSMS 18 the .sql file you will find inside the
+  [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip).
+  - Replace the file paths to match those on your PC.
+  - Execute the query. 
+  - Download the file 
 
+  - Enter the details of the server on which the application will run in the file WriteNotesApplication.exe.config.
  
-   
+
+
+
 
    ## **More details with screenshots**
      ### On the first page of the app, user has the options to log in or to create a new account.
