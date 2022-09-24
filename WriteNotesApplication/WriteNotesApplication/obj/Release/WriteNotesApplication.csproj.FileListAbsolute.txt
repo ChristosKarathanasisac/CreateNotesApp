@@ -39,3 +39,4 @@ C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\o
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.csproj.CopyComplete
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.exe
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.pdb
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.csproj.AssemblyReference.cache
