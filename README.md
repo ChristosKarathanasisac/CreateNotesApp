@@ -23,19 +23,23 @@
   - Create a windows service.
 
   ## **Setup**
-  ##### Microsoft SQL Server Management Studio 18 is required to run the application.
+  ##### Microsoft SQL Server and Microsoft SQL Server Management Studio 18 are required to run the application.
  
   ##### Steps to run the application:
   - Open with SSMS 18 the .sql file you will find inside the
   [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip).
-  - Replace the file paths to match those on your PC.
+  - Replace the file paths to match those on your PC.(mdf and log files of the database will be stored in the path you choose).
   - Execute the query. 
-  - Download the file 
-
+  - Download the file [smart .note.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638231/smart.note.zip).
   - Enter the details of the server on which the application will run in the file WriteNotesApplication.exe.config.
+  - The smart .note app is ready for use.
  
-
-
+  ##### Steps to setup the reminder windows service:
+  - Download the file [smart .note Reminder.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638237/smart.note.Reminder.zip).
+  -  Enter the details of the server on which the application will run in the file ReminderWinService.exe.config.
+  -  Create a shortcut from ReminderWinService.exe. In the shortcut properties change the destination by adding /install to the end.
+  -  Run the shortcut as administrator. Now you can find ReminderWinService to the services.
+  -  Start the service. (Τo have the functionality of the reminders in the application, the service must be running.).
 
 
    ## **More details with screenshots**
