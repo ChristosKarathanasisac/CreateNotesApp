@@ -17,8 +17,18 @@ namespace ReminderWinService
             serviceUtilities.WriteLog("StartSend Start");
             DataTable dtNotes = GetNotesTable();
 
-           DataTable tblFilteredNotes = dtNotes.AsEnumerable()
-          .Where(row => row.Field<DateTime>("NOTE_REMINDER_DATE") <= DateTime.Now).CopyToDataTable();
+            DataTable tblFilteredNotes = new DataTable();
+            try
+            {
+               tblFilteredNotes = dtNotes.AsEnumerable()
+         .Where(row => row.Field<DateTime>("NOTE_REMINDER_DATE") <= DateTime.Now).CopyToDataTable();
+            }
+            catch 
+            {
+            
+            }
+            if(tblFilteredNotes == null) { return; }
+          
 
             if (tblFilteredNotes.DefaultView.Count > 0) 
             {

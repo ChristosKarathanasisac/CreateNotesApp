@@ -1,0 +1,13 @@
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Release\ReminderWinService.exe.config
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Release\ReminderWinService.exe
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Release\ReminderWinService.pdb
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Release\WriteNotesApplication.exe
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Release\WriteNotesApplication.pdb
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Release\WriteNotesApplication.exe.config
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.csproj.AssemblyReference.cache
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.ProjectInstaller.resources
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.csproj.GenerateResource.cache
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.csproj.CoreCompileInputs.cache
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.csproj.CopyComplete
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.exe
+C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Release\ReminderWinService.pdb
