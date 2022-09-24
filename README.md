@@ -8,7 +8,7 @@
 
 
   ## **Description**
-  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC.The basic functionality of the app is to   create, store and manage notes. Someone who wants to use the app, first of all, has to create o new account. After the registration user can create his notes. These   notes can have attached files and photos. In addition to saving notes, the user can send them by email or save them locally on his PC. Furthermore, the user can add   a reminder on a certain date and time. On that day he will receive an email with his note.
+  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC. The basic functionality of the app is to   create, store and manage notes. Someone who wants to use the app, first of all, has to create o new account. After the registration user can create his notes. These   notes can have attached files and photos. In addition to saving notes, the user can send them by email or save them locally on his PC. Furthermore, the user can add   a reminder on a certain date and time. On that day he will receive an email with his note.
   
   
   - I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server Management Studio 18. I chose that tools because they are free and very popular. Also in many cases, they are used in combination.
@@ -37,10 +37,11 @@
  
   ##### Steps to setup the reminder windows service:
   - Download the file [smart .note Reminder.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638237/smart.note.Reminder.zip).
-  -  Enter the details of the server on which the application will run in the file ReminderWinService.exe.config.
+  -  Enter the details of the server on which the application will run in the file ReminderWinService.exe.config. Additionally, create a new email account that the app will use to send reminders. (Τhe email I used has been deleted.)
   -  Create a shortcut from ReminderWinService.exe. In the shortcut properties change the destination by adding /install to the end.
   -  Run the shortcut as administrator. Now you can find ReminderWinService to the services.
   -  Start the service. (Τo have the functionality of the reminders in the application, the service must be running).
+  
 
 
    ## **Step by Step tutorial**
