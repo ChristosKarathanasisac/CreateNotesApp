@@ -2,9 +2,10 @@
 
  ## Table of contents
 * [Description](#description)
-* [More Details](#more-details-with-screenshots)
-* [Application Videos](#application-videos)
 * [Setup](#setup)
+* [Step by Step tutorial](#step-by-step-tutorial)
+* [Application Videos](#application-videos)
+
 
   ## **Description**
   **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC.The basic functionality of the app is to   create, store and manage notes. Someone who wants to use the app, first of all, has to create o new account. After the registration user can create his notes. These   notes can have attached files and photos. In addition to saving notes, the user can send them by email or save them locally on his PC. Furthermore, the user can add   a reminder on a certain date and time. On that day he will receive an email with his note.
@@ -28,7 +29,7 @@
   ##### Steps to run the application:
   - Open with SSMS 18 the .sql file you will find inside the
   [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip).
-  - Replace the file paths to match those on your PC.(mdf and log files of the database will be stored in the path you choose).
+  - Replace the file paths to match those on your PC. (mdf and log files of the database will be stored in the path you choose).
   - Execute the query. 
   - Download the file [smart .note.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638231/smart.note.zip).
   - Enter the details of the server on which the application will run in the file WriteNotesApplication.exe.config.
@@ -39,10 +40,10 @@
   -  Enter the details of the server on which the application will run in the file ReminderWinService.exe.config.
   -  Create a shortcut from ReminderWinService.exe. In the shortcut properties change the destination by adding /install to the end.
   -  Run the shortcut as administrator. Now you can find ReminderWinService to the services.
-  -  Start the service. (Τo have the functionality of the reminders in the application, the service must be running.).
+  -  Start the service. (Τo have the functionality of the reminders in the application, the service must be running).
 
 
-   ## **More details with screenshots**
+   ## **Step by Step tutorial**
      ### On the first page of the app, user has the options to log in or to create a new account.
 
     ![IntroForm](https://user-images.githubusercontent.com/95130533/190989494-5d138ea2-d414-4e79-ad89-8cc0675ff612.png)
@@ -62,7 +63,7 @@
     ### The new note page has the following form. User can:
   - Create new note. He can either write his note or use the voice function.
   - Αttach a file (pdf, excel, wotd) to his note.
-  - Αttach images to his note. (Images must have max size 600x600px. Bigger images are not accepted by the app).
+  - Αttach images to his note. (Images must have max size 600x600px. Bigger images are not accepted by the app)
   - To add reminder on a certain date. On that day user will receive a message from the application. The message will include the note, the topic, the attached files, and the attached images.
 
     - #### New note page.
