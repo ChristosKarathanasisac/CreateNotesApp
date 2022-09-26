@@ -73,7 +73,7 @@
     - #### Select images to attach.
    
      ![2](https://user-images.githubusercontent.com/95130533/191436910-6504491c-2805-4130-8d68-7246e61f54ba.png)
-    - #### Note with images,file and reminder. The note is ready to save.
+    - #### Note with images,file and reminder. The note is ready to be saved.
    
      ![3](https://user-images.githubusercontent.com/95130533/191436963-f6018b39-f239-4578-894b-c70702512de6.png)
 
@@ -86,7 +86,7 @@
 
   ![searchNote](https://user-images.githubusercontent.com/95130533/191441841-1ed2b52c-7166-4697-8b04-ac1f3de3724b.png)
 
-    ### After the users finds their note have the following options:
+    ### After the users find their note have the following options:
     - #### They can open their note.
     - #### They can modify their note.
     - #### They can delete their note.
