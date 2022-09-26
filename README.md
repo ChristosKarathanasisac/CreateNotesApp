@@ -13,7 +13,7 @@
   
   - I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server Management Studio 18. I chose that tools because they are free and very popular. Also in many cases, they are used in combination.
   - The main app is a Windows Form Application. Μainly consists of forms and some supporting classes which implement the connection with the database and some application operations (like sending email, downloading/uploading files, phone, and email validation).
-  - To create the images on the forms I used Canva and I found the icons on IconScout.
+  - I used Canva to create the images on the forms and I found the icons on IconScout.
   - For the function of the reminder, I used a windows service. This service runs in the background every minute and checks for notes that need to be sent. After collecting the notes it sends them using email to the users who created them.
 
  
@@ -26,17 +26,17 @@
   ## **Setup**
   ##### Microsoft SQL Server and Microsoft SQL Server Management Studio 18 are required to run the application.
  
-  ##### Steps to run the application:
-  - Open with SSMS 18 the .sql file you will find inside the
-  [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip).
+  ##### Steps to run the application. You should:
+  - Open .sql file which you will find inside the 
+  [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip) with SSMS 18.
   - Replace the file paths to match those on your PC. (mdf and log files of the database will be stored in the path you choose).
   - Execute the query. 
   - Download the file [smart .note.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638231/smart.note.zip).
   - Enter the details of the server on which the application will run in the file WriteNotesApplication.exe.config.
   - The smart .note app is ready for use.
  
-  ##### Steps to setup the reminder windows service:
-  - Download the file [smart .note Reminder.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638237/smart.note.Reminder.zip).
+  ##### Steps to setup the reminder windows service you should:
+  -  Download the file [smart .note Reminder.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638237/smart.note.Reminder.zip).
   -  Enter the details of the server on which the application will run in the file ReminderWinService.exe.config. Additionally, create a new email account that the app will use to send reminders. (Τhe email I used has been deleted.)
   -  Create a shortcut from ReminderWinService.exe. In the shortcut properties change the destination by adding /install to the end.
   -  Run the shortcut as administrator. Now you can find ReminderWinService to the services.
