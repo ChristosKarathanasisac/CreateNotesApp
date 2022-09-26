@@ -57,7 +57,7 @@
 
     ![Στιγμιότυπο οθόνης (42)](https://user-images.githubusercontent.com/95130533/191171210-92f5eac3-7e0f-4932-a757-f93482af8d42.png)
 
-    ### Users after the successful creation of their account has the following options.
+    ### Users after the successful creation of their account have the following options.
     
   ![Στιγμιότυπο οθόνης (44)](https://user-images.githubusercontent.com/95130533/191172739-b6349a35-6691-4815-88e0-29fe075157ce.png)
 
