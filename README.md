@@ -8,7 +8,7 @@
 
 
   ## **Description**
-  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC. The basic functionality of the app is to   create, store and manage notes. Someone who wants to use the app, first of all, has to create o new account. After the registration user can create his notes. These   notes can have attached files and photos. In addition to saving notes, the user can send them by email or save them locally on his PC. Furthermore, the user can add   a reminder on a certain date and time. On that day he will receive an email with his note.
+  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC. With the smart .note app you can create, store and manage notes. In order to use the app, users have to create a new account. After the registration users can create their notes. These notes can have attached files and photos. In addition to saving notes, the users can send them by email or save them locally on their PC. Furthermore, they can add a reminder on a certain date and time. On that day they will receive an email with their note.
   
   
   - I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server Management Studio 18. I chose that tools because they are free and very popular. Also in many cases, they are used in combination.
@@ -45,27 +45,27 @@
 
 
    ## **Step by Step tutorial**
-     ### On the first page of the app, user has the options to log in or to create a new account.
+     ### On the first page of the app, users have the options to log in or to create a new account.
 
     ![IntroForm](https://user-images.githubusercontent.com/95130533/190989494-5d138ea2-d414-4e79-ad89-8cc0675ff612.png)
 
-     ### On the sing up page user can create a new account. The app:  
+     ### On the sing up page users can create a new account. The app:  
     - Checks that all required fields are completed.
-    - Has email and phone validation. 
-    - Check that the user doesn't exist and that passwords match.
-    - Saves the user to the database. The passwords saved are encrypted.
+    - Their email and phone validation. 
+    - Check that the account doesn't exist and that passwords match.
+    - Saves users to the database. The passwords saved are encrypted.
 
     ![Στιγμιότυπο οθόνης (42)](https://user-images.githubusercontent.com/95130533/191171210-92f5eac3-7e0f-4932-a757-f93482af8d42.png)
 
-    ### User after the successful creation of his account has the following options.
+    ### Users after the successful creation of their account has the following options.
     
   ![Στιγμιότυπο οθόνης (44)](https://user-images.githubusercontent.com/95130533/191172739-b6349a35-6691-4815-88e0-29fe075157ce.png)
 
-    ### The new note page has the following form. User can:
-  - Create new note. He can either write his note or use the voice function.
-  - Αttach a file (pdf, excel, wotd) to his note.
-  - Αttach images to his note. (Images must have max size 600x600px. Bigger images are not accepted by the app)
-  - To add reminder on a certain date. On that day user will receive a message from the application. The message will include the note, the topic, the attached files, and the attached images.
+    ### The new note page has the following form. Users can:
+  - Create new note. They can either write their note or use the voice function.
+  - Αttach a file (pdf, excel, wotd) to their note.
+  - Αttach images to their note. (Images must have max size 600x600px. Bigger images are not accepted by the app)
+  - Add reminder on a certain date. On that day the user will receive a message from the application. The message will include the note, the topic, the attached files, and the attached images.
 
     - #### New note page.
    
@@ -78,23 +78,23 @@
      ![3](https://user-images.githubusercontent.com/95130533/191436963-f6018b39-f239-4578-894b-c70702512de6.png)
 
 
-   ### The second option a user has is to search his notes. The user can filter his notes based on.
+   ### The second option users have is to search their notes. The users can filter their notes based on.
   - The creation date.
   - The last modified date.
   - Word(s).
-  ### Of course, the user has the option to get all notes created by him.
+  ### Of course, the users have the option to get all notes created by them.
 
   ![searchNote](https://user-images.githubusercontent.com/95130533/191441841-1ed2b52c-7166-4697-8b04-ac1f3de3724b.png)
 
-    ### After the user finds his note has the following options:
-    - #### He can open his note.
-    - #### He can modify his note.
-    - #### He can delete his note.
+    ### After the users finds their note have the following options:
+    - #### They can open their note.
+    - #### They can modify their note.
+    - #### They can delete their note.
        
        
-       #### On the open note page user can:
-        - Save his note and the attachments on his personal computer.
-        - Send his note and the attachments via email.
+       #### On the open note page users can:
+        - Save their note and the attachments on their personal computer.
+        - Send their note and the attachments via email.
         - Open the saved file.
         - Open the saved images.
         
@@ -102,8 +102,8 @@
   
     
 
-      #### On the modify note page user can:
-        - Modify his note.
+      #### On the modify note page users can:
+        - Modify their note.
         - Modify a reminder.  
         - Add a reminder.
         - Delete a reminder.
