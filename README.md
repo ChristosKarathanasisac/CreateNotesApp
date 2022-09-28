@@ -19,7 +19,7 @@
  
   I created that project to :
   - Discover the features provided by windows forms and be familiar with them. 
-  - Practice the managing of the registration and login forms.
+  - Practice the managing of registration and login forms.
   - Practice saving and retrieving files from a database.
   - Create a windows service.
 
