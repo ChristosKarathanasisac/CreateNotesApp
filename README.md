@@ -8,7 +8,7 @@
 
 
   ## **Description**
-  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC. With the smart .note app you can create, store and manage notes. In order to use the app, users have to create a new account. After the registration users can create their notes. These notes can have attached files and photos. In addition to saving notes, the users can send them by email or save them locally on their PC. Furthermore, they can add a reminder on a certain date and time. On that day they will receive an email with their note.
+  **smart .note** is an application for saving notes. The application is designed to run on a local network or simply on a PC. With the smart .note app you can create, store and manage notes. In order to use the app, users have to create a new account. After the registration users are able to create their notes. These notes can have attached files and photos. In addition to saving notes, the users can send them by email or save them locally on their PC. Furthermore, they are able to add a reminder on a certain date and time. On that day they will receive an email with their note.
   
   
   - I used C# and I created the app in Visual Studio 2019. Regarding the database, I used Microsoft SQL Server. I chose that tools because they are free and very popular. Also in many cases, they are used in combination.
