@@ -20,3 +20,7 @@ C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Debug\WriteNotesApplication.pdb
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\bin\Debug\WriteNotesApplication.exe.config
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.csproj.CopyComplete
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\WriteNotesApplication.exe
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\WriteNotesApplication.pdb
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\WriteNotesApplication.exe.config
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\obj\Debug\ReminderWinService.csproj.CopyComplete

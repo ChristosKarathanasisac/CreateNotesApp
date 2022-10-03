@@ -40,3 +40,12 @@ C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\o
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.exe
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.pdb
 C:\ChristosProjects\CreateNotesApp\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.csproj.AssemblyReference.cache
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\bin\Release\PdfSharp.Charting.dll
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\bin\Release\PdfSharp.dll
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\bin\Release\PdfSharp.xml
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\bin\Release\PdfSharp.Charting.xml
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\bin\Release\de\PdfSharp.resources.dll
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\bin\Release\de\PdfSharp.Charting.resources.dll
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.ShowPhotosForm.resources
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.UploadPhotosForm.resources
+C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\WriteNotesApplication\obj\Release\WriteNotesApplication.csproj.CopyComplete

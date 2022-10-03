@@ -33,3 +33,24 @@
 Η υπηρεσία ReminderWinService καταργείται από το σύστημα...
 Η υπηρεσία ReminderWinService καταργήθηκε με επιτυχία από το σύστημα.
 Προσπάθεια διακοπής της υπηρεσίας ReminderWinService.
+Κατάργηση εγκατάστασης της συγκρότησης 'C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe'.
+Οι παράμετροι που επηρεάζονται είναι οι:
+   logtoconsole = 
+   logfile = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.InstallLog
+   assemblypath = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe
+Κατάργηση της προέλευσης ReminderWinService του EventLog.
+Η υπηρεσία ReminderWinService καταργείται από το σύστημα...
+Η υπηρεσία ReminderWinService καταργήθηκε με επιτυχία από το σύστημα.
+Εγκατάσταση της συγκρότησης 'C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe'.
+Οι παράμετροι που επηρεάζονται είναι οι:
+   logtoconsole = 
+   logfile = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.InstallLog
+   assemblypath = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe
+Εγκατάσταση υπηρεσίας ReminderWinService...
+Η υπηρεσία ReminderWinService εγκαταστάθηκε με επιτυχία.
+Δημιουργία προέλευσης EventLog ReminderWinService μέσα στο αρχείο καταγραφής Application...
+Ολοκλήρωση της συγκρότησης 'C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe'.
+Οι παράμετροι που επηρεάζονται είναι οι:
+   logtoconsole = 
+   logfile = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.InstallLog
+   assemblypath = C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\bin\Debug\ReminderWinService.exe

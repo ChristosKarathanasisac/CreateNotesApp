@@ -17,7 +17,7 @@ namespace WriteNotesApplication
         private string CreateConnectionString() 
         {
             string connString = "";
-            connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection=true; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
+            connString = @"Data Source = " + ConfigurationManager.AppSettings["server_name"] + " ; Trusted_Connection="+ ConfigurationManager.AppSettings["trusted_connection"] +"; Initial Catalog = " + ConfigurationManager.AppSettings["db_name"] + "; " +
                 "User ID = " + ConfigurationManager.AppSettings["db_username"] + "; Password = " + ConfigurationManager.AppSettings["db_psw"];
             return connString;
         }

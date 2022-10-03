@@ -53,6 +53,7 @@ namespace WriteNotesApplication
 
             dtUser = databaseConUtilities.GetLoginUserDT(username, password);
 
+            if(dtUser == null) { return; }
             if (dtUser.DefaultView.Count > 0) 
             {
                 //MessageBox.Show("Welcome to Create Notes App " + dtUser.DefaultView[0]["FIRST_NAME"]);

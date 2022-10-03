@@ -1,66 +1,24 @@
-24/09/2022 09:31:24: Service Start
-24/09/2022 09:33:01: Try connect to database
-24/09/2022 09:33:07: Connect to database success!!
-24/09/2022 09:33:07: StartSend Start
-24/09/2022 09:33:07: No notes to sent
-24/09/2022 09:34:07: Try connect to database
-24/09/2022 09:34:07: Connect to database success!!
-24/09/2022 09:34:07: StartSend Start
-24/09/2022 09:34:07: No notes to sent
-24/09/2022 09:35:07: Try connect to database
-24/09/2022 09:35:07: Connect to database success!!
-24/09/2022 09:35:07: StartSend Start
-24/09/2022 09:35:07: No notes to sent
-24/09/2022 09:36:07: Try connect to database
-24/09/2022 09:36:07: Connect to database success!!
-24/09/2022 09:36:07: StartSend Start
-24/09/2022 09:36:07: No notes to sent
-24/09/2022 09:37:07: Try connect to database
-24/09/2022 09:37:07: Connect to database success!!
-24/09/2022 09:37:07: StartSend Start
-24/09/2022 09:37:07: No notes to sent
-24/09/2022 09:38:07: Try connect to database
-24/09/2022 09:38:07: Connect to database success!!
-24/09/2022 09:38:07: StartSend Start
-24/09/2022 09:38:07: No notes to sent
-24/09/2022 09:39:07: Try connect to database
-24/09/2022 09:39:07: Connect to database success!!
-24/09/2022 09:39:07: StartSend Start
-24/09/2022 09:39:07: No notes to sent
-24/09/2022 09:40:07: Try connect to database
-24/09/2022 09:40:07: Connect to database success!!
-24/09/2022 09:40:07: StartSend Start
-24/09/2022 09:40:07: No notes to sent
-24/09/2022 09:41:07: Try connect to database
-24/09/2022 09:41:07: Connect to database success!!
-24/09/2022 09:41:07: StartSend Start
-24/09/2022 09:41:07: No notes to sent
-24/09/2022 09:42:07: Try connect to database
-24/09/2022 09:42:07: Connect to database success!!
-24/09/2022 09:42:07: StartSend Start
-24/09/2022 09:42:07: No notes to sent
-24/09/2022 09:43:07: Try connect to database
-24/09/2022 09:43:07: Connect to database success!!
-24/09/2022 09:43:07: StartSend Start
-24/09/2022 09:43:07: No notes to sent
-24/09/2022 09:44:07: Try connect to database
-24/09/2022 09:44:07: Connect to database success!!
-24/09/2022 09:44:07: StartSend Start
-24/09/2022 09:44:07: No notes to sent
-24/09/2022 09:45:07: Try connect to database
-24/09/2022 09:45:07: Connect to database success!!
-24/09/2022 09:45:07: StartSend Start
-24/09/2022 09:45:07: No notes to sent
-24/09/2022 09:46:07: Try connect to database
-24/09/2022 09:46:07: Connect to database success!!
-24/09/2022 09:46:07: StartSend Start
-24/09/2022 09:46:07: No notes to sent
-24/09/2022 09:47:07: Try connect to database
-24/09/2022 09:47:07: Connect to database success!!
-24/09/2022 09:47:07: StartSend Start
-24/09/2022 09:47:07: No notes to sent
-24/09/2022 09:48:07: Try connect to database
-24/09/2022 09:48:07: Connect to database success!!
-24/09/2022 09:48:07: StartSend Start
-24/09/2022 09:48:07: No notes to sent
-24/09/2022 09:48:27: Service Stop
+03/10/2022 09:27:28: Connection String: Data Source = (localdb)\Local ; Trusted_Connection=true; Initial Catalog = CREATENOTESDB; User ID = LENOVO-CHRISTOS\adp4; Password = 
+03/10/2022 09:27:28: Try connect to database
+03/10/2022 09:27:43: Connect to database error.
+03/10/2022 09:27:43: System.Data.SqlClient.SqlException (0x80131904): Παρουσιάστηκε ένα σφάλμα δικτύου ή ένα σφάλμα που αφορά μια συγκεκριμένη παρουσία κατά τη δημιουργία μιας σύνδεσης σε SQL Server. Δεν ήταν δυνατή η εύρεση του διακομιστή ή ο διακομιστής δεν ήταν προσβάσιμος. Βεβαιωθείτε ότι το όνομα παρουσίας είναι σωστό και ότι ο SQL Server έχει ρυθμιστεί ώστε να επιτρέπει τις απομακρυσμένες συνδέσεις. (provider: SQL Network Interfaces, error: 50 - Παρουσιάστηκε σφάλμα Local Database Runtime. The specified LocalDB instance does not exist.
+)
+   σε System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   σε System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   σε System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   σε System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   σε System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   σε System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   σε System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   σε System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   σε System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   σε System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   σε System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   σε System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   σε System.Data.SqlClient.SqlConnection.Open()
+   σε ReminderWinService.clsServiceUtilities.CheckConnection() στο C:\ChristosProjects\CreateNotesProject\WriteNotesApplication\ReminderWinService\clsServiceUtilities.cs:γραμμή 37
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1983577849,State:0,Class:20
+03/10/2022 09:28:43: Connection String: Data Source = (localdb)\Local ; Trusted_Connection=true; Initial Catalog = CREATENOTESDB; User ID = LENOVO-CHRISTOS\adp4; Password = 
+03/10/2022 09:28:43: Try connect to database
+03/10/2022 09:28:50: Service Stop
