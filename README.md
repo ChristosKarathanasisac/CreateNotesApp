@@ -31,12 +31,12 @@
   [CREATENOTEDB.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9632062/CREATENOTEDB.zip) with SSMS 18.
   - Replace the file paths to match those on your PC. (mdf and log files of the database will be stored in the path you choose).
   - Execute the query. 
-  - Download the file [smart .note.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638231/smart.note.zip).
+  - Download the file [smart .note.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9695182/smart.note.zip).
   - Enter the details of the server on which the application will run in the file WriteNotesApplication.exe.config.
   - The smart .note app is ready for use.
  
   ##### Steps to setup the reminder windows service you should:
-  -  Download the file [smart .note Reminder.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9638237/smart.note.Reminder.zip).
+  -  Download the file [smart .note Reminder.zip](https://github.com/ChristosKarathanasisac/CreateNotesApp/files/9695183/smart.note.Reminder.zip).
   -  Enter the details of the server on which the application will run in the file ReminderWinService.exe.config. Additionally, create a new email account that the app will use to send reminders. (Τhe email I used has been deleted.)
   -  Create a shortcut from ReminderWinService.exe. In the shortcut properties change the destination by adding /install to the end.
   -  Run the shortcut as administrator. Now you can find ReminderWinService to the services.
